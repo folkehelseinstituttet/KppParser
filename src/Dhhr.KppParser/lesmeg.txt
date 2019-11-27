@@ -1,0 +1,49 @@
+﻿# Hvordan bruke programmet:
+    1. Kjør "KppProgram"
+    2. Legg til filer
+        2a. Trykk på "Episode" og velg filen med episoder.
+        2b. Trykk på "Tjeneste" og velg filen med tjenester.
+        (Det er også mulig å fylle ut filsti manuelt eller ved klipp/lim.)
+    3. Oppgi perioden (start- og sluttdato) for uttrekket.
+        - Trykk på kalenderikoden helt til høyre for å åpne en meny for valg av dato
+        eller
+        - Trykk på dato-boksen og skriv inn dato selv
+        eller
+        - Trykk på dato-boksen og velg dato ved hjelp av piltastene
+    4. Trykk kjør
+        Programmet vil gi beskjed når det er ferdig.
+
+
+# Konfigurasjon
+    Gå til "Resources" og åpne fila "Dhhr.KppParser.exe.config" i notepad (el.)
+    Konfigurasjonsmuligheter:
+        - Filsti hvor den ferdige filen skal lagres
+        - Navn på leverandør av EPJ
+        - Navn på EPJ
+        - Versjon av EPJ
+
+
+# Feilsøking
+## Feltet er tomt
+    Et påkrevd felt er ikke fylt ut. (Se pkt. 2 under Hvordan kjøre programmet.)
+
+## Filen finnes ikke
+    Filen som er oppgitt finnes ikke. Vennligst påse at filstien er gyldig og at programmet har tilgang til filen.
+
+## Filen har feil i header eller mangler header
+    Første linje i filen stemmer ikke med hva programmet forventer.
+
+    Det er forventet at første linje i episode-filen er: "institusjonsID;episodeID;drg;total" (uten ")
+    Det er forventet at første linje i tjeneste-filen er: "episodeID;kostnadskode;kostnad" (uten ")
+
+## Startdato er større enn sluttdato
+    Datoen som er oppgitt i "Periode start" er senere enn datoen som er oppgitt i "Periode slutt".
+    "Periode start" må komme før, eller være lik, "Periode slutt"
+
+## Noe gikk galt under opprettelse av meldingen
+    En uventet feil har oppstått. Vennligst ta kontakt med den som har sendt programmet (Helsedirektoratet).
+
+    Ta gjerne vare på feilmeldingen! Den vil gjøre det lettere for oss å hjelpe deg.
+    - Skjermdump: Bruk "Snipping tool" eller "PrintScreen"
+    eller
+    - Som tekst: Trykk Ctrl+C (kopier) og deretter Ctrl+V (lim inn) i et tekstprogram eller en epost

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- Generated on 2019-03-14  12:45:55 at NPR -->
+<!-- Avdeling helseregistres meldinger -->
+<!-- Modul kpp  -->
+<!-- Skjema for Innrapportering av data om kostnad per pasient  -->
+<!-- XML-Schema level supported is specified by W3C -->
+<!-- http://www.w3.org/2001/XMLSchema -->
+<schema 
+       xmlns="http://www.w3.org/2001/XMLSchema"
+       xmlns:xsd="http://www.w3.org/2001/XMLSchema.xsd" 
+    xmlns:kith="http://www.kith.no/xmlstds" 
+    xmlns:nprx="http://www.npr.no/xmlstds/53_1_3" 
+    xmlns:npr = "http://www.npr.no/xmlstds/53_1_3_kpp"
+    targetNamespace = "http://www.npr.no/xmlstds/53_1_3_kpp"
+    version = "53.1.3.0"
+    elementFormDefault = "qualified"
+    attributeFormDefault="unqualified">
+   <import namespace="http://www.npr.no/xmlstds/53_1_3" schemaLocation="NPR.xsd"/>
+
+<include schemaLocation="XPR(kpp)_CodingSchemes.xsd"/>
+
+
+<!-- LEVEL 1 -->
+
+<!-- Class: Melding -->
+<element name = "Melding">
+   <annotation>
+       <documentation>
+         Opplysninger som leverand�rer av helsetjenester i kommuner, helsevirksomheter eller helsepersonell etter bestemmelser i lov eller i medhold av lov i gitte situasjoner er pliktig til � rapportere.
+      </documentation>
+   </annotation>
+   <complexType >
+      <sequence>
+         <element ref = "npr:Institusjon" minOccurs = "1" maxOccurs = "unbounded" />
+      </sequence>
+      <attribute name = "versjon" type = "string"  use = "required" fixed = "53.1.3" />
+      <attribute name = "meldingstype" type = "npr:meldingstype"  use = "required" />
+      <attribute name = "fraDatoPeriode" type = "date"  use = "required" />
+      <attribute name = "uttakDato" type = "date"  use = "required" />
+      <attribute name = "leverandor" type = "string"  use = "required" />
+      <attribute name = "navnEPJ" type = "string"  use = "required" />
+      <attribute name = "versjonEPJ" type = "string"  use = "required" />
+      <attribute name = "versjonUt" type = "string"  use = "required" />
+      <attribute name = "lopenr" type = "string"  use = "required" />
+      <attribute name = "tilDatoPeriode" type = "date"  use = "required" />
+      <attribute name = "lokalident" type = "string"  use = "optional" />
+   </complexType>
+      <unique name= "InstitusjonP_ID">
+         <selector xpath = "npr:Institusjon"/>
+         <field xpath = "@institusjonID"/>
+      </unique>
+</element>
+
+
+<!-- LEVEL 2 -->
+
+<!-- Class: Helseinstitusjon -->
+<element name = "Institusjon">
+   <annotation>
+       <documentation>
+         Institusjon som h�rer under lov om spesialisthelsetjenesten.
+      </documentation>
+   </annotation>
+   <complexType >
+      <sequence>
+         <element ref = "npr:Objektholder" minOccurs = "1" maxOccurs = "unbounded" />
+      </sequence>
+      <attribute name = "institusjonID" type = "string"  use = "required" />
+   </complexType>
+      <unique name= "ObjektholderP_ID">
+         <selector xpath = "npr:Objektholder"/>
+         <field xpath = "@pasientNr"/>
+      </unique>
+</element>
+
+
+<!-- LEVEL 3 -->
+
+<!-- Class: Objektholder -->
+<element name = "Objektholder">
+   <annotation>
+       <documentation>
+         Er en container som holder objekter fra lavere niv�. Hver av objektene p� lavere niv� skal identifiseres ved hjelp av GUID eller annen unik identifikasjon slik at alle objekter kan identifiseres p� tvers av meldinger.
+      </documentation>
+   </annotation>
+   <complexType >
+      <sequence>
+         <element ref = "npr:EpisodeKPP" minOccurs = "0" maxOccurs = "unbounded" />
+      </sequence>
+      <attribute name = "pasientGUID" type = "nprx:guid"  use = "prohibited" />
+      <attribute name = "pasientNr" type = "string"  use = "required" />
+   </complexType>
+</element>
+
+
+<!-- LEVEL 4 -->
+
+<!-- Class: Episode KPP -->
+<element name = "EpisodeKPP">
+   <complexType >
+      <sequence>
+         <element ref = "npr:TjenesteKPP" minOccurs = "0" maxOccurs = "unbounded" />
+      </sequence>
+      <attribute name = "episodeID" type = "string"  use = "required" />
+      <attribute name = "drg" type = "string"  use = "optional" />
+      <attribute name = "total" type = "decimal"  use = "optional" />
+   </complexType>
+</element>
+
+
+<!-- LEVEL 5 -->
+
+<!-- Class: Tjeneste KPP -->
+<element name = "TjenesteKPP">
+   <complexType >
+      <attribute name = "kostnadKode" type = "npr:noCodingSchemeNameSpecified"  use = "required" />
+      <attribute name = "kostnad" type = "decimal"  use = "required" />
+   </complexType>
+</element>
+</schema>

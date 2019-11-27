@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<Melding xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" versjon="53.1.3" meldingstype="B" fraDatoPeriode="2019-01-01" uttakDato="2019-03-25" leverandor="ukjent leverandør" navnEPJ="ukjent epj" versjonEPJ="ukjent epj versjon" versjonUt="KppService_ShouldSetMetadata_WhenParsingKpp" lopenr="201903251624117690" tilDatoPeriode="2019-12-31" lokalident="ba00a4ca-b05e-4e01-9d7b-90578f46bf0f" xmlns="http://www.npr.no/xmlstds/53_1_3_kpp">
+  <Institusjon institusjonID="900000000">
+    <Objektholder pasientNr="-1">
+      <!-- ordinary -->
+      <EpisodeKPP episodeID="1-5000000" drg="00A" total="1.24">
+        <TjenesteKPP kostnadKode="00A1" kostnad="0.12" />
+        <TjenesteKPP kostnadKode="01B1" kostnad="1.12" />
+      </EpisodeKPP>
+      <!-- drg = (tom) in csv-->
+      <EpisodeKPP episodeID="1-5000001" total="5.24">
+        <TjenesteKPP kostnadKode="02C1" kostnad="2.12" />
+        <TjenesteKPP kostnadKode="03D1" kostnad="3.12" />
+      </EpisodeKPP>
+    </Objektholder>
+  </Institusjon>
+  <Institusjon institusjonID="900000001">
+    <Objektholder pasientNr="-1">
+      <!-- no decimals -->
+      <EpisodeKPP episodeID="1-5000002" drg="02C" total="9">
+        <TjenesteKPP kostnadKode="04E1" kostnad="4" />
+        <TjenesteKPP kostnadKode="05F1" kostnad="5" />
+      </EpisodeKPP>
+      <!-- inconsitent value in total and different format for episodeID -->
+      <EpisodeKPP episodeID="1234567" drg="03D" total="10">
+        <TjenesteKPP kostnadKode="06G1" kostnad="6.12" />
+        <TjenesteKPP kostnadKode="07H1" kostnad="7.12" />
+      </EpisodeKPP>
+    </Objektholder>
+  </Institusjon>
+  <Institusjon institusjonID="900000002">
+    <Objektholder pasientNr="-1">
+      <!-- total = 0 and no TjenesteKPP -->
+      <EpisodeKPP episodeID="1-5000004" drg="04E" total="0.00" />
+      <!-- negative number in kostnad-->
+      <EpisodeKPP episodeID="1-5000005" drg="05F" total="10.12">
+        <TjenesteKPP kostnadKode="10K1" kostnad="-1" />
+        <TjenesteKPP kostnadKode="11L1" kostnad="11.12" />
+      </EpisodeKPP>
+    </Objektholder>
+  </Institusjon>
+</Melding>

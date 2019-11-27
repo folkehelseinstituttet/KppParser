@@ -1,0 +1,22 @@
+# Hvordan bruke programmet
+    Kjør programmet med -h for å se hvordan programmet brukes.
+    .\Dhhr.KppParser.ConsoleApp.exe -h
+
+# Merknad
+    Merk at alle Input og Output er påkrevd
+
+# Helsedirektoratets HerId
+    I skrivende stund er Helsedirektoratets HerId-er følgende:
+    - Prod: 134197
+    - QA: 131725
+    For oppdaterte HerId-er, sjekk Adresseregisteret (https://register.nhn.no)
+
+# Feilsøking
+    Det er forventet at første linje i episode-filen er: "institusjonsID;episodeID;drg;total" (uten ")
+    Det er forventet at første linje i tjeneste-filen er: "episodeID;kostnadskode;kostnad" (uten ")
+
+    Kjør programmet og inkluder.exe --dry-run for å kontrollere at konfigurasjon er riktig.
+    .\Dhhr.KppParser.ConsoleApp --dry-run --episoder=...
+
+    Dersom det likevel oppstår en uventet feil, vennligst kjør programmet med --verbose og send det som skrives til Helsedirektoratet.
+    .\Dhhr.KppParser.ConsoleApp.exe --verbose --episoder=...
