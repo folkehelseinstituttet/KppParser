@@ -18,6 +18,9 @@ namespace Dhhr.KppParser.Service
 
         public string OrganizationName { get; set; }
         public string OrganizationHerId { get; set; }
+        public string OrganizationName2 { get; set; }
+        public string OrganizationHerId2 { get; set; }
+
         public string HDirHerId { get; set; }
 
         public override string ToString()
@@ -33,6 +36,8 @@ namespace Dhhr.KppParser.Service
                 $"\n{nameof(TilDato)}: {F(TilDato)}," +
                 $"\n{nameof(OrganizationName)}: {F(OrganizationName)}," +
                 $"\n{nameof(OrganizationHerId)}: {F(OrganizationHerId)}," +
+                $"\n{nameof(OrganizationName2)}: {F(OrganizationName2)}," +
+                $"\n{nameof(OrganizationHerId2)}: {F(OrganizationHerId2)}," +
                 $"\n{nameof(HDirHerId)}: {F(HDirHerId)}";
         }
 

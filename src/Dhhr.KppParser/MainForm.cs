@@ -69,6 +69,8 @@ namespace Dhhr.KppParser
                 TilDato = ToDatePicker.Value,
                 OrganizationName = OrgNameBox.Text,
                 OrganizationHerId = OrgHerIdBox.Text,
+                OrganizationName2 = OrgNameBox2.Text,
+                OrganizationHerId2 = OrgHerIdBox2.Text,
                 HDirHerId = RadioTrial.Checked
                     ? Properties.Settings.Default.HdirQa
                     : Properties.Settings.Default.HdirProd,

@@ -37,6 +37,8 @@ namespace Dhhr.KppParser.ConsoleApp
                 {"tildato=", "Dato for periodens slutt. Format: yyyy-MM-dd", x => kppArgs.TilDato = ParseDate(x)},
                 {"org-herid=", "Avsenders HerId (fra Adresseregisteret)", x => kppArgs.OrganizationHerId = x },
                 {"org-navn=", "Avsenders navn", x => kppArgs.OrganizationName = x },
+                {"org-herid2=", "Avsenders HerId (Nivå 2 i MsgHead)", x => kppArgs.OrganizationHerId2 = x },
+                {"org-navn2=", "Avsenders navn (Nivå 2 i MsgHead)", x => kppArgs.OrganizationName2 = x },
                 {"leverandor=", "Navn på leverandør av EPJ", x => kppArgs.Leverandor = x},
                 {"epj-navn=", "Navn på EPJ", x => kppArgs.NavnEpj = x },
                 {"epj-versjon=", "Versjon av EPJ", x => kppArgs.VersjonEpj = x },
