@@ -5,6 +5,8 @@
         public const string DateMismatch = "Startdato er større enn sluttdato.";
         public const string InvalidOrgName = "Org. navn: Ugyldig (Kan ikke være tomt)";
         public const string InvalidSenderHerId = "Org. HerId: Ugyldig HerId";
+        public const string InvalidOrgName2 = "Org. navn (nivå 2): Ugyldig (Kan ikke være tomt)";
+        public const string InvalidSenderHerId2 = "Org. HerId (nivå 2): Ugyldig HerId";
 
         public static class Episode
         {

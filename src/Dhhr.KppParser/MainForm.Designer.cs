@@ -41,15 +41,23 @@
             this.VersionLabel = new System.Windows.Forms.Label();
             this.RunButton = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.RadioReport = new System.Windows.Forms.RadioButton();
-            this.RadioTrial = new System.Windows.Forms.RadioButton();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.OrgHerIdBox = new System.Windows.Forms.TextBox();
             this.OrgNameBox = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.RadioReport = new System.Windows.Forms.RadioButton();
+            this.RadioTrial = new System.Windows.Forms.RadioButton();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.OrgHerIdBox2 = new System.Windows.Forms.TextBox();
+            this.OrgNameBox2 = new System.Windows.Forms.TextBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.filesBox.SuspendLayout();
             this.ReportingPeriodBox.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // filesBox
@@ -147,7 +155,7 @@
             // VersionLabel
             // 
             this.VersionLabel.AutoSize = true;
-            this.VersionLabel.Location = new System.Drawing.Point(12, 280);
+            this.VersionLabel.Location = new System.Drawing.Point(12, 389);
             this.VersionLabel.Name = "VersionLabel";
             this.VersionLabel.Size = new System.Drawing.Size(45, 13);
             this.VersionLabel.TabIndex = 2;
@@ -155,10 +163,10 @@
             // 
             // RunButton
             // 
-            this.RunButton.Location = new System.Drawing.Point(242, 275);
+            this.RunButton.Location = new System.Drawing.Point(242, 384);
             this.RunButton.Name = "RunButton";
             this.RunButton.Size = new System.Drawing.Size(75, 23);
-            this.RunButton.TabIndex = 4;
+            this.RunButton.TabIndex = 6;
             this.RunButton.Text = "Lagre...";
             this.RunButton.UseVisualStyleBackColor = true;
             this.RunButton.Click += new System.EventHandler(this.RunButton_Click);
@@ -167,38 +175,32 @@
             // 
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.RadioReport);
-            this.groupBox1.Controls.Add(this.RadioTrial);
             this.groupBox1.Controls.Add(this.OrgHerIdBox);
             this.groupBox1.Controls.Add(this.OrgNameBox);
             this.groupBox1.Location = new System.Drawing.Point(12, 169);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(305, 100);
+            this.groupBox1.Size = new System.Drawing.Size(305, 75);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Transport info";
+            this.groupBox1.Text = "Avsender nivå 1";
             // 
-            // RadioReport
+            // label4
             // 
-            this.RadioReport.AutoSize = true;
-            this.RadioReport.Location = new System.Drawing.Point(191, 71);
-            this.RadioReport.Name = "RadioReport";
-            this.RadioReport.Size = new System.Drawing.Size(77, 17);
-            this.RadioReport.TabIndex = 3;
-            this.RadioReport.Text = "Innsending";
-            this.RadioReport.UseVisualStyleBackColor = true;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 48);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(56, 13);
+            this.label4.TabIndex = 5;
+            this.label4.Text = "Org. HerId";
             // 
-            // RadioTrial
+            // label3
             // 
-            this.RadioTrial.AutoSize = true;
-            this.RadioTrial.Checked = true;
-            this.RadioTrial.Location = new System.Drawing.Point(95, 71);
-            this.RadioTrial.Name = "RadioTrial";
-            this.RadioTrial.Size = new System.Drawing.Size(90, 17);
-            this.RadioTrial.TabIndex = 2;
-            this.RadioTrial.TabStop = true;
-            this.RadioTrial.Text = "Prøvesending";
-            this.RadioTrial.UseVisualStyleBackColor = true;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 22);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(56, 13);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Org. Navn";
             // 
             // OrgHerIdBox
             // 
@@ -214,29 +216,91 @@
             this.OrgNameBox.Size = new System.Drawing.Size(200, 20);
             this.OrgNameBox.TabIndex = 0;
             // 
-            // label3
+            // RadioReport
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 22);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(56, 13);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Org. Navn";
+            this.RadioReport.AutoSize = true;
+            this.RadioReport.Location = new System.Drawing.Point(222, 19);
+            this.RadioReport.Name = "RadioReport";
+            this.RadioReport.Size = new System.Drawing.Size(77, 17);
+            this.RadioReport.TabIndex = 3;
+            this.RadioReport.Text = "Innsending";
+            this.RadioReport.UseVisualStyleBackColor = true;
             // 
-            // label4
+            // RadioTrial
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 48);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(56, 13);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "Org. HerId";
+            this.RadioTrial.AutoSize = true;
+            this.RadioTrial.Checked = true;
+            this.RadioTrial.Location = new System.Drawing.Point(126, 19);
+            this.RadioTrial.Name = "RadioTrial";
+            this.RadioTrial.Size = new System.Drawing.Size(90, 17);
+            this.RadioTrial.TabIndex = 2;
+            this.RadioTrial.TabStop = true;
+            this.RadioTrial.Text = "Prøvesending";
+            this.RadioTrial.UseVisualStyleBackColor = true;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.label5);
+            this.groupBox2.Controls.Add(this.label6);
+            this.groupBox2.Controls.Add(this.OrgHerIdBox2);
+            this.groupBox2.Controls.Add(this.OrgNameBox2);
+            this.groupBox2.Location = new System.Drawing.Point(12, 250);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(305, 74);
+            this.groupBox2.TabIndex = 4;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Avsender nivå 2";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(6, 48);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(56, 13);
+            this.label5.TabIndex = 5;
+            this.label5.Text = "Org. HerId";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(6, 22);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(56, 13);
+            this.label6.TabIndex = 4;
+            this.label6.Text = "Org. Navn";
+            // 
+            // OrgHerIdBox2
+            // 
+            this.OrgHerIdBox2.Location = new System.Drawing.Point(95, 45);
+            this.OrgHerIdBox2.Name = "OrgHerIdBox2";
+            this.OrgHerIdBox2.Size = new System.Drawing.Size(200, 20);
+            this.OrgHerIdBox2.TabIndex = 1;
+            // 
+            // OrgNameBox2
+            // 
+            this.OrgNameBox2.Location = new System.Drawing.Point(95, 19);
+            this.OrgNameBox2.Name = "OrgNameBox2";
+            this.OrgNameBox2.Size = new System.Drawing.Size(200, 20);
+            this.OrgNameBox2.TabIndex = 0;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.RadioTrial);
+            this.groupBox3.Controls.Add(this.RadioReport);
+            this.groupBox3.Location = new System.Drawing.Point(12, 330);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(305, 48);
+            this.groupBox3.TabIndex = 5;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Mottaker (Helsedir)";
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(330, 311);
+            this.ClientSize = new System.Drawing.Size(330, 417);
+            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.RunButton);
             this.Controls.Add(this.VersionLabel);
@@ -251,6 +315,10 @@
             this.ReportingPeriodBox.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -277,6 +345,12 @@
         private System.Windows.Forms.TextBox OrgNameBox;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox OrgHerIdBox2;
+        private System.Windows.Forms.TextBox OrgNameBox2;
+        private System.Windows.Forms.GroupBox groupBox3;
     }
 }
 

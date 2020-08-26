@@ -51,6 +51,16 @@ namespace Dhhr.KppParser.Service
                     errors.Add(Constants.InvalidOrgName);
                 }
 
+                if (!int.TryParse(args.OrganizationHerId2, out _))
+                {
+                    errors.Add(Constants.InvalidSenderHerId2);
+                }
+
+                if (string.IsNullOrWhiteSpace(args.OrganizationName2))
+                {
+                    errors.Add(Constants.InvalidOrgName2);
+                }
+
                 if (string.IsNullOrWhiteSpace(args.Leverandor))
                 {
                     errors.Add("Leverandør mangler verdi");
@@ -217,6 +227,18 @@ namespace Dhhr.KppParser.Service
                                     Id = args.OrganizationHerId,
                                     TypeId = new CV { V = "HER", DN = "HER-Id", S = "9051" }
                                 }
+                            },
+                            Organisation1 = new Organisation
+                            {
+                                OrganisationName = args.OrganizationName2,
+                                Ident = new[]
+                                {
+                                    new Ident
+                                    {
+                                        Id = args.OrganizationHerId2,
+                                        TypeId = new CV { V = "HER", DN = "HER-Id", S = "9051" }
+                                    }
+                                }
                             }
                         }
                     },
@@ -229,8 +251,20 @@ namespace Dhhr.KppParser.Service
                             {
                                 new Ident
                                 {
-                                    Id = args.HDirHerId,
+                                    Id = "2397",
                                     TypeId = new CV { V = "HER", DN = "HER-Id", S = "9051" }
+                                }
+                            },
+                            Organisation1 = new Organisation
+                            {
+                                OrganisationName = "NPR",
+                                Ident = new []
+                                {
+                                    new Ident
+                                    {
+                                        Id = args.HDirHerId,
+                                        TypeId = new CV { V = "HER", DN = "HER-Id", S = "9051" }
+                                    }
                                 }
                             }
                         }
