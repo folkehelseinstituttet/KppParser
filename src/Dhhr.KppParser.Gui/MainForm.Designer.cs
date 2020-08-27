@@ -1,4 +1,4 @@
-﻿namespace Dhhr.KppParser
+﻿namespace Dhhr.KppParser.Gui
 {
     partial class MainForm
     {
