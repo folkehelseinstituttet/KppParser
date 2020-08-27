@@ -9,20 +9,20 @@
 //------------------------------------------------------------------------------
 
 namespace Dhhr.KppParser.Properties {
-    
-    
+
+
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.8.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
-        
+
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
-        
+
         public static Settings Default {
             get {
                 return defaultInstance;
             }
         }
-        
+
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("ukjent leverandor")]
@@ -31,7 +31,7 @@ namespace Dhhr.KppParser.Properties {
                 return ((string)(this["Leverandor"]));
             }
         }
-        
+
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("ukjent epj")]
@@ -40,7 +40,7 @@ namespace Dhhr.KppParser.Properties {
                 return ((string)(this["NavnEpj"]));
             }
         }
-        
+
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("ukjent versjon")]
@@ -49,19 +49,19 @@ namespace Dhhr.KppParser.Properties {
                 return ((string)(this["VersjonEpj"]));
             }
         }
-        
+
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("131725")]
+        [global::System.Configuration.DefaultSettingValueAttribute("121017")]
         public string HdirQa {
             get {
                 return ((string)(this["HdirQa"]));
             }
         }
-        
+
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("134197")]
+        [global::System.Configuration.DefaultSettingValueAttribute("94378")]
         public string HdirProd {
             get {
                 return ((string)(this["HdirProd"]));

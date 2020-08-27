@@ -7,8 +7,8 @@
 
 # Helsedirektoratets HerId
     I skrivende stund er Helsedirektoratets HerId-er følgende:
-    - Prod: 134197
-    - QA: 131725
+    - Prod: 94378
+    - QA/Validering: 121017
     For oppdaterte HerId-er, sjekk Adresseregisteret (https://register.nhn.no)
 
 # Feilsøking
