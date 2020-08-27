@@ -15,9 +15,8 @@
 
 
 # Konfigurasjon
-    Gå til "Resources" og åpne fila "Dhhr.KppParser.exe.config" i notepad (el.)
+    Åpne fila "appsettings.json" i notepad (el.)
     Konfigurasjonsmuligheter:
-        - Filsti hvor den ferdige filen skal lagres
         - Navn på leverandør av EPJ
         - Navn på EPJ
         - Versjon av EPJ
