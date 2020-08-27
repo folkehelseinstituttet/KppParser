@@ -1,26 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Diagnostics;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Linq.Expressions;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Dhhr.KppParser.Service;
 
-namespace Dhhr.KppParser
+namespace Dhhr.KppParser.Gui
 {
     public partial class MainForm : Form
     {
+        private readonly Settings _settings;
         private readonly string _version;
 
-        public MainForm()
+        public MainForm(Settings settings)
         {
+            _settings = settings;
             InitializeComponent();
 
             var assembly = Assembly.GetExecutingAssembly();
@@ -72,11 +64,11 @@ namespace Dhhr.KppParser
                 OrganizationName2 = OrgNameBox2.Text,
                 OrganizationHerId2 = OrgHerIdBox2.Text,
                 HDirHerId = RadioTrial.Checked
-                    ? Properties.Settings.Default.HdirQa
-                    : Properties.Settings.Default.HdirProd,
-                Leverandor = Properties.Settings.Default.Leverandor,
-                NavnEpj = Properties.Settings.Default.NavnEpj,
-                VersjonEpj = Properties.Settings.Default.VersjonEpj,
+                    ? _settings.HdirQa
+                    : _settings.HdirProd,
+                Leverandor = _settings.Leverandor,
+                NavnEpj = _settings.NavnEpj,
+                VersjonEpj = _settings.VersjonEpj,
                 ProgramVersion = _version,
             };
 
