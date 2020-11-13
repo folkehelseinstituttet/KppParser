@@ -164,7 +164,7 @@ namespace Dhhr.KppParser.Service
                 lokalident = Guid.NewGuid().ToString(),
                 uttakDato = DateTime.Today,
                 versjonUt = args.ProgramVersion,
-                meldingstype = meldingstype.B,
+                meldingstype = "B",
                 fraDatoPeriode = args.FraDato,
                 tilDatoPeriode = args.TilDato,
                 leverandor = args.Leverandor,
