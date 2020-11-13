@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<!-- Generated on 2019-03-14  12:45:55 at NPR -->
+<!-- Generated on 2020-05-11  14:59:28 at NPR -->
 <!-- Avdeling helseregistres meldinger -->
 <!-- Modul kpp  -->
 <!-- Skjema for Innrapportering av data om kostnad per pasient  -->
 <!-- XML-Schema level supported is specified by W3C -->
 <!-- http://www.w3.org/2001/XMLSchema -->
-<schema 
+<schema
        xmlns="http://www.w3.org/2001/XMLSchema"
-       xmlns:xsd="http://www.w3.org/2001/XMLSchema.xsd" 
-    xmlns:kith="http://www.kith.no/xmlstds" 
-    xmlns:nprx="http://www.npr.no/xmlstds/53_1_3" 
-    xmlns:npr = "http://www.npr.no/xmlstds/53_1_3_kpp"
-    targetNamespace = "http://www.npr.no/xmlstds/53_1_3_kpp"
-    version = "53.1.3.0"
+       xmlns:xsd="http://www.w3.org/2001/XMLSchema.xsd"
+    xmlns:kith="http://www.kith.no/xmlstds"
+    xmlns:nprx="http://www.npr.no/xmlstds/54_0_1"
+    xmlns:npr = "http://www.npr.no/xmlstds/54_0_1_kpp"
+    targetNamespace = "http://www.npr.no/xmlstds/54_0_1_kpp"
+    version = "54.0.1.15"
     elementFormDefault = "qualified"
     attributeFormDefault="unqualified">
-   <import namespace="http://www.npr.no/xmlstds/53_1_3" schemaLocation="NPR.xsd"/>
+   <import namespace="http://www.npr.no/xmlstds/54_0_1" schemaLocation="NPR.xsd"/>
 
-<include schemaLocation="XPR(kpp)_CodingSchemes.xsd"/>
+<include schemaLocation="NPR(kpp)_CodingSchemes.xsd"/>
 
 
 <!-- LEVEL 1 -->
@@ -26,14 +26,14 @@
 <element name = "Melding">
    <annotation>
        <documentation>
-         Opplysninger som leverand�rer av helsetjenester i kommuner, helsevirksomheter eller helsepersonell etter bestemmelser i lov eller i medhold av lov i gitte situasjoner er pliktig til � rapportere.
+         Opplysninger som leverandører av helsetjenester i kommuner, helsevirksomheter eller helsepersonell etter bestemmelser i lov eller i medhold av lov i gitte situasjoner er pliktig til å rapportere.
       </documentation>
    </annotation>
    <complexType >
       <sequence>
          <element ref = "npr:Institusjon" minOccurs = "1" maxOccurs = "unbounded" />
       </sequence>
-      <attribute name = "versjon" type = "string"  use = "required" fixed = "53.1.3" />
+      <attribute name = "versjon" type = "string"  use = "required" fixed = "54.0.1" />
       <attribute name = "meldingstype" type = "npr:meldingstype"  use = "required" />
       <attribute name = "fraDatoPeriode" type = "date"  use = "required" />
       <attribute name = "uttakDato" type = "date"  use = "required" />
@@ -41,13 +41,14 @@
       <attribute name = "navnEPJ" type = "string"  use = "required" />
       <attribute name = "versjonEPJ" type = "string"  use = "required" />
       <attribute name = "versjonUt" type = "string"  use = "required" />
-      <attribute name = "lopenr" type = "string"  use = "required" />
+      <attribute name = "lopenr" type = "integer"  use = "required" />
       <attribute name = "tilDatoPeriode" type = "date"  use = "required" />
       <attribute name = "lokalident" type = "string"  use = "optional" />
    </complexType>
       <unique name= "InstitusjonP_ID">
          <selector xpath = "npr:Institusjon"/>
          <field xpath = "@institusjonID"/>
+         <field xpath = "@foretakID"/>
       </unique>
 </element>
 
@@ -58,7 +59,7 @@
 <element name = "Institusjon">
    <annotation>
        <documentation>
-         Institusjon som h�rer under lov om spesialisthelsetjenesten.
+         Institusjon som hører under lov om spesialisthelsetjenesten.
       </documentation>
    </annotation>
    <complexType >
@@ -66,6 +67,7 @@
          <element ref = "npr:Objektholder" minOccurs = "1" maxOccurs = "unbounded" />
       </sequence>
       <attribute name = "institusjonID" type = "string"  use = "required" />
+      <attribute name = "foretakID" type = "string"  use = "optional" />
    </complexType>
       <unique name= "ObjektholderP_ID">
          <selector xpath = "npr:Objektholder"/>
@@ -80,7 +82,7 @@
 <element name = "Objektholder">
    <annotation>
        <documentation>
-         Er en container som holder objekter fra lavere niv�. Hver av objektene p� lavere niv� skal identifiseres ved hjelp av GUID eller annen unik identifikasjon slik at alle objekter kan identifiseres p� tvers av meldinger.
+         Er en container som holder objekter fra lavere nivå. Hver av objektene på lavere nivå skal identifiseres ved hjelp av GUID eller annen unik identifikasjon slik at alle objekter kan identifiseres på tvers av meldinger.
       </documentation>
    </annotation>
    <complexType >
@@ -97,6 +99,11 @@
 
 <!-- Class: Episode KPP -->
 <element name = "EpisodeKPP">
+   <annotation>
+       <documentation>
+         Kostnader knyttet til Episode
+      </documentation>
+   </annotation>
    <complexType >
       <sequence>
          <element ref = "npr:TjenesteKPP" minOccurs = "0" maxOccurs = "unbounded" />
@@ -113,7 +120,7 @@
 <!-- Class: Tjeneste KPP -->
 <element name = "TjenesteKPP">
    <complexType >
-      <attribute name = "kostnadKode" type = "npr:noCodingSchemeNameSpecified"  use = "required" />
+      <attribute name = "kostnadKode" type = "npr:kPP___Kostnad_per_pasient"  use = "required" />
       <attribute name = "kostnad" type = "decimal"  use = "required" />
    </complexType>
 </element>

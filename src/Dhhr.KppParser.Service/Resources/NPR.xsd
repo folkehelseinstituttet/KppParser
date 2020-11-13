@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <!-- edited with XMLSpy v2015 sp1 (http://www.altova.com) by Iver Nordhuus (Helsedirektoratet) -->
 <!-- edited by Iver Nordhuus (NPR) -->
-<schema xmlns:nprx="http://www.npr.no/xmlstds/53_1_3" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema.xsd" targetNamespace="http://www.npr.no/xmlstds/53_1_3">
-	<!-- DATATYPER  NPR -->
+<schema xmlns:nprx="http://www.npr.no/xmlstds/54_0_1" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema.xsd" targetNamespace="http://www.npr.no/xmlstds/54_0_1">
+	<!-- DATATYPER  XPR -->
 	<simpleType name="kommNr" id="kommNr">
 		<restriction base="string">
 			<minLength value="4"/>
@@ -12,7 +12,7 @@
 	<simpleType name="bydelNr" id="bydelNr">
 		<restriction base="string">
 			<minLength value="1"/>
-			<maxLength value="2"/>
+			<maxLength value="6"/>
 		</restriction>
 	</simpleType>
 	<simpleType name="takstNr" id="takstNr">
