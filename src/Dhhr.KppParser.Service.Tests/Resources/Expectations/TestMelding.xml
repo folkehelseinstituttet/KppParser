@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<Melding xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" versjon="54.0.1" meldingstype="B" fraDatoPeriode="2019-01-01" uttakDato="2019-03-25" leverandor="ukjent leverandør" navnEPJ="ukjent epj" versjonEPJ="ukjent epj versjon" versjonUt="KppService_ShouldSetMetadata_WhenParsingKpp" lopenr="201903251624117690" tilDatoPeriode="2019-12-31" lokalident="ba00a4ca-b05e-4e01-9d7b-90578f46bf0f" xmlns="http://www.npr.no/xmlstds/54_0_1_kpp">
+<Melding xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" versjon="54.0.1" meldingstype="B" fraDatoPeriode="2019-01-01" uttakDato="2019-03-25" leverandor="ukjent leverandør" navnEPJ="ukjent epj" versjonEPJ="ukjent epj versjon" versjonUt="KppService_ShouldSetMetadata_WhenParsingKpp" lopenr="201903251624117690" tilDatoPeriode="2019-12-31" lokalident="ba00a4ca-b05e-4e01-9d7b-90578f46bf0f" xmlns="http://www.npr.no/xmlstds/55_0_1_kpp">
   <Institusjon institusjonID="900000000">
     <Objektholder pasientNr="-1">
       <!-- ordinary -->

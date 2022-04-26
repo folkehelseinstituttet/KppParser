@@ -9,12 +9,12 @@ namespace Dhhr.KppParser.Service.Models
             return new Institusjon
             {
                 institusjonID = institusjonId,
-                Objektholder = new List<Objektholder>
+                Objektholder = new []
                 {
                     new Objektholder
                     {
                         pasientNr = "-1",
-                        EpisodeKPP = episoder
+                        EpisodeKPP = episoder.ToArray()
                     }
                 }
             };
