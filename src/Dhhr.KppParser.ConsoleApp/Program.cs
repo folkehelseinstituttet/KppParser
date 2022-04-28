@@ -111,9 +111,8 @@ namespace Dhhr.KppParser.ConsoleApp
 
         private static string Version()
         {
-            var assembly = Assembly.GetExecutingAssembly();
-            var version = AssemblyName.GetAssemblyName(assembly.Location).Version.ToString();
-            return $"c{version}";
+            var version = Assembly.GetExecutingAssembly().GetName().Version?.ToString();
+            return $"v{version}";
         }
 
         private static void Log(string status, bool verbose)

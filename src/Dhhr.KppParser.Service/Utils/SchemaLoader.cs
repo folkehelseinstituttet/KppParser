@@ -44,7 +44,7 @@ namespace Dhhr.KppParser.Service.Utils
             else
             {
                 // Relative paths doesn't work, so we need to set it to an absolute path
-                var assemblyLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+                var assemblyLocation = System.AppContext.BaseDirectory;
                 path = Path.Combine(assemblyLocation, filename);
             }
 
