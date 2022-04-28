@@ -10,9 +10,13 @@
     </None>
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Codaxy.Xsd2" Version="0.10.0" />
+  </ItemGroup>
+
   <Target Name="Xsd" AfterTargets="PreBuildEvent" Condition=" '$(Configuration)' == 'Debug' ">
     <Message Importance="High" Text="Generating classes from xsd" />
-    <Exec WorkingDirectory="$(ProjectDir)" Command="&quot;C:\Program Files (x86)\Microsoft SDKs\Windows\v10.0A\bin\NETFX 4.8 Tools\Xsd.exe&quot; Resources/NPR(kpp).xsd /c /n:Dhhr.KppParser.Service.Models /o:Models" />
+    <Exec WorkingDirectory="$(ProjectDir)" Command="$(Xsd2Exe) Resources/NPR(kpp).xsd --import Resources/NPR(kpp)_CodingSchemes.xsd --import Resources/NPR.xsd -ns Dhhr.KppParser.Service.Models --lists -o Models" />
   </Target>
 
 </Project>

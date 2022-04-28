@@ -15,7 +15,7 @@ namespace Dhhr.KppParser.Service.Models
                 totalSpecified = total != null,
                 total = total.AsDecimal() ?? 0,
                 drg = string.Equals(drg, "(tom)", StringComparison.InvariantCultureIgnoreCase) ? null : drg,
-                TjenesteKPP = tjenester.ToArray(),
+                TjenesteKPP = tjenester.ToList(),
             };
         }
     }
