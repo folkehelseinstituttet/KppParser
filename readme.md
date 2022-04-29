@@ -17,6 +17,11 @@ dotnet publish -c Release -r win-x64 -p:PublishSingleFile=true
 ```
 2. Legg deretter output fra begge i hver sin `.zip`-fil. Bruk gjerne samme filnavn som i forrige release
 
+3. For generering av nye klasser fra xsd kan du benytte microsoft verktøyet xsd.exe
+```
+'C:\Program Files (x86)\Microsoft SDKs\Windows\v10.0A\bin\NETFX 4.8 Tools\Xsd.exe' 'Resources\NPR(kpp).xsd' /c /n:Dhhr.KppParser.Service.Models /o:Models
+```
+
 ## Publisere på github
 1. Opprett ny release på github
 2. Oppgi tittel basert på hva som er forandret
