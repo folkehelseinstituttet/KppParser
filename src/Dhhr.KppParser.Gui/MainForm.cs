@@ -15,8 +15,7 @@ namespace Dhhr.KppParser.Gui
             _settings = settings;
             InitializeComponent();
 
-            var assembly = Assembly.GetExecutingAssembly();
-            _version = AssemblyName.GetAssemblyName(assembly.Location).Version.ToString();
+            _version = Assembly.GetExecutingAssembly().GetName().Version?.ToString();
 
             VersionLabel.Text = $@"Versjon: {_version}";
         }

@@ -170,7 +170,7 @@ namespace Dhhr.KppParser.Service
                 leverandor = args.Leverandor,
                 navnEPJ = args.NavnEpj,
                 versjonEPJ = args.VersjonEpj,
-                Institusjon = ParseFiles(args.EpisodePath, args.TjenestePath)
+                Institusjon = ParseFiles(args.EpisodePath, args.TjenestePath).ToArray()
             };
         }
 
