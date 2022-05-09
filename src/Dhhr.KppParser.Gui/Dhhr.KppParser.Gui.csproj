@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net6.0-windows</TargetFramework>
-    <AssemblyVersion>1.5.*</AssemblyVersion>
+    <AssemblyVersion>1.5.1.*</AssemblyVersion>
     <Deterministic>false</Deterministic>
     <UseWindowsForms>true</UseWindowsForms>
     <PublishSingleFile Condition="'$(Configuration)' == 'Release'">true</PublishSingleFile>
@@ -20,6 +20,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Properties\KppParser.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>KppParser.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
     <None Update="appsettings.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
@@ -27,6 +35,10 @@
     <None Update="lesmeg.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+    </None>
+    <None Update="Properties\KppParser.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>KppParser.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
 

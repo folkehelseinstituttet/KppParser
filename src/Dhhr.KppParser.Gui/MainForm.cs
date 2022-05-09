@@ -15,9 +15,30 @@ namespace Dhhr.KppParser.Gui
             _settings = settings;
             InitializeComponent();
 
+            // Set default values
+            var lastYear = DateTime.Today.AddYears(-1).Year;
+            FromDatePicker.Value = new DateTime(lastYear, 1, 1);
+            ToDatePicker.Value = new DateTime(lastYear, 12, 31);
+
             _version = Assembly.GetExecutingAssembly().GetName().Version?.ToString();
 
             VersionLabel.Text = $@"Versjon: {_version}";
+
+
+            // Get user settings
+            if (Properties.KppParser.Default.UpgradeRequired)
+            {
+                Properties.KppParser.Default.Upgrade();
+                Properties.KppParser.Default.UpgradeRequired = false;
+                Properties.KppParser.Default.Save();
+            }
+
+            EpisodePathBox.Text = Properties.KppParser.Default.EpisodePath;
+            TjenestePathBox.Text = Properties.KppParser.Default.TjenestePath;
+            OrgNameBox.Text = Properties.KppParser.Default.Level1Name;
+            OrgHerIdBox.Text = Properties.KppParser.Default.Level1HerId;
+            OrgNameBox2.Text = Properties.KppParser.Default.Level2Name;
+            OrgHerIdBox2.Text = Properties.KppParser.Default.Level2HerId;
         }
 
         private void EpisodeButton_Click(object sender, EventArgs e)
@@ -52,6 +73,16 @@ namespace Dhhr.KppParser.Gui
 
         private void RunButton_Click(object sender, EventArgs e)
         {
+            // Save settings
+            Properties.KppParser.Default.EpisodePath = EpisodePathBox.Text;
+            Properties.KppParser.Default.TjenestePath = TjenestePathBox.Text;
+            Properties.KppParser.Default.Level1Name = OrgNameBox.Text;
+            Properties.KppParser.Default.Level1HerId = OrgHerIdBox.Text;
+            Properties.KppParser.Default.Level2Name = OrgNameBox2.Text;
+            Properties.KppParser.Default.Level2HerId = OrgHerIdBox2.Text;
+            Properties.KppParser.Default.Save();
+
+            // Run
             var args = new Args
             {
                 EpisodePath = EpisodePathBox.Text,
