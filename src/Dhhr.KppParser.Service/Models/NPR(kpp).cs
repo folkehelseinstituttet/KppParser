@@ -20,8 +20,8 @@ namespace Dhhr.KppParser.Service.Models {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.npr.no/xmlstds/55_0_1_kpp")]
-    [System.Xml.Serialization.XmlRootAttribute(Namespace="http://www.npr.no/xmlstds/55_0_1_kpp", IsNullable=false)]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.npr.no/xmlstds/56_0_1_kpp")]
+    [System.Xml.Serialization.XmlRootAttribute(Namespace="http://www.npr.no/xmlstds/56_0_1_kpp", IsNullable=false)]
     public partial class Melding {
         
         private Institusjon[] institusjonField;
@@ -49,7 +49,7 @@ namespace Dhhr.KppParser.Service.Models {
         private string lokalidentField;
         
         public Melding() {
-            this.versjonField = "55.0.1";
+            this.versjonField = "56.0.1";
         }
         
         /// <remarks/>
@@ -190,8 +190,8 @@ namespace Dhhr.KppParser.Service.Models {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.npr.no/xmlstds/55_0_1_kpp")]
-    [System.Xml.Serialization.XmlRootAttribute(Namespace="http://www.npr.no/xmlstds/55_0_1_kpp", IsNullable=false)]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.npr.no/xmlstds/56_0_1_kpp")]
+    [System.Xml.Serialization.XmlRootAttribute(Namespace="http://www.npr.no/xmlstds/56_0_1_kpp", IsNullable=false)]
     public partial class Institusjon {
         
         private Objektholder[] objektholderField;
@@ -239,8 +239,8 @@ namespace Dhhr.KppParser.Service.Models {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.npr.no/xmlstds/55_0_1_kpp")]
-    [System.Xml.Serialization.XmlRootAttribute(Namespace="http://www.npr.no/xmlstds/55_0_1_kpp", IsNullable=false)]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.npr.no/xmlstds/56_0_1_kpp")]
+    [System.Xml.Serialization.XmlRootAttribute(Namespace="http://www.npr.no/xmlstds/56_0_1_kpp", IsNullable=false)]
     public partial class Objektholder {
         
         private EpisodeKPP[] episodeKPPField;
@@ -275,8 +275,8 @@ namespace Dhhr.KppParser.Service.Models {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.npr.no/xmlstds/55_0_1_kpp")]
-    [System.Xml.Serialization.XmlRootAttribute(Namespace="http://www.npr.no/xmlstds/55_0_1_kpp", IsNullable=false)]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.npr.no/xmlstds/56_0_1_kpp")]
+    [System.Xml.Serialization.XmlRootAttribute(Namespace="http://www.npr.no/xmlstds/56_0_1_kpp", IsNullable=false)]
     public partial class EpisodeKPP {
         
         private TjenesteKPP[] tjenesteKPPField;
@@ -350,8 +350,8 @@ namespace Dhhr.KppParser.Service.Models {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.npr.no/xmlstds/55_0_1_kpp")]
-    [System.Xml.Serialization.XmlRootAttribute(Namespace="http://www.npr.no/xmlstds/55_0_1_kpp", IsNullable=false)]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.npr.no/xmlstds/56_0_1_kpp")]
+    [System.Xml.Serialization.XmlRootAttribute(Namespace="http://www.npr.no/xmlstds/56_0_1_kpp", IsNullable=false)]
     public partial class TjenesteKPP {
         
         private string kostnadKodeField;

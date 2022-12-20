@@ -13,7 +13,7 @@ Det er to måter å kjøre programmet:
 ## Bygge koden
 1. Både Gui og ConsoleApp publiseres med
 ```
-dotnet publish -c Release -r win-x64 -p:PublishSingleFile=true
+dotnet publish -c Release -r win-x64 --no-self-contained -p:PublishSingleFile=true
 ```
 2. Legg deretter output fra begge i hver sin `.zip`-fil. Bruk gjerne samme filnavn som i forrige release
 
