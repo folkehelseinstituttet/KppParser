@@ -10,7 +10,7 @@
    - `XPR(kpp)_CodingSchemes.xsd` &rarr; `NPR(kpp)_CodingSchemes.xsd`
 4. Sørg for at alle `schemaLocation`-attributter i de tre `NPR*.xsd`-filene refererer til `NPR`, ikke `XPR`
 
-## Oppdatere modeller
+## Oppdatere CS-modeller
 
 1. Oppdatér versjonen angitt i `Namespace` for `XmlElement`-attributtet i `RefDocContent.cs`
 2. Regenerér `NPR(kpp).cs` ved å kjøre `xsd.exe` med `NPR(kpp).xsd`.\
