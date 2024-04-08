@@ -182,6 +182,7 @@ namespace Dhhr.KppParser.Service
                 .Select(i => i.institusjonID)
                 .GroupBy(id => id)
                 .Where(idGroup => idGroup.Count() > 1)
+                .Select(idGroup => idGroup.Key)
                 .ToList();
 
             if (duplicateInstitutionIds.Count > 0)
