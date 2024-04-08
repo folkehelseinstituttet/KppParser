@@ -1,116 +1,58 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<!-- Generated on 2021-11-11  10:11:01 at NPR -->
+<!-- Generated on 2022-10-10 -->
 <!-- Avdeling helseregistres meldinger -->
 <!-- Modul kpp  -->
 <!-- Skjema for Innrapportering av data om kostnad per pasient  -->
 <!-- XML-Schema level supported is specified by W3C -->
 <!-- http://www.w3.org/2001/XMLSchema -->
-<schema 
-       xmlns="http://www.w3.org/2001/XMLSchema"
-       xmlns:xsd="http://www.w3.org/2001/XMLSchema.xsd" 
-    xmlns:kith="http://www.kith.no/xmlstds" 
-    xmlns:nprx="http://www.npr.no/xmlstds/56_0_1" 
-    xmlns:npr = "http://www.npr.no/xmlstds/56_0_1_kpp"
-    targetNamespace = "http://www.npr.no/xmlstds/56_0_1_kpp"
-    version = "56.0.1.5"
-    elementFormDefault = "qualified"
-    attributeFormDefault="unqualified">
-   <import namespace="http://www.npr.no/xmlstds/56_0_1" schemaLocation="NPR.xsd"/>
-
-
-
-<!-- LEVEL 1 -->
-
-<!-- Class: Melding -->
-   
-
-
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema.xsd" xmlns:kith="http://www.kith.no/xmlstds" xmlns:nprx="http://www.npr.no/xmlstds/57_0_1" xmlns:npr="http://www.npr.no/xmlstds/57_0_1_kpp" targetNamespace="http://www.npr.no/xmlstds/57_0_1_kpp" elementFormDefault="qualified" attributeFormDefault="unqualified" version="57.0.1.1">
+   <import namespace="http://www.npr.no/xmlstds/57_0_1" schemaLocation="NPR.xsd"/>
+   <!-- LEVEL 1 -->
+   <!-- Class: Melding -->
    <!--     A P P I N F O     -->
-   
-
-
-
- <!-- Coding schemes as simpleTypes without enumerations in the class: 'Melding' --> 
-<simpleType name="meldingstype">
-   <restriction base="string"/>  <!-- Kodeverk: 7371 Meldingstype -->
-
-</simpleType>
-
-
- <!-- Appinfo for Coding schemes in the class: 'Melding' --> 
-<annotation>
-   <appinfo>
-      <class name="Melding"/> 
-      <attribute name="meldingstype"/> 
-      <codingScheme name="Meldingstype"/> 
-      <codingScheme OID="7371"/> 
-      <simpleT name="meldingstype"/> 
+   <!-- Coding schemes as simpleTypes without enumerations in the class: 'Melding' -->
+   <simpleType name="meldingstype">
+      <restriction base="string"/>
+      <!-- Kodeverk: 7371 Meldingstype -->
+   </simpleType>
+   <!-- Appinfo for Coding schemes in the class: 'Melding' -->
+   <annotation>
+      <appinfo>
+         <class name="Melding"/>
+         <attribute name="meldingstype"/>
+         <codingScheme name="Meldingstype"/>
+         <codingScheme OID="7371"/>
+         <simpleT name="meldingstype"/>
          <code value="B" text="Satsvis melding" comment=""/>
          <code value="K" text="Melding for kontinuerlige oppdateringer" comment=""/>
          <code value="E" text="Endringsmelding" comment=""/>
-   </appinfo>
-</annotation>
-
-
-<!-- LEVEL 2 -->
-
-<!-- Class: Helseinstitusjon -->
-   
-
-
+      </appinfo>
+   </annotation>
+   <!-- LEVEL 2 -->
+   <!-- Class: Helseinstitusjon -->
    <!--     A P P I N F O     -->
-   
-
-
-
-<!-- LEVEL 3 -->
-
-<!-- Class: Objektholder -->
-   
-
-
+   <!-- LEVEL 3 -->
+   <!-- Class: Objektholder -->
    <!--     A P P I N F O     -->
-   
-
-
-
-<!-- LEVEL 4 -->
-
-<!-- Class: Episode KPP -->
-   
-
-
+   <!-- LEVEL 4 -->
+   <!-- Class: Episode KPP -->
    <!--     A P P I N F O     -->
-   
-
-
-
-<!-- LEVEL 5 -->
-
-<!-- Class: Tjeneste KPP -->
-   
-
-
+   <!-- LEVEL 5 -->
+   <!-- Class: Tjeneste KPP -->
    <!--     A P P I N F O     -->
-   
-
-
-
- <!-- Coding schemes as simpleTypes without enumerations in the class: 'Tjeneste KPP' --> 
-<simpleType name="kPP___Kostnad_per_pasient">
-   <restriction base="string"/>  <!-- Kodeverk: 8491 KPP - Kostnad per pasient -->
-
-</simpleType>
-
-
- <!-- Appinfo for Coding schemes in the class: 'Tjeneste KPP' --> 
-<annotation>
-   <appinfo>
-      <class name="Tjeneste KPP"/> 
-      <attribute name="kostnadKode"/> 
-      <codingScheme name="KPP - Kostnad per pasient"/> 
-      <codingScheme OID="8491"/> 
-      <simpleT name="kPP___Kostnad_per_pasient"/> 
+   <!-- Coding schemes as simpleTypes without enumerations in the class: 'Tjeneste KPP' -->
+   <simpleType name="kPP___Kostnad_per_pasient">
+      <restriction base="string"/>
+      <!-- Kodeverk: 8491 KPP - Kostnad per pasient -->
+   </simpleType>
+   <!-- Appinfo for Coding schemes in the class: 'Tjeneste KPP' -->
+   <annotation>
+      <appinfo>
+         <class name="Tjeneste KPP"/>
+         <attribute name="kostnadKode"/>
+         <codingScheme name="KPP - Kostnad per pasient"/>
+         <codingScheme OID="8491"/>
+         <simpleT name="kPP___Kostnad_per_pasient"/>
          <code value="01L1" text="Direkte kostnader for legemidler i prehospitale tjenester" comment=""/>
          <code value="01L2" text="Indirekte kostnader for legemidler i prehospitale tjenester" comment=""/>
          <code value="01L9" text="Ubestemte kostnader for legemidler i prehospitale tjenester" comment=""/>
@@ -126,9 +68,9 @@
          <code value="01Z1" text="Direkte kostnader for andre forbruksvarer i prehospitale tjenester" comment=""/>
          <code value="01Z2" text="Indirekte kostnader for andre forbruksvarer i prehospitale tjenester" comment=""/>
          <code value="01Z9" text="Ubestemte kostnader for andre forbruksvarer i prehospitale tjenester" comment=""/>
-         <code value="01H1" text="Direkte kostnader for lønnskostnader i prehospitale tjenester" comment=""/>
-         <code value="01H2" text="Indirekte kostnader for lønnskostnader i prehospitale tjenester" comment=""/>
-         <code value="01H9" text="Ubestemte kostnader for lønnskostnader i prehospitale tjenester" comment=""/>
+         <code value="01H1" text="Direkte kostnader for lÃ¸nnskostnader i prehospitale tjenester" comment=""/>
+         <code value="01H2" text="Indirekte kostnader for lÃ¸nnskostnader i prehospitale tjenester" comment=""/>
+         <code value="01H9" text="Ubestemte kostnader for lÃ¸nnskostnader i prehospitale tjenester" comment=""/>
          <code value="01C1" text="Direkte kostnader for pensjon i prehospitale tjenester" comment=""/>
          <code value="01C2" text="Indirekte kostnader for pensjon i prehospitale tjenester" comment=""/>
          <code value="01C9" text="Ubestemte kostnader for pensjon i prehospitale tjenester" comment=""/>
@@ -138,9 +80,9 @@
          <code value="01E1" text="Direkte kostnader for andre kapitalkostnader i prehospitale tjenester" comment=""/>
          <code value="01E2" text="Indirekte kostnader for andre kapitalkostnader i prehospitale tjenester" comment=""/>
          <code value="01E9" text="Ubestemte kostnader for andre kapitalkostnader i prehospitale tjenester" comment=""/>
-         <code value="01X1" text="Direkte kostnader for øvrige kostnader i prehospitale tjenester" comment=""/>
-         <code value="01X2" text="Indirekte kostnader for øvrige kostnader i prehospitale tjenester" comment=""/>
-         <code value="01X9" text="Ubestemte kostnader for øvrige kostnader i prehospitale tjenester" comment=""/>
+         <code value="01X1" text="Direkte kostnader for Ã¸vrige kostnader i prehospitale tjenester" comment=""/>
+         <code value="01X2" text="Indirekte kostnader for Ã¸vrige kostnader i prehospitale tjenester" comment=""/>
+         <code value="01X9" text="Ubestemte kostnader for Ã¸vrige kostnader i prehospitale tjenester" comment=""/>
          <code value="02L1" text="Direkte kostnader for legemidler i akuttmottak" comment=""/>
          <code value="02L2" text="Indirekte kostnader for legemidler i akuttmottak" comment=""/>
          <code value="02L9" text="Ubestemte kostnader for legemidler i akuttmottak" comment=""/>
@@ -156,9 +98,9 @@
          <code value="02Z1" text="Direkte kostnader for andre forbruksvarer i akuttmottak" comment=""/>
          <code value="02Z2" text="Indirekte kostnader for andre forbruksvarer i akuttmottak" comment=""/>
          <code value="02Z9" text="Ubestemte kostnader for andre forbruksvarer i akuttmottak" comment=""/>
-         <code value="02H1" text="Direkte kostnader for lønnskostnader i akuttmottak" comment=""/>
-         <code value="02H2" text="Indirekte kostnader for lønnskostnader i akuttmottak" comment=""/>
-         <code value="02H9" text="Ubestemte kostnader for lønnskostnader i akuttmottak" comment=""/>
+         <code value="02H1" text="Direkte kostnader for lÃ¸nnskostnader i akuttmottak" comment=""/>
+         <code value="02H2" text="Indirekte kostnader for lÃ¸nnskostnader i akuttmottak" comment=""/>
+         <code value="02H9" text="Ubestemte kostnader for lÃ¸nnskostnader i akuttmottak" comment=""/>
          <code value="02C1" text="Direkte kostnader for pensjon i akuttmottak" comment=""/>
          <code value="02C2" text="Indirekte kostnader for pensjon i akuttmottak" comment=""/>
          <code value="02C9" text="Ubestemte kostnader for pensjon i akuttmottak" comment=""/>
@@ -168,9 +110,9 @@
          <code value="02E1" text="Direkte kostnader for andre kapitalkostnader i akuttmottak" comment=""/>
          <code value="02E2" text="Indirekte kostnader for andre kapitalkostnader i akuttmottak" comment=""/>
          <code value="02E9" text="Ubestemte kostnader for andre kapitalkostnader i akuttmottak" comment=""/>
-         <code value="02X1" text="Direkte kostnader for øvrige kostnader i akuttmottak" comment=""/>
-         <code value="02X2" text="Indirekte kostnader for øvrige kostnader i akuttmottak" comment=""/>
-         <code value="02X9" text="Ubestemte kostnader for øvrige kostnader i akuttmottak" comment=""/>
+         <code value="02X1" text="Direkte kostnader for Ã¸vrige kostnader i akuttmottak" comment=""/>
+         <code value="02X2" text="Indirekte kostnader for Ã¸vrige kostnader i akuttmottak" comment=""/>
+         <code value="02X9" text="Ubestemte kostnader for Ã¸vrige kostnader i akuttmottak" comment=""/>
          <code value="03L1" text="Direkte kostnader for legemidler i operasjon" comment=""/>
          <code value="03L2" text="Indirekte kostnader for legemidler i operasjon" comment=""/>
          <code value="03L9" text="Ubestemte kostnader for legemidler i operasjon" comment=""/>
@@ -186,9 +128,9 @@
          <code value="03Z1" text="Direkte kostnader for andre forbruksvarer i operasjon" comment=""/>
          <code value="03Z2" text="Indirekte kostnader for andre forbruksvarer i operasjon" comment=""/>
          <code value="03Z9" text="Ubestemte kostnader for andre forbruksvarer i operasjon" comment=""/>
-         <code value="03H1" text="Direkte kostnader for lønnskostnader i operasjon" comment=""/>
-         <code value="03H2" text="Indirekte kostnader for lønnskostnader i operasjon" comment=""/>
-         <code value="03H9" text="Ubestemte kostnader for lønnskostnader i operasjon" comment=""/>
+         <code value="03H1" text="Direkte kostnader for lÃ¸nnskostnader i operasjon" comment=""/>
+         <code value="03H2" text="Indirekte kostnader for lÃ¸nnskostnader i operasjon" comment=""/>
+         <code value="03H9" text="Ubestemte kostnader for lÃ¸nnskostnader i operasjon" comment=""/>
          <code value="03C1" text="Direkte kostnader for pensjon i operasjon" comment=""/>
          <code value="03C2" text="Indirekte kostnader for pensjon i operasjon" comment=""/>
          <code value="03C9" text="Ubestemte kostnader for pensjon i operasjon" comment=""/>
@@ -198,9 +140,9 @@
          <code value="03E1" text="Direkte kostnader for andre kapitalkostnader i operasjon" comment=""/>
          <code value="03E2" text="Indirekte kostnader for andre kapitalkostnader i operasjon" comment=""/>
          <code value="03E9" text="Ubestemte kostnader for andre kapitalkostnader i operasjon" comment=""/>
-         <code value="03X1" text="Direkte kostnader for øvrige kostnader i operasjon" comment=""/>
-         <code value="03X2" text="Indirekte kostnader for øvrige kostnader i operasjon" comment=""/>
-         <code value="03X9" text="Ubestemte kostnader for øvrige kostnader i operasjon" comment=""/>
+         <code value="03X1" text="Direkte kostnader for Ã¸vrige kostnader i operasjon" comment=""/>
+         <code value="03X2" text="Indirekte kostnader for Ã¸vrige kostnader i operasjon" comment=""/>
+         <code value="03X9" text="Ubestemte kostnader for Ã¸vrige kostnader i operasjon" comment=""/>
          <code value="04L1" text="Direkte kostnader for legemidler i intensivbehandling" comment=""/>
          <code value="04L2" text="Indirekte kostnader for legemidler i intensivbehandling" comment=""/>
          <code value="04L9" text="Ubestemte kostnader for legemidler i intensivbehandling" comment=""/>
@@ -216,9 +158,9 @@
          <code value="04Z1" text="Direkte kostnader for andre forbruksvarer i intensivbehandling" comment=""/>
          <code value="04Z2" text="Indirekte kostnader for andre forbruksvarer i intensivbehandling" comment=""/>
          <code value="04Z9" text="Ubestemte kostnader for andre forbruksvarer i intensivbehandling" comment=""/>
-         <code value="04H1" text="Direkte kostnader for lønnskostnader i intensivbehandling" comment=""/>
-         <code value="04H2" text="Indirekte kostnader for lønnskostnader i intensivbehandling" comment=""/>
-         <code value="04H9" text="Ubestemte kostnader for lønnskostnader i intensivbehandling" comment=""/>
+         <code value="04H1" text="Direkte kostnader for lÃ¸nnskostnader i intensivbehandling" comment=""/>
+         <code value="04H2" text="Indirekte kostnader for lÃ¸nnskostnader i intensivbehandling" comment=""/>
+         <code value="04H9" text="Ubestemte kostnader for lÃ¸nnskostnader i intensivbehandling" comment=""/>
          <code value="04C1" text="Direkte kostnader for pensjon i intensivbehandling" comment=""/>
          <code value="04C2" text="Indirekte kostnader for pensjon i intensivbehandling" comment=""/>
          <code value="04C9" text="Ubestemte kostnader for pensjon i intensivbehandling" comment=""/>
@@ -228,9 +170,9 @@
          <code value="04E1" text="Direkte kostnader for andre kapitalkostnader i intensivbehandling" comment=""/>
          <code value="04E2" text="Indirekte kostnader for andre kapitalkostnader i intensivbehandling" comment=""/>
          <code value="04E9" text="Ubestemte kostnader for andre kapitalkostnader i intensivbehandling" comment=""/>
-         <code value="04X1" text="Direkte kostnader for øvrige kostnader i intensivbehandling" comment=""/>
-         <code value="04X2" text="Indirekte kostnader for øvrige kostnader i intensivbehandling" comment=""/>
-         <code value="04X9" text="Ubestemte kostnader for øvrige kostnader i intensivbehandling" comment=""/>
+         <code value="04X1" text="Direkte kostnader for Ã¸vrige kostnader i intensivbehandling" comment=""/>
+         <code value="04X2" text="Indirekte kostnader for Ã¸vrige kostnader i intensivbehandling" comment=""/>
+         <code value="04X9" text="Ubestemte kostnader for Ã¸vrige kostnader i intensivbehandling" comment=""/>
          <code value="05L1" text="Direkte kostnader for legemidler i anestesi" comment=""/>
          <code value="05L2" text="Indirekte kostnader for legemidler i anestesi" comment=""/>
          <code value="05L9" text="Ubestemte kostnader for legemidler i anestesi" comment=""/>
@@ -246,9 +188,9 @@
          <code value="05Z1" text="Direkte kostnader for andre forbruksvarer i anestesi" comment=""/>
          <code value="05Z2" text="Indirekte kostnader for andre forbruksvarer i anestesi" comment=""/>
          <code value="05Z9" text="Ubestemte kostnader for andre forbruksvarer i anestesi" comment=""/>
-         <code value="05H1" text="Direkte kostnader for lønnskostnader i anestesi" comment=""/>
-         <code value="05H2" text="Indirekte kostnader for lønnskostnader i anestesi" comment=""/>
-         <code value="05H9" text="Ubestemte kostnader for lønnskostnader i anestesi" comment=""/>
+         <code value="05H1" text="Direkte kostnader for lÃ¸nnskostnader i anestesi" comment=""/>
+         <code value="05H2" text="Indirekte kostnader for lÃ¸nnskostnader i anestesi" comment=""/>
+         <code value="05H9" text="Ubestemte kostnader for lÃ¸nnskostnader i anestesi" comment=""/>
          <code value="05C1" text="Direkte kostnader for pensjon i anestesi" comment=""/>
          <code value="05C2" text="Indirekte kostnader for pensjon i anestesi" comment=""/>
          <code value="05C9" text="Ubestemte kostnader for pensjon i anestesi" comment=""/>
@@ -258,9 +200,9 @@
          <code value="05E1" text="Direkte kostnader for andre kapitalkostnader i anestesi" comment=""/>
          <code value="05E2" text="Indirekte kostnader for andre kapitalkostnader i anestesi" comment=""/>
          <code value="05E9" text="Ubestemte kostnader for andre kapitalkostnader i anestesi" comment=""/>
-         <code value="05X1" text="Direkte kostnader for øvrige kostnader i anestesi" comment=""/>
-         <code value="05X2" text="Indirekte kostnader for øvrige kostnader i anestesi" comment=""/>
-         <code value="05X9" text="Ubestemte kostnader for øvrige kostnader i anestesi" comment=""/>
+         <code value="05X1" text="Direkte kostnader for Ã¸vrige kostnader i anestesi" comment=""/>
+         <code value="05X2" text="Indirekte kostnader for Ã¸vrige kostnader i anestesi" comment=""/>
+         <code value="05X9" text="Ubestemte kostnader for Ã¸vrige kostnader i anestesi" comment=""/>
          <code value="06L1" text="Direkte kostnader for legemidler i bildediagnostikk" comment=""/>
          <code value="06L2" text="Indirekte kostnader for legemidler i bildediagnostikk" comment=""/>
          <code value="06L9" text="Ubestemte kostnader for legemidler i bildediagnostikk" comment=""/>
@@ -276,9 +218,9 @@
          <code value="06Z1" text="Direkte kostnader for andre forbruksvarer i bildediagnostikk" comment=""/>
          <code value="06Z2" text="Indirekte kostnader for andre forbruksvarer i bildediagnostikk" comment=""/>
          <code value="06Z9" text="Ubestemte kostnader for andre forbruksvarer i bildediagnostikk" comment=""/>
-         <code value="06H1" text="Direkte kostnader for lønnskostnader i bildediagnostikk" comment=""/>
-         <code value="06H2" text="Indirekte kostnader for lønnskostnader i bildediagnostikk" comment=""/>
-         <code value="06H9" text="Ubestemte kostnader for lønnskostnader i bildediagnostikk" comment=""/>
+         <code value="06H1" text="Direkte kostnader for lÃ¸nnskostnader i bildediagnostikk" comment=""/>
+         <code value="06H2" text="Indirekte kostnader for lÃ¸nnskostnader i bildediagnostikk" comment=""/>
+         <code value="06H9" text="Ubestemte kostnader for lÃ¸nnskostnader i bildediagnostikk" comment=""/>
          <code value="06C1" text="Direkte kostnader for pensjon i bildediagnostikk" comment=""/>
          <code value="06C2" text="Indirekte kostnader for pensjon i bildediagnostikk" comment=""/>
          <code value="06C9" text="Ubestemte kostnader for pensjon i bildediagnostikk" comment=""/>
@@ -288,9 +230,9 @@
          <code value="06E1" text="Direkte kostnader for andre kapitalkostnader i bildediagnostikk" comment=""/>
          <code value="06E2" text="Indirekte kostnader for andre kapitalkostnader i bildediagnostikk" comment=""/>
          <code value="06E9" text="Ubestemte kostnader for andre kapitalkostnader i bildediagnostikk" comment=""/>
-         <code value="06X1" text="Direkte kostnader for øvrige kostnader i bildediagnostikk" comment=""/>
-         <code value="06X2" text="Indirekte kostnader for øvrige kostnader i bildediagnostikk" comment=""/>
-         <code value="06X9" text="Ubestemte kostnader for øvrige kostnader i bildediagnostikk" comment=""/>
+         <code value="06X1" text="Direkte kostnader for Ã¸vrige kostnader i bildediagnostikk" comment=""/>
+         <code value="06X2" text="Indirekte kostnader for Ã¸vrige kostnader i bildediagnostikk" comment=""/>
+         <code value="06X9" text="Ubestemte kostnader for Ã¸vrige kostnader i bildediagnostikk" comment=""/>
          <code value="07L1" text="Direkte kostnader for legemidler i laboratorietjeneste" comment=""/>
          <code value="07L2" text="Indirekte kostnader for legemidler i laboratorietjeneste" comment=""/>
          <code value="07L9" text="Ubestemte kostnader for legemidler i laboratorietjeneste" comment=""/>
@@ -306,9 +248,9 @@
          <code value="07Z1" text="Direkte kostnader for andre forbruksvarer i laboratorietjeneste" comment=""/>
          <code value="07Z2" text="Indirekte kostnader for andre forbruksvarer i laboratorietjeneste" comment=""/>
          <code value="07Z9" text="Ubestemte kostnader for andre forbruksvarer i laboratorietjeneste" comment=""/>
-         <code value="07H1" text="Direkte kostnader for lønnskostnader i laboratorietjeneste" comment=""/>
-         <code value="07H2" text="Indirekte kostnader for lønnskostnader i laboratorietjeneste" comment=""/>
-         <code value="07H9" text="Ubestemte kostnader for lønnskostnader i laboratorietjeneste" comment=""/>
+         <code value="07H1" text="Direkte kostnader for lÃ¸nnskostnader i laboratorietjeneste" comment=""/>
+         <code value="07H2" text="Indirekte kostnader for lÃ¸nnskostnader i laboratorietjeneste" comment=""/>
+         <code value="07H9" text="Ubestemte kostnader for lÃ¸nnskostnader i laboratorietjeneste" comment=""/>
          <code value="07C1" text="Direkte kostnader for pensjon i laboratorietjeneste" comment=""/>
          <code value="07C2" text="Indirekte kostnader for pensjon i laboratorietjeneste" comment=""/>
          <code value="07C9" text="Ubestemte kostnader for pensjon i laboratorietjeneste" comment=""/>
@@ -318,39 +260,39 @@
          <code value="07E1" text="Direkte kostnader for andre kapitalkostnader i laboratorietjeneste" comment=""/>
          <code value="07E2" text="Indirekte kostnader for andre kapitalkostnader i laboratorietjeneste" comment=""/>
          <code value="07E9" text="Ubestemte kostnader for andre kapitalkostnader i laboratorietjeneste" comment=""/>
-         <code value="07X1" text="Direkte kostnader for øvrige kostnader i laboratorietjeneste" comment=""/>
-         <code value="07X2" text="Indirekte kostnader for øvrige kostnader i laboratorietjeneste" comment=""/>
-         <code value="07X9" text="Ubestemte kostnader for øvrige kostnader i laboratorietjeneste" comment=""/>
-         <code value="08L1" text="Direkte kostnader for legemidler i stråleterapi" comment=""/>
-         <code value="08L2" text="Indirekte kostnader for legemidler i stråleterapi" comment=""/>
-         <code value="08L9" text="Ubestemte kostnader for legemidler i stråleterapi" comment=""/>
-         <code value="08M1" text="Direkte kostnader for implantater i stråleterapi" comment=""/>
-         <code value="08M2" text="Indirekte kostnader for implantater i stråleterapi" comment=""/>
-         <code value="08M9" text="Ubestemte kostnader for implantater i stråleterapi" comment=""/>
-         <code value="08O1" text="Direkte kostnader for forbruksmateriell i stråleterapi" comment=""/>
-         <code value="08O2" text="Indirekte kostnader for forbruksmateriell i stråleterapi" comment=""/>
-         <code value="08O9" text="Ubestemte kostnader for forbruksmateriell i stråleterapi" comment=""/>
-         <code value="08P1" text="Direkte kostnader for blodprodukter i stråleterapi" comment=""/>
-         <code value="08P2" text="Indirekte kostnader for blodprodukter i stråleterapi" comment=""/>
-         <code value="08P9" text="Ubestemte kostnader for blodprodukter i stråleterapi" comment=""/>
-         <code value="08Z1" text="Direkte kostnader for andre forbruksvarer i stråleterapi" comment=""/>
-         <code value="08Z2" text="Indirekte kostnader for andre forbruksvarer i stråleterapi" comment=""/>
-         <code value="08Z9" text="Ubestemte kostnader for andre forbruksvarer i stråleterapi" comment=""/>
-         <code value="08H1" text="Direkte kostnader for lønnskostnader i stråleterapi" comment=""/>
-         <code value="08H2" text="Indirekte kostnader for lønnskostnader i stråleterapi" comment=""/>
-         <code value="08H9" text="Ubestemte kostnader for lønnskostnader i stråleterapi" comment=""/>
-         <code value="08C1" text="Direkte kostnader for pensjon i stråleterapi" comment=""/>
-         <code value="08C2" text="Indirekte kostnader for pensjon i stråleterapi" comment=""/>
-         <code value="08C9" text="Ubestemte kostnader for pensjon i stråleterapi" comment=""/>
-         <code value="08D1" text="Direkte kostnader for kapitalkostnader i bygg i stråleterapi" comment=""/>
-         <code value="08D2" text="Indirekte kostnader for kapitalkostnader i bygg i stråleterapi" comment=""/>
-         <code value="08D9" text="Ubestemte kostnader for kapitalkostnader i bygg i stråleterapi" comment=""/>
-         <code value="08E1" text="Direkte kostnader for andre kapitalkostnader i stråleterapi" comment=""/>
-         <code value="08E2" text="Indirekte kostnader for andre kapitalkostnader i stråleterapi" comment=""/>
-         <code value="08E9" text="Ubestemte kostnader for andre kapitalkostnader i stråleterapi" comment=""/>
-         <code value="08X1" text="Direkte kostnader for øvrige kostnader i stråleterapi" comment=""/>
-         <code value="08X2" text="Indirekte kostnader for øvrige kostnader i stråleterapi" comment=""/>
-         <code value="08X9" text="Ubestemte kostnader for øvrige kostnader i stråleterapi" comment=""/>
+         <code value="07X1" text="Direkte kostnader for Ã¸vrige kostnader i laboratorietjeneste" comment=""/>
+         <code value="07X2" text="Indirekte kostnader for Ã¸vrige kostnader i laboratorietjeneste" comment=""/>
+         <code value="07X9" text="Ubestemte kostnader for Ã¸vrige kostnader i laboratorietjeneste" comment=""/>
+         <code value="08L1" text="Direkte kostnader for legemidler i strÃ¥leterapi" comment=""/>
+         <code value="08L2" text="Indirekte kostnader for legemidler i strÃ¥leterapi" comment=""/>
+         <code value="08L9" text="Ubestemte kostnader for legemidler i strÃ¥leterapi" comment=""/>
+         <code value="08M1" text="Direkte kostnader for implantater i strÃ¥leterapi" comment=""/>
+         <code value="08M2" text="Indirekte kostnader for implantater i strÃ¥leterapi" comment=""/>
+         <code value="08M9" text="Ubestemte kostnader for implantater i strÃ¥leterapi" comment=""/>
+         <code value="08O1" text="Direkte kostnader for forbruksmateriell i strÃ¥leterapi" comment=""/>
+         <code value="08O2" text="Indirekte kostnader for forbruksmateriell i strÃ¥leterapi" comment=""/>
+         <code value="08O9" text="Ubestemte kostnader for forbruksmateriell i strÃ¥leterapi" comment=""/>
+         <code value="08P1" text="Direkte kostnader for blodprodukter i strÃ¥leterapi" comment=""/>
+         <code value="08P2" text="Indirekte kostnader for blodprodukter i strÃ¥leterapi" comment=""/>
+         <code value="08P9" text="Ubestemte kostnader for blodprodukter i strÃ¥leterapi" comment=""/>
+         <code value="08Z1" text="Direkte kostnader for andre forbruksvarer i strÃ¥leterapi" comment=""/>
+         <code value="08Z2" text="Indirekte kostnader for andre forbruksvarer i strÃ¥leterapi" comment=""/>
+         <code value="08Z9" text="Ubestemte kostnader for andre forbruksvarer i strÃ¥leterapi" comment=""/>
+         <code value="08H1" text="Direkte kostnader for lÃ¸nnskostnader i strÃ¥leterapi" comment=""/>
+         <code value="08H2" text="Indirekte kostnader for lÃ¸nnskostnader i strÃ¥leterapi" comment=""/>
+         <code value="08H9" text="Ubestemte kostnader for lÃ¸nnskostnader i strÃ¥leterapi" comment=""/>
+         <code value="08C1" text="Direkte kostnader for pensjon i strÃ¥leterapi" comment=""/>
+         <code value="08C2" text="Indirekte kostnader for pensjon i strÃ¥leterapi" comment=""/>
+         <code value="08C9" text="Ubestemte kostnader for pensjon i strÃ¥leterapi" comment=""/>
+         <code value="08D1" text="Direkte kostnader for kapitalkostnader i bygg i strÃ¥leterapi" comment=""/>
+         <code value="08D2" text="Indirekte kostnader for kapitalkostnader i bygg i strÃ¥leterapi" comment=""/>
+         <code value="08D9" text="Ubestemte kostnader for kapitalkostnader i bygg i strÃ¥leterapi" comment=""/>
+         <code value="08E1" text="Direkte kostnader for andre kapitalkostnader i strÃ¥leterapi" comment=""/>
+         <code value="08E2" text="Indirekte kostnader for andre kapitalkostnader i strÃ¥leterapi" comment=""/>
+         <code value="08E9" text="Ubestemte kostnader for andre kapitalkostnader i strÃ¥leterapi" comment=""/>
+         <code value="08X1" text="Direkte kostnader for Ã¸vrige kostnader i strÃ¥leterapi" comment=""/>
+         <code value="08X2" text="Indirekte kostnader for Ã¸vrige kostnader i strÃ¥leterapi" comment=""/>
+         <code value="08X9" text="Ubestemte kostnader for Ã¸vrige kostnader i strÃ¥leterapi" comment=""/>
          <code value="09L1" text="Direkte kostnader for legemidler i ambulant tjeneste" comment=""/>
          <code value="09L2" text="Indirekte kostnader for legemidler i ambulant tjeneste" comment=""/>
          <code value="09L9" text="Ubestemte kostnader for legemidler i ambulant tjeneste" comment=""/>
@@ -366,9 +308,9 @@
          <code value="09Z1" text="Direkte kostnader for andre forbruksvarer i ambulant tjeneste" comment=""/>
          <code value="09Z2" text="Indirekte kostnader for andre forbruksvarer i ambulant tjeneste" comment=""/>
          <code value="09Z9" text="Ubestemte kostnader for andre forbruksvarer i ambulant tjeneste" comment=""/>
-         <code value="09H1" text="Direkte kostnader for lønnskostnader i ambulant tjeneste" comment=""/>
-         <code value="09H2" text="Indirekte kostnader for lønnskostnader i ambulant tjeneste" comment=""/>
-         <code value="09H9" text="Ubestemte kostnader for lønnskostnader i ambulant tjeneste" comment=""/>
+         <code value="09H1" text="Direkte kostnader for lÃ¸nnskostnader i ambulant tjeneste" comment=""/>
+         <code value="09H2" text="Indirekte kostnader for lÃ¸nnskostnader i ambulant tjeneste" comment=""/>
+         <code value="09H9" text="Ubestemte kostnader for lÃ¸nnskostnader i ambulant tjeneste" comment=""/>
          <code value="09C1" text="Direkte kostnader for pensjon i ambulant tjeneste" comment=""/>
          <code value="09C2" text="Indirekte kostnader for pensjon i ambulant tjeneste" comment=""/>
          <code value="09C9" text="Ubestemte kostnader for pensjon i ambulant tjeneste" comment=""/>
@@ -378,9 +320,9 @@
          <code value="09E1" text="Direkte kostnader for andre kapitalkostnader i ambulant tjeneste" comment=""/>
          <code value="09E2" text="Indirekte kostnader for andre kapitalkostnader i ambulant tjeneste" comment=""/>
          <code value="09E9" text="Ubestemte kostnader for andre kapitalkostnader i ambulant tjeneste" comment=""/>
-         <code value="09X1" text="Direkte kostnader for øvrige kostnader i ambulant tjeneste" comment=""/>
-         <code value="09X2" text="Indirekte kostnader for øvrige kostnader i ambulant tjeneste" comment=""/>
-         <code value="09X9" text="Ubestemte kostnader for øvrige kostnader i ambulant tjeneste" comment=""/>
+         <code value="09X1" text="Direkte kostnader for Ã¸vrige kostnader i ambulant tjeneste" comment=""/>
+         <code value="09X2" text="Indirekte kostnader for Ã¸vrige kostnader i ambulant tjeneste" comment=""/>
+         <code value="09X9" text="Ubestemte kostnader for Ã¸vrige kostnader i ambulant tjeneste" comment=""/>
          <code value="10L1" text="Direkte kostnader for legemidler i poliklinikk" comment=""/>
          <code value="10L2" text="Indirekte kostnader for legemidler i poliklinikk" comment=""/>
          <code value="10L9" text="Ubestemte kostnader for legemidler i poliklinikk" comment=""/>
@@ -396,9 +338,9 @@
          <code value="10Z1" text="Direkte kostnader for andre forbruksvarer i poliklinikk" comment=""/>
          <code value="10Z2" text="Indirekte kostnader for andre forbruksvarer i poliklinikk" comment=""/>
          <code value="10Z9" text="Ubestemte kostnader for andre forbruksvarer i poliklinikk" comment=""/>
-         <code value="10H1" text="Direkte kostnader for lønnskostnader i poliklinikk" comment=""/>
-         <code value="10H2" text="Indirekte kostnader for lønnskostnader i poliklinikk" comment=""/>
-         <code value="10H9" text="Ubestemte kostnader for lønnskostnader i poliklinikk" comment=""/>
+         <code value="10H1" text="Direkte kostnader for lÃ¸nnskostnader i poliklinikk" comment=""/>
+         <code value="10H2" text="Indirekte kostnader for lÃ¸nnskostnader i poliklinikk" comment=""/>
+         <code value="10H9" text="Ubestemte kostnader for lÃ¸nnskostnader i poliklinikk" comment=""/>
          <code value="10C1" text="Direkte kostnader for pensjon i poliklinikk" comment=""/>
          <code value="10C2" text="Indirekte kostnader for pensjon i poliklinikk" comment=""/>
          <code value="10C9" text="Ubestemte kostnader for pensjon i poliklinikk" comment=""/>
@@ -408,9 +350,9 @@
          <code value="10E1" text="Direkte kostnader for andre kapitalkostnader i poliklinikk" comment=""/>
          <code value="10E2" text="Indirekte kostnader for andre kapitalkostnader i poliklinikk" comment=""/>
          <code value="10E9" text="Ubestemte kostnader for andre kapitalkostnader i poliklinikk" comment=""/>
-         <code value="10X1" text="Direkte kostnader for øvrige kostnader i poliklinikk" comment=""/>
-         <code value="10X2" text="Indirekte kostnader for øvrige kostnader i poliklinikk" comment=""/>
-         <code value="10X9" text="Ubestemte kostnader for øvrige kostnader i poliklinikk" comment=""/>
+         <code value="10X1" text="Direkte kostnader for Ã¸vrige kostnader i poliklinikk" comment=""/>
+         <code value="10X2" text="Indirekte kostnader for Ã¸vrige kostnader i poliklinikk" comment=""/>
+         <code value="10X9" text="Ubestemte kostnader for Ã¸vrige kostnader i poliklinikk" comment=""/>
          <code value="11L1" text="Direkte kostnader for legemidler i sengepostkostnad" comment=""/>
          <code value="11L2" text="Indirekte kostnader for legemidler i sengepostkostnad" comment=""/>
          <code value="11L9" text="Ubestemte kostnader for legemidler i sengepostkostnad" comment=""/>
@@ -426,9 +368,9 @@
          <code value="11Z1" text="Direkte kostnader for andre forbruksvarer i sengepostkostnad" comment=""/>
          <code value="11Z2" text="Indirekte kostnader for andre forbruksvarer i sengepostkostnad" comment=""/>
          <code value="11Z9" text="Ubestemte kostnader for andre forbruksvarer i sengepostkostnad" comment=""/>
-         <code value="11H1" text="Direkte kostnader for lønnskostnader i sengepostkostnad" comment=""/>
-         <code value="11H2" text="Indirekte kostnader for lønnskostnader i sengepostkostnad" comment=""/>
-         <code value="11H9" text="Ubestemte kostnader for lønnskostnader i sengepostkostnad" comment=""/>
+         <code value="11H1" text="Direkte kostnader for lÃ¸nnskostnader i sengepostkostnad" comment=""/>
+         <code value="11H2" text="Indirekte kostnader for lÃ¸nnskostnader i sengepostkostnad" comment=""/>
+         <code value="11H9" text="Ubestemte kostnader for lÃ¸nnskostnader i sengepostkostnad" comment=""/>
          <code value="11C1" text="Direkte kostnader for pensjon i sengepostkostnad" comment=""/>
          <code value="11C2" text="Indirekte kostnader for pensjon i sengepostkostnad" comment=""/>
          <code value="11C9" text="Ubestemte kostnader for pensjon i sengepostkostnad" comment=""/>
@@ -438,9 +380,9 @@
          <code value="11E1" text="Direkte kostnader for andre kapitalkostnader i sengepostkostnad" comment=""/>
          <code value="11E2" text="Indirekte kostnader for andre kapitalkostnader i sengepostkostnad" comment=""/>
          <code value="11E9" text="Ubestemte kostnader for andre kapitalkostnader i sengepostkostnad" comment=""/>
-         <code value="11X1" text="Direkte kostnader for øvrige kostnader i sengepostkostnad" comment=""/>
-         <code value="11X2" text="Indirekte kostnader for øvrige kostnader i sengepostkostnad" comment=""/>
-         <code value="11X9" text="Ubestemte kostnader for øvrige kostnader i sengepostkostnad" comment=""/>
+         <code value="11X1" text="Direkte kostnader for Ã¸vrige kostnader i sengepostkostnad" comment=""/>
+         <code value="11X2" text="Indirekte kostnader for Ã¸vrige kostnader i sengepostkostnad" comment=""/>
+         <code value="11X9" text="Ubestemte kostnader for Ã¸vrige kostnader i sengepostkostnad" comment=""/>
          <code value="88L1" text="Direkte kostnader for legemidler i annen tjenestetype" comment=""/>
          <code value="88L2" text="Indirekte kostnader for legemidler i annen tjenestetype" comment=""/>
          <code value="88L9" text="Ubestemte kostnader for legemidler i annen tjenestetype" comment=""/>
@@ -456,9 +398,9 @@
          <code value="88Z1" text="Direkte kostnader for andre forbruksvarer i annen tjenestetype" comment=""/>
          <code value="88Z2" text="Indirekte kostnader for andre forbruksvarer i annen tjenestetype" comment=""/>
          <code value="88Z9" text="Ubestemte kostnader for andre forbruksvarer i annen tjenestetype" comment=""/>
-         <code value="88H1" text="Direkte kostnader for lønnskostnader i annen tjenestetype" comment=""/>
-         <code value="88H2" text="Indirekte kostnader for lønnskostnader i annen tjenestetype" comment=""/>
-         <code value="88H9" text="Ubestemte kostnader for lønnskostnader i annen tjenestetype" comment=""/>
+         <code value="88H1" text="Direkte kostnader for lÃ¸nnskostnader i annen tjenestetype" comment=""/>
+         <code value="88H2" text="Indirekte kostnader for lÃ¸nnskostnader i annen tjenestetype" comment=""/>
+         <code value="88H9" text="Ubestemte kostnader for lÃ¸nnskostnader i annen tjenestetype" comment=""/>
          <code value="88C1" text="Direkte kostnader for pensjon i annen tjenestetype" comment=""/>
          <code value="88C2" text="Indirekte kostnader for pensjon i annen tjenestetype" comment=""/>
          <code value="88C9" text="Ubestemte kostnader for pensjon i annen tjenestetype" comment=""/>
@@ -468,14 +410,13 @@
          <code value="88E1" text="Direkte kostnader for andre kapitalkostnader i annen tjenestetype" comment=""/>
          <code value="88E2" text="Indirekte kostnader for andre kapitalkostnader i annen tjenestetype" comment=""/>
          <code value="88E9" text="Ubestemte kostnader for andre kapitalkostnader i annen tjenestetype" comment=""/>
-         <code value="88X1" text="Direkte kostnader for øvrige kostnader i annen tjenestetype" comment=""/>
-         <code value="88X2" text="Indirekte kostnader for øvrige kostnader i annen tjenestetype" comment=""/>
-         <code value="88X9" text="Ubestemte kostnader for øvrige kostnader i annen tjenestetype" comment=""/>
-   </appinfo>
-</annotation>
+         <code value="88X1" text="Direkte kostnader for Ã¸vrige kostnader i annen tjenestetype" comment=""/>
+         <code value="88X2" text="Indirekte kostnader for Ã¸vrige kostnader i annen tjenestetype" comment=""/>
+         <code value="88X9" text="Ubestemte kostnader for Ã¸vrige kostnader i annen tjenestetype" comment=""/>
+      </appinfo>
+   </annotation>
    <!-- dataType 'Kodet' -->
-   <simpleType name='Kodet' >
-      <restriction base= 'string'> 
-      </restriction> 
+   <simpleType name="Kodet">
+      <restriction base="string"/>
    </simpleType>
 </schema>
