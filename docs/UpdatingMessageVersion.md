@@ -1,7 +1,5 @@
 <h1>Oppdatere meldingsversjon</h1>
 
-[[_TOC_]]
-
 ## Oppdatere XSD-filer
 
 1. Finn riktig versjonsnummer under [FHI &rarr; Informasjonsmodell og meldinger](https://www.fhi.no/he/npr/registrering-og-rapportering/informasjonsmodell-og-meldinger/)
