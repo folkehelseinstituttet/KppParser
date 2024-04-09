@@ -137,14 +137,18 @@ namespace Dhhr.KppParser.Service
             return null;
         }
 
-        public static void Run(Args args, Action<int, string> reportStatus, Action<Melding> meldingValidationFunc)
+        public static void Run(Args args, Action<int, string> reportStatus, Action<Melding> messageValidator)
         {
             Directory.CreateDirectory(Path.GetDirectoryName(args.OutputPath));
 
             reportStatus?.Invoke(10, "Leser data...");
             var melding = CreateMelding(args);
 
-            meldingValidationFunc?.Invoke(melding);
+            if (messageValidator is not null)
+            {
+                reportStatus?.Invoke(30, "Validerer melding...");
+                messageValidator.Invoke(melding);
+            }
 
             var wrapped = WrapInMsgHead(melding, args);
 
