@@ -99,12 +99,12 @@ namespace Dhhr.KppParser.Service.Tests
             {
                 Organisation = new Organisation
                 {
-                    OrganisationName = "Helsedirektoratet",
-                    Ident = new[] { new Ident { Id = "2397", TypeId = new CV { V = "HER", DN = "HER-Id", S = "9051" } } },
+                    OrganisationName = "FHI",
+                    Ident = new[] { new Ident { Id = "85217", TypeId = new CV { V = "HER", DN = "HER-Id", S = "9051" } } },
                     Organisation1 = new Organisation
                     {
                         OrganisationName = "NPR",
-                        Ident = new[] { new Ident { Id = args.HDirHerId, TypeId = new CV { V = "HER", DN = "HER-Id", S = "9051" } } }
+                        Ident = new[] { new Ident { Id = args.FhiHerId, TypeId = new CV { V = "HER", DN = "HER-Id", S = "9051" } } }
                     }
                 }
             });
@@ -198,7 +198,7 @@ namespace Dhhr.KppParser.Service.Tests
                 OrganizationHerId = "54321",
                 OrganizationName2 = "Avsender navn nivå 2",
                 OrganizationHerId2 = "543212",
-                HDirHerId = "12345"
+                FhiHerId = "12345"
             };
         }
 

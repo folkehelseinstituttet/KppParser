@@ -76,9 +76,9 @@ namespace Dhhr.KppParser.Service
                     errors.Add("VersjonEpj mangler verdi");
                 }
 
-                if (!int.TryParse(args.HDirHerId, out _))
+                if (!int.TryParse(args.FhiHerId, out _))
                 {
-                    errors.Add("HDirHerId er ikke gyldig");
+                    errors.Add("FhiHerId er ikke gyldig");
                 }
             }
             catch (Exception ex)
@@ -263,12 +263,12 @@ namespace Dhhr.KppParser.Service
                     {
                         Organisation = new Organisation
                         {
-                            OrganisationName = "Helsedirektoratet",
+                            OrganisationName = "FHI",
                             Ident = new[]
                             {
                                 new Ident
                                 {
-                                    Id = "2397",
+                                    Id = "85217",
                                     TypeId = new CV { V = "HER", DN = "HER-Id", S = "9051" }
                                 }
                             },
@@ -279,7 +279,7 @@ namespace Dhhr.KppParser.Service
                                 {
                                     new Ident
                                     {
-                                        Id = args.HDirHerId,
+                                        Id = args.FhiHerId,
                                         TypeId = new CV { V = "HER", DN = "HER-Id", S = "9051" }
                                     }
                                 }
