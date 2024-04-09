@@ -137,14 +137,14 @@ namespace Dhhr.KppParser.Service
             return null;
         }
 
-        public static void Run(Args args, Action<int, string> reportStatus)
+        public static void Run(Args args, Action<int, string> reportStatus, Action<Melding> meldingValidationFunc)
         {
             Directory.CreateDirectory(Path.GetDirectoryName(args.OutputPath));
 
             reportStatus?.Invoke(10, "Leser data...");
             var melding = CreateMelding(args);
 
-            LogDuplicateInstitutionIdsIfAny(melding, reportStatus);
+            meldingValidationFunc?.Invoke(melding);
 
             var wrapped = WrapInMsgHead(melding, args);
 
@@ -174,21 +174,6 @@ namespace Dhhr.KppParser.Service
                 versjonEPJ = args.VersjonEpj,
                 Institusjon = ParseFiles(args.EpisodePath, args.TjenestePath).ToArray()
             };
-        }
-
-        private static void LogDuplicateInstitutionIdsIfAny(Melding message, Action<int, string> reportStatus)
-        {
-            var duplicateInstitutionIds = message.Institusjon
-                .Select(i => i.institusjonID)
-                .GroupBy(id => id)
-                .Where(idGroup => idGroup.Count() > 1)
-                .Select(duplicatedId => duplicatedId.Key)
-                .ToList();
-
-            if (duplicateInstitutionIds.Count > 0)
-            {
-                reportStatus?.Invoke(11, "Generert melding inneholder duplikater av følgende institusjons-IDer: " + string.Join(", ", duplicateInstitutionIds));
-            }
         }
 
         private static List<Institusjon> ParseFiles(string episodePath, string tjenestePath)

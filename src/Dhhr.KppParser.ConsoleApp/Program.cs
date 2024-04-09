@@ -3,6 +3,7 @@ using System.Globalization;
 using System.IO;
 using System.Reflection;
 using Dhhr.KppParser.Service;
+using Dhhr.KppParser.Service.Utils;
 using Mono.Options;
 
 namespace Dhhr.KppParser.ConsoleApp
@@ -90,7 +91,7 @@ namespace Dhhr.KppParser.ConsoleApp
 
             try
             {
-                KppService.Run(kppArgs, (i, s) => Log(s, verbose));
+                KppService.Run(kppArgs, (i, s) => Log(s, verbose), MeldingHelper.Validate);
             }
             catch (Exception ex)
             {
