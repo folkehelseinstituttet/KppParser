@@ -36,9 +36,10 @@ namespace Dhhr.KppParser.Gui
                 }
                 catch (Exception ex)
                 {
-                    _worker.ReportProgress(ProgressBar.Value, "Noe gikk galt :(");
                     var message = $"Noe gikk galt under opprettelse av meldingen.\n\nFeilmelding: {ex.Message}\n\n{ex.GetType()}\n\nVersjon: {args.ProgramVersion}";
                     MessageBox.Show(message, @"Noe gikk galt", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    _worker.ReportProgress(ProgressBar.Value, "Noe gikk galt :(");
                 }
                 finally
                 {
