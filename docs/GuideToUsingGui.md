@@ -19,18 +19,21 @@ Før du kan bruke KppParser-programmet må du laste det ned.
 
 ### Kjøring av GUI-applikasjonen
 
-1. Åpne mappen som ble pakket ut
-2. Finn `exe`-filen og dobbeltklikk på denne for å starte programmet
-3. Trykk på `Episoder` for å åpne filutforsker og velge `csv`-fil for episoder
-4. Trykk på `Tjenester` for å åpne filutforsker og velge `csv`-fil for tjenester
-5. Velg riktig rapporteringsperiode. (Hvilken datoperiode gjelder dataene for?)
-   - Du kan enten bruke kalenderikonet for å velge dato, eller klikke i dato-/måned-/årsfeltet og bruke piltastene (opp/ned) for å justere start- og sluttperioden
-6. Angi navn og HER-ID på avsender (nivå 1)
-7. Angi navn og HER-ID på avsender (nivå 2)
-8. Velg om sendingen er en ordentlig innsending eller en prøvesending
-9. Trykk `Lagre...`
-10. Velg hvilken mappe du ønsker at den genererte meldingen (`xml`-fil) skal lagres i, samt ønsket navn på filen
-11. Etter at du har trykket `Lagre` vil fremdriften vises i et lite vindu. Når vinduet viser `Ferdig` er filen ferdig generert. 
+1. Start programmet:
+   - Åpne mappen som ble pakket ut
+   - Finn `exe`-filen og dobbeltklikk på denne for å starte programmet
+2. Fyll ut nødvendig informasjon:
+   - Trykk på `Episoder` for å åpne filutforsker og velge `csv`-fil for episoder
+   - Trykk på `Tjenester` for å åpne filutforsker og velge `csv`-fil for tjenester
+   - Velg riktig rapporteringsperiode (hvilken datoperiode som dataene gjelder for)
+     - Du kan enten bruke kalenderikonet for å velge dato, eller klikke i dato-/måned-/årsfeltet og bruke piltastene (opp/ned) for å justere start- og sluttperioden
+   - Angi navn og HER-ID på avsender (nivå 1)
+   - Angi navn og HER-ID på avsender (nivå 2)
+   - Velg om sendingen er en ordentlig innsending eller en prøvesending
+3. Generér melding (`xml`-fil):
+   - Trykk `Lagre...`
+   - Velg hvilken mappe du ønsker at den genererte meldingen (`xml`-fil) skal lagres i, samt ønsket navn på filen
+   - Etter at du har trykket `Lagre` vil fremdriften vises i et lite vindu. Når vinduet viser `Ferdig` er filen ferdig generert. 
 
 Programmet/Applikasjonen ser slik ut:
 
