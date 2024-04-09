@@ -11,11 +11,15 @@ Før du kan bruke KppParser-programmet må du laste det ned.
     - `KppParser-ConsoleApp.zip` lar deg kjøre programmet som en konsollapplikasjon
 4. Last ned ønsket `zip`-fil
 
-## Kjøring av programmet
+## Utpakking av zip-filen
 
-1. Åpne mappen der `zip`-filen ble lagret
-2. Flytt eventuent `zip`-filen til en annen mappe på datamaskinen
-3. Pakk ut `zip`-filen
+Pakk ut `zip`-filen:
+
+1. Høyreklikk på filen &rarr; velg `Pakk ut alle...`
+2. Velg ønsket mappe for hvor du vil at programmet/applikasjonen skal være lagret på datamaskinen
+3. Velg `Pakk ut`
+
+## Kjøring av programmet
 
 ### Kjøring av GUI-applikasjonen
 
