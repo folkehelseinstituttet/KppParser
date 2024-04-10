@@ -2,7 +2,6 @@
 using System.ComponentModel;
 using System.Windows.Forms;
 using Dhhr.KppParser.Service;
-using Dhhr.KppParser.Service.Utils;
 
 namespace Dhhr.KppParser.Gui
 {
@@ -32,7 +31,7 @@ namespace Dhhr.KppParser.Gui
                 _worker.ReportProgress(ProgressBar.Minimum);
                 try
                 {
-                    KppService.Run(args, _worker.ReportProgress, MeldingHelper.Validate);
+                    KppService.Run(args, _worker.ReportProgress);
                 }
                 catch (Exception ex)
                 {
