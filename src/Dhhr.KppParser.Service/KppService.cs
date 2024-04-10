@@ -178,14 +178,14 @@ namespace Dhhr.KppParser.Service
         {
             var tjenester = File.ReadLines(tjenestePath)
                 .Skip(1) // skip header
-                .Select(line => line.Split(';'))
+                .Select(line => line.Split(';', StringSplitOptions.TrimEntries))
                 .ToLookup(
                     parts => parts[0], // episodeID
                     parts => TjenesteKPP.Create(parts[1], parts[2]));
 
             var episoder = File.ReadLines(episodePath)
                 .Skip(1) // skip header
-                .Select(line => line.Split(';'))
+                .Select(line => line.Split(';', StringSplitOptions.TrimEntries))
                 .GroupBy(
                     parts => parts[0], // institusjonID
                     parts => EpisodeKPP.Create(parts[1], parts[2], parts[3], tjenester[parts[1]]));
