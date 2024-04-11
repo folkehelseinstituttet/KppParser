@@ -137,12 +137,18 @@ namespace Dhhr.KppParser.Service
             return null;
         }
 
-        public static void Run(Args args, Action<int, string> reportStatus)
+        public static void Run(Args args, Action<int, string> reportStatus, Action<string> userNotificator)
         {
             Directory.CreateDirectory(Path.GetDirectoryName(args.OutputPath));
 
             reportStatus?.Invoke(10, "Leser data...");
             var melding = CreateMelding(args);
+
+            if (melding.Institusjon.Length > 1)
+            {
+                userNotificator?.Invoke("Episode-filen og den genererte meldingen inneholder flere institusjon-IDer: " +
+                                       string.Join(", ", melding.Institusjon.Select(i => i.institusjonID)));
+            }
 
             var wrapped = WrapInMsgHead(melding, args);
 

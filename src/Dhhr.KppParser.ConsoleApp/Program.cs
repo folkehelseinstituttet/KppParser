@@ -90,7 +90,7 @@ namespace Dhhr.KppParser.ConsoleApp
 
             try
             {
-                KppService.Run(kppArgs, (i, s) => Log(s, verbose));
+                KppService.Run(kppArgs, (_, status) => Log(status, verbose), InformUser);
             }
             catch (Exception ex)
             {
@@ -122,5 +122,7 @@ namespace Dhhr.KppParser.ConsoleApp
                 Console.WriteLine(status);
             }
         }
+
+        private static void InformUser(string message) => Log(message, verbose: true);
     }
 }

@@ -31,7 +31,7 @@ namespace Dhhr.KppParser.Gui
                 _worker.ReportProgress(ProgressBar.Minimum);
                 try
                 {
-                    KppService.Run(args, _worker.ReportProgress);
+                    KppService.Run(args, _worker.ReportProgress, InformUser);
                 }
                 catch (Exception ex)
                 {
@@ -46,6 +46,8 @@ namespace Dhhr.KppParser.Gui
                 }
             };
         }
+
+        private static void InformUser(string message) => MessageBox.Show(message);
 
         private void OnProgressChanged(object o, ProgressChangedEventArgs e)
         {

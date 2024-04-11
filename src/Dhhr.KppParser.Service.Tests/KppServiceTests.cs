@@ -35,7 +35,7 @@ namespace Dhhr.KppParser.Service.Tests
             var args = DefaultArgs();
 
             // act
-            KppService.Run(args, null);
+            KppService.Run(args, null, null);
 
             // assert
             var file = XmlUtils.DeserializeFromFile<MsgHead>(args.OutputPath);
@@ -59,7 +59,7 @@ namespace Dhhr.KppParser.Service.Tests
             var expectations = expectedMelding.Institusjon;
 
             // act
-            KppService.Run(args, null);
+            KppService.Run(args, null, null);
 
             // assert
             var file = XmlUtils.DeserializeFromFile<MsgHead>(args.OutputPath);
@@ -75,7 +75,7 @@ namespace Dhhr.KppParser.Service.Tests
             var args = DefaultArgs();
 
             // act
-            KppService.Run(args, null);
+            KppService.Run(args, null, null);
 
             // assert
             var msgHead = XmlUtils.DeserializeFromFile<MsgHead>(args.OutputPath);
@@ -124,7 +124,7 @@ namespace Dhhr.KppParser.Service.Tests
             var schemas = SchemaLoader.LoadDirectory("Resources");
 
             // act
-            KppService.Run(args, null);
+            KppService.Run(args, null, null);
 
             // assert
             Action verify = () => XmlUtils.ValidateXmlFile(args.OutputPath, schemas);
