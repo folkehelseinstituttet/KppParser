@@ -147,7 +147,9 @@ namespace Dhhr.KppParser.Service
             if (melding.Institusjon.Length > 1)
             {
                 userNotificator?.Invoke("Episode-filen og den genererte meldingen inneholder flere institusjon-IDer: " +
-                                       string.Join(", ", melding.Institusjon.Select(i => i.institusjonID)));
+                                       string.Join(", ", melding.Institusjon.Select(i => i.institusjonID)) +
+                                       Environment.NewLine + Environment.NewLine +
+                                       "Vi ber om at det kun rapporteres et unikt organisasjonsnummer som institusjonID i NPR_KPP-meldingen.");
             }
 
             var wrapped = WrapInMsgHead(melding, args);

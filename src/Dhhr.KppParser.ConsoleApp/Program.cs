@@ -123,6 +123,11 @@ namespace Dhhr.KppParser.ConsoleApp
             }
         }
 
-        private static void InformUser(string message) => Log(message, verbose: true);
+        private static void InformUser(string message)
+        {
+            var text = Environment.NewLine + message + Environment.NewLine;
+
+            Log(text, verbose: true);
+        }
     }
 }
