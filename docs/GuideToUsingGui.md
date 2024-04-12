@@ -45,4 +45,4 @@ Programmet/Applikasjonen ser slik ut:
 
 ### Kjøring av konsollapplikasjonen
 
-Ikke prioritert beskrevet enda.
+Ikke beskrevet enda.
