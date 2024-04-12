@@ -76,9 +76,9 @@ namespace Dhhr.KppParser.Service
                     errors.Add("VersjonEpj mangler verdi");
                 }
 
-                if (!int.TryParse(args.HDirHerId, out _))
+                if (!int.TryParse(args.FhiHerId, out _))
                 {
-                    errors.Add("HDirHerId er ikke gyldig");
+                    errors.Add("FhiHerId er ikke gyldig");
                 }
             }
             catch (Exception ex)
@@ -137,12 +137,20 @@ namespace Dhhr.KppParser.Service
             return null;
         }
 
-        public static void Run(Args args, Action<int, string> reportStatus)
+        public static void Run(Args args, Action<int, string> reportStatus, Action<string> userNotificator)
         {
             Directory.CreateDirectory(Path.GetDirectoryName(args.OutputPath));
 
             reportStatus?.Invoke(10, "Leser data...");
             var melding = CreateMelding(args);
+
+            if (melding.Institusjon.Length > 1)
+            {
+                userNotificator?.Invoke("Episode-filen og den genererte meldingen inneholder flere institusjon-IDer: " +
+                                       string.Join(", ", melding.Institusjon.Select(i => i.institusjonID)) +
+                                       Environment.NewLine + Environment.NewLine +
+                                       "Vi ber om at det kun rapporteres et unikt organisasjonsnummer som institusjonID i NPR_KPP-meldingen.");
+            }
 
             var wrapped = WrapInMsgHead(melding, args);
 
@@ -178,14 +186,14 @@ namespace Dhhr.KppParser.Service
         {
             var tjenester = File.ReadLines(tjenestePath)
                 .Skip(1) // skip header
-                .Select(line => line.Split(';'))
+                .Select(line => line.Split(';', StringSplitOptions.TrimEntries))
                 .ToLookup(
                     parts => parts[0], // episodeID
                     parts => TjenesteKPP.Create(parts[1], parts[2]));
 
             var episoder = File.ReadLines(episodePath)
                 .Skip(1) // skip header
-                .Select(line => line.Split(';'))
+                .Select(line => line.Split(';', StringSplitOptions.TrimEntries))
                 .GroupBy(
                     parts => parts[0], // institusjonID
                     parts => EpisodeKPP.Create(parts[1], parts[2], parts[3], tjenester[parts[1]]));
@@ -246,12 +254,12 @@ namespace Dhhr.KppParser.Service
                     {
                         Organisation = new Organisation
                         {
-                            OrganisationName = "Helsedirektoratet",
+                            OrganisationName = "FHI",
                             Ident = new[]
                             {
                                 new Ident
                                 {
-                                    Id = "2397",
+                                    Id = "85217",
                                     TypeId = new CV { V = "HER", DN = "HER-Id", S = "9051" }
                                 }
                             },
@@ -262,7 +270,7 @@ namespace Dhhr.KppParser.Service
                                 {
                                     new Ident
                                     {
-                                        Id = args.HDirHerId,
+                                        Id = args.FhiHerId,
                                         TypeId = new CV { V = "HER", DN = "HER-Id", S = "9051" }
                                     }
                                 }
