@@ -23,10 +23,14 @@ Pakk ut `zip`-filen:
 
 ### Kjøring av GUI-applikasjonen
 
-1. Start programmet:
-   - Åpne mappen som ble pakket ut
-   - Finn `exe`-filen og dobbeltklikk på denne for å starte programmet
-2. Fyll ut nødvendig informasjon:
+1. Angi riktig EPJ-informasjon: (må kun gjøres før første gangs bruk etter nedlasting)
+   - Åpne mappen der innholdet i `zip`-filen ble pakket ut
+   - Åpne `appsettings.json` (f.eks. i Notepad++)
+   - Skriv inn riktige verdier for `"navnEpj"` og `"versjonEpj"`
+   - Lagre endringene
+2. Start programmet:
+   - Finn `Dhhr.KppParser.Gui.exe`-filen i samme mappe og dobbeltklikk på denne for å starte programmet
+3. Fyll ut nødvendig informasjon:
    - Trykk på `Episoder` for å åpne filutforsker og velge `csv`-fil for episoder
    - Trykk på `Tjenester` for å åpne filutforsker og velge `csv`-fil for tjenester
    - Velg riktig rapporteringsperiode (hvilken datoperiode som dataene gjelder for)
@@ -34,10 +38,12 @@ Pakk ut `zip`-filen:
    - Angi navn og HER-ID på avsender (nivå 1)
    - Angi navn og HER-ID på avsender (nivå 2)
    - Velg om sendingen er en ordentlig innsending eller en prøvesending
-3. Generér melding (`xml`-fil):
+4. Generér melding (`xml`-fil):
    - Trykk `Lagre...`
    - Velg hvilken mappe du ønsker at den genererte meldingen (`xml`-fil) skal lagres i, samt ønsket navn på filen
-   - Etter at du har trykket `Lagre` vil fremdriften vises i et lite vindu. Når vinduet viser `Ferdig` er filen ferdig generert. 
+   - Etter at du har trykket `Lagre` vil fremdriften vises i et lite vindu. Når vinduet viser `Ferdig` er filen ferdig generert.
+
+Dersom `episode`-filen inneholder episoder knyttet til mer enn én institusjon-ID vil programmet informere brukeren om dette i en meldingsboks.
 
 Programmet/Applikasjonen ser slik ut:
 
@@ -45,4 +51,11 @@ Programmet/Applikasjonen ser slik ut:
 
 ### Kjøring av konsollapplikasjonen
 
-Ikke beskrevet enda.
+1. Kjør programmet:
+   - Åpne et kommandovindu
+   - Navigér til mappen der innholdet i `zip`-filen ble pakket ut
+   - Kjør programmet med `-h` for å se hvordan programmet brukes:
+
+```
+.\Dhhr.KppParser.ConsoleApp.exe -h
+```
