@@ -42,7 +42,7 @@ namespace Dhhr.KppParser.ConsoleApp
                 {"leverandor=", "Navn på leverandør av EPJ", x => kppArgs.Leverandor = x},
                 {"epj-navn=", "Navn på EPJ", x => kppArgs.NavnEpj = x },
                 {"epj-versjon=", "Versjon av EPJ", x => kppArgs.VersjonEpj = x },
-                {"hdir-herid=", "Helsedirektoratets HerId.", x => kppArgs.HDirHerId = x },
+                {"fhi-herid=", "FHIs HerId.", x => kppArgs.FhiHerId = x },
                 {"Output" },
                 {"o|output=", "Filsti hvor resultatet lagres", x => kppArgs.OutputPath = x}
             };
@@ -90,7 +90,7 @@ namespace Dhhr.KppParser.ConsoleApp
 
             try
             {
-                KppService.Run(kppArgs, (i, s) => Log(s, verbose));
+                KppService.Run(kppArgs, (_, status) => Log(status, verbose), InformUser);
             }
             catch (Exception ex)
             {
@@ -121,6 +121,13 @@ namespace Dhhr.KppParser.ConsoleApp
             {
                 Console.WriteLine(status);
             }
+        }
+
+        private static void InformUser(string message)
+        {
+            var text = Environment.NewLine + message + Environment.NewLine;
+
+            Log(text, verbose: true);
         }
     }
 }

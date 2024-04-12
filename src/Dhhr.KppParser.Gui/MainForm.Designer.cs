@@ -292,7 +292,7 @@
             this.groupBox3.Size = new System.Drawing.Size(305, 48);
             this.groupBox3.TabIndex = 5;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Mottaker (Helsedir)";
+            this.groupBox3.Text = "Mottaker (FHI)";
             // 
             // MainForm
             // 
@@ -308,7 +308,7 @@
             this.Controls.Add(this.filesBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "MainForm";
-            this.Text = "Bygg KPP Melding";
+            this.Text = "Bygg KPP-melding";
             this.filesBox.ResumeLayout(false);
             this.filesBox.PerformLayout();
             this.ReportingPeriodBox.ResumeLayout(false);

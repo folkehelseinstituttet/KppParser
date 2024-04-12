@@ -5,8 +5,8 @@
 # Merknad
     Merk at alle Input og Output er påkrevd
 
-# Helsedirektoratets HerId
-    I skrivende stund er Helsedirektoratets HerId-er følgende:
+# FHIs HerId
+    I skrivende stund er FHIs HerId-er følgende:
     - Prod: 94378
     - QA/Validering: 121017
     For oppdaterte HerId-er, sjekk Adresseregisteret (https://register.nhn.no)
@@ -18,5 +18,5 @@
     Kjør programmet og inkluder.exe --dry-run for å kontrollere at konfigurasjon er riktig.
     .\Dhhr.KppParser.ConsoleApp --dry-run --episoder=...
 
-    Dersom det likevel oppstår en uventet feil, vennligst kjør programmet med --verbose og send det som skrives til Helsedirektoratet.
+    Dersom det likevel oppstår en uventet feil, vennligst kjør programmet med --verbose og send det som skrives til FHI.
     .\Dhhr.KppParser.ConsoleApp.exe --verbose --episoder=...

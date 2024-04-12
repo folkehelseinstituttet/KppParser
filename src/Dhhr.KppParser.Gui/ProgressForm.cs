@@ -31,13 +31,14 @@ namespace Dhhr.KppParser.Gui
                 _worker.ReportProgress(ProgressBar.Minimum);
                 try
                 {
-                    KppService.Run(args, _worker.ReportProgress);
+                    KppService.Run(args, _worker.ReportProgress, InformUser);
                 }
                 catch (Exception ex)
                 {
-                    _worker.ReportProgress(ProgressBar.Value, "Noe gikk galt :(");
                     var message = $"Noe gikk galt under opprettelse av meldingen.\n\nFeilmelding: {ex.Message}\n\n{ex.GetType()}\n\nVersjon: {args.ProgramVersion}";
                     MessageBox.Show(message, @"Noe gikk galt", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    _worker.ReportProgress(ProgressBar.Value, "Noe gikk galt :(");
                 }
                 finally
                 {
@@ -45,6 +46,8 @@ namespace Dhhr.KppParser.Gui
                 }
             };
         }
+
+        private static void InformUser(string message) => MessageBox.Show(message);
 
         private void OnProgressChanged(object o, ProgressChangedEventArgs e)
         {
