@@ -25,7 +25,7 @@ Dokumentasjon finnes [hos Microsoft](https://learn.microsoft.com/en-us/dotnet/st
 
 ---
 
-Avhengig av hvordan `xsd.exe`-stien parses kan det være at hele eller deler av stien må omgis av fnutter. Eksempelvis:
+Avhengig av hvordan `<absolutt sti til xsd.exe>`-verdien parses kan det være at hele eller deler av stien må omgis av fnutter. Eksempelvis:
 
 ```
 'C:\Program Files (x86)\Microsoft SDKs\Windows\v10.0A\bin\NETFX 4.8 Tools\xsd.exe'
