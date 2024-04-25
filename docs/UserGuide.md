@@ -59,3 +59,5 @@ Programmet/Applikasjonen ser slik ut:
 ```
 .\Dhhr.KppParser.ConsoleApp.exe -h
 ```
+
+Filstier til episode-, tjeneste- og output-filene må angis enten med absolutt sti, eller med relativ sti fra der hvor konsollapplikasjonen er installert.
