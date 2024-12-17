@@ -1,220 +1,102 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- Generated on 2022-10-10 -->
 <!-- Avdeling helseregistres meldinger -->
 <!-- Modul kpp  -->
 <!-- Skjema for Innrapportering av data om kostnad per pasient  -->
-<schema targetNamespace="http://www.npr.no/xmlstds/58_0_1_kpp" elementFormDefault="qualified" version="58.0.1.0" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:kith="http://www.kith.no/xmlstds" xmlns:npr="http://www.npr.no/xmlstds/58_0_1_kpp" xmlns:nprx="http://www.npr.no/xmlstds/58_0_1" xmlns:xsd="http://www.w3.org/2001/XMLSchema.xsd">
-	<import schemaLocation="NPR.xsd" namespace="http://www.npr.no/xmlstds/58_0_1"></import>
-	<include schemaLocation="NPR(kpp)_CodingSchemes.xsd"></include>
-	<!-- LEVEL 1 -->
-	<!-- Class: Melding -->
-	<element name="Melding">
-		<annotation>
-			<appinfo source="className">className: Melding</appinfo>
-			<documentation>Opplysninger som leverandører av helsetjenester i kommuner, helsevirksomheter eller helsepersonell etter bestemmelser i lov eller i medhold av lov i gitte situasjoner er pliktig til å rapportere.</documentation>
-		</annotation>
-		<complexType>
-			<sequence>
-				<element ref="npr:Institusjon" minOccurs="1" maxOccurs="unbounded"></element>
-			</sequence>
-			<attribute name="versjon" use="required" type="string" fixed="58.0.1">
-				<annotation>
-					<appinfo source="attributeName">attributeName: Versjon</appinfo>
-					<appinfo source="attributeDoc">attributeDoc: Unik identifikator for hvilken versjon av informasjonsmodellen som er benyttet for denne meldingen.</appinfo>
-					<appinfo source="attributeComment">attributeComment: XML: fixed</appinfo>
-				</annotation>
-			</attribute>
-			<attribute name="meldingstype" use="required" type="npr:meldingstype">
-				<annotation>
-					<appinfo source="attributeName">attributeName: Meldingstype</appinfo>
-					<appinfo source="attributeDoc">attributeDoc: Informasjon til mottakssystemet for å angi om gitt melding er en satsvis melding, en endringsmelding eller en melding for kontinuerlige oppdateringer</appinfo>
-					<appinfo source="attributeUse">attributeUse: Kode E og K skal kun benyttes dersom det på forhånd er inngått avtale om overgang til endringsmelding.</appinfo>
-					<appinfo source="OID">OID: 7371</appinfo>
-				</annotation>
-			</attribute>
-			<attribute name="fraDatoPeriode" use="required" type="date">
-				<annotation>
-					<appinfo source="attributeName">attributeName: FraDato</appinfo>
-					<appinfo source="attributeDoc">attributeDoc: Dato for start av periode denne meldingen gjelder for.</appinfo>
-					<appinfo source="attributeUse">attributeUse: Følger ISO 8601 standard: YYYY-MM-DD.</appinfo>
-					<appinfo source="example">example: 2017-01-01 betyr at denne melding gjelder for perioden fra og med 1 januar 2017.</appinfo>
-				</annotation>
-			</attribute>
-			<attribute name="uttakDato" use="required" type="date">
-				<annotation>
-					<appinfo source="attributeName">attributeName: Uttaksdato</appinfo>
-					<appinfo source="attributeDoc">attributeDoc: Dato for uttrekk av data til melding.</appinfo>
-					<appinfo source="attributeUse">attributeUse: Følger ISO 8601 standard: YYYY-MM-DD.</appinfo>
-					<appinfo source="example">example: 2003-04-03 betyr at innholdet i denne melding ble hentet ut fra institusjonens datasystemer den 3. april 2003.</appinfo>
-					<appinfo source="origin">origin: NPR felt 64</appinfo>
-				</annotation>
-			</attribute>
-			<attribute name="uttakTidspunkt" type="dateTime">
-				<annotation>
-					<appinfo source="attributeName">attributeName: Uttakstidspunkt</appinfo>
-					<appinfo source="attributeDoc">attributeDoc: Tidspunkt for start av uttrekk av data til melding.</appinfo>
-					<appinfo source="attributeUse">attributeUse: Følger ISO 8601 standard: YYYY-MM-DDTHH:MM:SS.</appinfo>
-					<appinfo source="example">example: 2022-04-03T23:10:00 betyr at innholdet i denne melding ble startet hentet ut fra institusjonens datasystemer den 3. april 2022 kl 23:10:00.</appinfo>
-				</annotation>
-			</attribute>
-			<attribute name="leverandor" use="required" type="string">
-				<annotation>
-					<appinfo source="attributeName">attributeName: Leverandør av EPJ</appinfo>
-					<appinfo source="attributeDoc">attributeDoc: Navn på leverandør av EPJ/PAS/RIS eller annet fagsystem.</appinfo>
-				</annotation>
-			</attribute>
-			<attribute name="navnEPJ" use="required" type="string">
-				<annotation>
-					<appinfo source="attributeName">attributeName: Systemnavn EPJ</appinfo>
-					<appinfo source="attributeDoc">attributeDoc: Navnet på EPJ/PAS/RIS eller annet fagsystem.</appinfo>
-				</annotation>
-			</attribute>
-			<attribute name="versjonEPJ" use="required" type="string">
-				<annotation>
-					<appinfo source="attributeName">attributeName: Versjon av EPJ</appinfo>
-					<appinfo source="attributeDoc">attributeDoc: Versjon av EPJ/PAS/RIS eller annet fabsystem.</appinfo>
-					<appinfo source="example">example: 2.1</appinfo>
-				</annotation>
-			</attribute>
-			<attribute name="versjonUt" use="required" type="string">
-				<annotation>
-					<appinfo source="attributeName">attributeName: Versjon av uttrekksprogram</appinfo>
-					<appinfo source="attributeDoc">attributeDoc: Uttrekksprogram er det program eller system som kopierer data fra EPJ/PAS/RIS eller annet fagsystem til XML-melding.</appinfo>
-				</annotation>
-			</attribute>
-			<attribute name="lopenr" use="required" type="integer">
-				<annotation>
-					<appinfo source="attributeName">attributeName: Løpenummer</appinfo>
-					<appinfo source="attributeDoc">attributeDoc: Entydig løpenummer (heltall) for denne melding i forhold til alle meldinger for inneværende år.</appinfo>
-					<appinfo source="attributeUse">attributeUse: Løpenummer skal endres med +1 for hver gang en XML-melding blir sendt til Folkehelseinstituttet.</appinfo>
-					<appinfo source="example">example: 21</appinfo>
-				</annotation>
-			</attribute>
-			<attribute name="tilDatoPeriode" use="required" type="date">
-				<annotation>
-					<appinfo source="attributeName">attributeName: TilDato</appinfo>
-					<appinfo source="attributeDoc">attributeDoc: Dato for slutt av periode denne meldingen gjelder for.</appinfo>
-					<appinfo source="attributeUse">attributeUse: Følger ISO 8601 standard: YYYY-MM-DD.</appinfo>
-					<appinfo source="example">example: 2003-03-01 betyr at denne melding gjelder for perioden til og med 1 mars 2003.</appinfo>
-				</annotation>
-			</attribute>
-			<attribute name="lokalident" type="string">
-				<annotation>
-					<appinfo source="attributeName">attributeName: Lokal meldingsidentifikasjon</appinfo>
-					<appinfo source="attributeDoc">attributeDoc: Lokal identifikasjon.</appinfo>
-					<appinfo source="attributeUse">attributeUse: Et tekstfelt leverandørene fritt kan bruke til å identifisere meldingen.</appinfo>
-				</annotation>
-			</attribute>
-		</complexType>
-		<unique name="InstitusjonP_ID">
-			<selector xpath="npr:Institusjon"></selector>
-			<field xpath="@institusjonID"></field>
-		</unique>
-	</element>
-	<!-- LEVEL 2 -->
-	<!-- Class: Helseinstitusjon -->
-	<element name="Institusjon">
-		<annotation>
-			<appinfo source="className">className: Helseinstitusjon</appinfo>
-			<documentation>Institusjon som hører under lov om spesialisthelsetjenesten.</documentation>
-		</annotation>
-		<complexType>
-			<sequence>
-				<element ref="npr:Objektholder" minOccurs="1" maxOccurs="unbounded"></element>
-			</sequence>
-			<attribute name="institusjonID" use="required" type="string">
-				<annotation>
-					<appinfo source="attributeName">attributeName: Institusjon identifikator</appinfo>
-					<appinfo source="attributeDoc">attributeDoc: Unik identifikator for helseinstitusjon. Helseinstitusjon identifiserer rapporteringsenheter, og skal rapporteres med organisasjonsnummer tilsvarende foretak eller virksomhet.Avtalespesialister skal rapportere en NPR-melding per hjemmel.</appinfo>
-					<appinfo source="attributeUse">attributeUse: Virksomhetsdata skal rapporteres pr helseinstitusjon. Det vil si den enheten innrapporteringen gjelder for. Det kan rapporteres virksomhetsdata for flere helseinstitusjoner i en og samme innrapportering av NPR-meldingen.</appinfo>
-					<appinfo source="attributeComment">attributeComment: Jf. Helsepersonelloven. Helseinstitusjoner tilbyr vanligvis døgnopphold, tjenester fra flere kategorier helsepersonell og pleie- og behandlingstilbud ut over allmenn omsorg.</appinfo>
-				</annotation>
-			</attribute>
-			<attribute name="foretakID" type="string">
-				<annotation>
-					<appinfo source="attributeName">attributeName: Foretak</appinfo>
-					<appinfo source="attributeDoc">attributeDoc: Unik identifikasjon av det foretak som er juridisk ansvarlig for rapporterte data og aktivitet. Rapporterende enhet kan være en virksomhet under et foretak. Dette kan være det samme som rapporterende enhet.</appinfo>
-				</annotation>
-			</attribute>
-		</complexType>
-		<unique name="ObjektholderP_ID">
-			<selector xpath="npr:Objektholder"></selector>
-			<field xpath="@pasientNr"></field>
-		</unique>
-	</element>
-	<!-- LEVEL 3 -->
-	<!-- Class: Objektholder -->
-	<element name="Objektholder">
-		<annotation>
-			<appinfo source="className">className: Objektholder</appinfo>
-			<documentation>Er en container som holder objekter fra lavere nivå. Hver av objektene på lavere nivå skal identifiseres ved hjelp av GUID eller annen unik identifikasjon slik at alle objekter kan identifiseres på tvers av meldinger.</documentation>
-		</annotation>
-		<complexType>
-			<sequence>
-				<element ref="npr:EpisodeKPP" minOccurs="0" maxOccurs="unbounded"></element>
-			</sequence>
-			<attribute name="pasientNr" use="required" type="string">
-				<annotation>
-					<appinfo source="attributeName">attributeName: Pasient/brukernummer</appinfo>
-					<appinfo source="attributeDoc">attributeDoc: Unik identifikator for pasient/bruker. Denne identifikator brukes i forbindelse med tilbakemelding av feil, og kobling av personidentifikasjon i Ident-meldingen (ide) til andre meldinger.</appinfo>
-					<appinfo source="attributeUse">attributeUse: For rapporteringsenhenter skal pasientnummer/brukernummer være entydig innenfor samme helseinstitusjon/kommune.Pasienten/brukeren skal ha samme pasientnummer/brukernummer for alle Henvisningsperioder.Rapporteringsenhet skal oppbevare mapping mellom Pasientnummer/Brukernummer og Fødselsnummer og rapportere koplingen i egen melding (Ident).</appinfo>
-					<appinfo source="attributeComment">attributeComment: Denne identifikasjon brukes i dialog med rapporteringsenheter.</appinfo>
-					<appinfo source="origin">origin: NPR felt 4</appinfo>
-				</annotation>
-			</attribute>
-		</complexType>
-	</element>
-	<!-- LEVEL 4 -->
-	<!-- Class: Episode KPP -->
-	<element name="EpisodeKPP">
-		<annotation>
-			<appinfo source="className">className: Episode KPP</appinfo>
-			<documentation>Kostnader knyttet til Episode</documentation>
-		</annotation>
-		<complexType>
-			<sequence>
-				<element ref="npr:TjenesteKPP" minOccurs="0" maxOccurs="unbounded"></element>
-			</sequence>
-			<attribute name="episodeID" use="required" type="string">
-				<annotation>
-					<appinfo source="attributeName">attributeName: EpisodeID</appinfo>
-					<appinfo source="attributeDoc">attributeDoc: Samme EpisodeID som er rapportert til NPR i ordinær aktivitetrapportering.</appinfo>
-					<appinfo source="attributeComment">attributeComment: Samme ID som ble sendt med aktivitetsdata</appinfo>
-				</annotation>
-			</attribute>
-			<attribute name="drg" type="string">
-				<annotation>
-					<appinfo source="attributeName">attributeName: DRG</appinfo>
-					<appinfo source="attributeDoc">attributeDoc: Lokal beregnet DRG</appinfo>
-				</annotation>
-			</attribute>
-			<attribute name="total" type="decimal">
-				<annotation>
-					<appinfo source="attributeName">attributeName: Totalkostnad</appinfo>
-					<appinfo source="attributeDoc">attributeDoc: Sum av alle kostnader for denne Episode.</appinfo>
-				</annotation>
-			</attribute>
-		</complexType>
-	</element>
-	<!-- LEVEL 5 -->
-	<!-- Class: Tjeneste KPP -->
-	<element name="TjenesteKPP">
-		<annotation>
-			<appinfo source="className">className: Tjeneste KPP</appinfo>
-		</annotation>
-		<complexType>
-			<attribute name="kostnadKode" use="required" type="npr:kPP___Kostnad_per_pasient">
-				<annotation>
-					<appinfo source="attributeName">attributeName: Kostnad kode</appinfo>
-					<appinfo source="attributeDoc">attributeDoc: Kode for den tjenestetype-forbruksvare som dette er en kostnad for.</appinfo>
-					<appinfo source="OID">OID: 8491</appinfo>
-				</annotation>
-			</attribute>
-			<attribute name="kostnad" use="required" type="decimal">
-				<annotation>
-					<appinfo source="attributeName">attributeName: Kostnad</appinfo>
-					<appinfo source="attributeDoc">attributeDoc: Kostnad (kr) for denne tjenestetype-forbruksvare.</appinfo>
-				</annotation>
-			</attribute>
-		</complexType>
-	</element>
+<!-- XML-Schema level supported is specified by W3C -->
+<!-- http://www.w3.org/2001/XMLSchema -->
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema.xsd" xmlns:kith="http://www.kith.no/xmlstds" xmlns:nprx="http://www.npr.no/xmlstds/57_0_1" xmlns:npr="http://www.npr.no/xmlstds/57_0_1_kpp" targetNamespace="http://www.npr.no/xmlstds/57_0_1_kpp" elementFormDefault="qualified" attributeFormDefault="unqualified" version="57.0.1.1">
+   <import namespace="http://www.npr.no/xmlstds/57_0_1" schemaLocation="NPR.xsd"/>
+   <include schemaLocation="NPR(kpp)_CodingSchemes.xsd"/>
+   <!-- LEVEL 1 -->
+   <!-- Class: Melding -->
+   <element name="Melding">
+      <annotation>
+         <documentation>
+            Opplysninger som leverandører av helsetjenester i kommuner, helsevirksomheter eller helsepersonell etter bestemmelser i lov eller i medhold av lov i gitte situasjoner er pliktig til å rapportere.
+         </documentation>
+      </annotation>
+      <complexType>
+         <sequence>
+            <element ref="npr:Institusjon" minOccurs="1" maxOccurs="unbounded"/>
+         </sequence>
+         <attribute name="versjon" type="string" use="required" fixed="57.0.1"/>
+         <attribute name="meldingstype" type="npr:meldingstype" use="required"/>
+         <attribute name="fraDatoPeriode" type="date" use="required"/>
+         <attribute name="uttakDato" type="date" use="required"/>
+         <attribute name="uttakTidspunkt" type="dateTime" use="optional"/>
+         <attribute name="leverandor" type="string" use="required"/>
+         <attribute name="navnEPJ" type="string" use="required"/>
+         <attribute name="versjonEPJ" type="string" use="required"/>
+         <attribute name="versjonUt" type="string" use="required"/>
+         <attribute name="lopenr" type="integer" use="required"/>
+         <attribute name="tilDatoPeriode" type="date" use="required"/>
+         <attribute name="lokalident" type="string" use="optional"/>
+      </complexType>
+      <unique name="InstitusjonP_ID">
+         <selector xpath="npr:Institusjon"/>
+         <field xpath="@institusjonID"/>
+      </unique>
+   </element>
+   <!-- LEVEL 2 -->
+   <!-- Class: Helseinstitusjon -->
+   <element name="Institusjon">
+      <annotation>
+         <documentation>
+            Institusjon som hører under lov om spesialisthelsetjenesten.
+         </documentation>
+      </annotation>
+      <complexType>
+         <sequence>
+            <element ref="npr:Objektholder" minOccurs="1" maxOccurs="unbounded"/>
+         </sequence>
+         <attribute name="institusjonID" type="string" use="required"/>
+         <attribute name="foretakID" type="string" use="optional"/>
+      </complexType>
+      <unique name="ObjektholderP_ID">
+         <selector xpath="npr:Objektholder"/>
+         <field xpath="@pasientNr"/>
+      </unique>
+   </element>
+   <!-- LEVEL 3 -->
+   <!-- Class: Objektholder -->
+   <element name="Objektholder">
+      <annotation>
+         <documentation>
+            Er en container som holder objekter fra lavere nivå. Hver av objektene på lavere nivå skal identifiseres ved hjelp av GUID eller annen unik identifikasjon slik at alle objekter kan identifiseres på tvers av meldinger.
+         </documentation>
+      </annotation>
+      <complexType>
+         <sequence>
+            <element ref="npr:EpisodeKPP" minOccurs="0" maxOccurs="unbounded"/>
+         </sequence>
+         <attribute name="pasientGUID" type="nprx:guid" use="prohibited"/>
+         <attribute name="pasientNr" type="string" use="required"/>
+      </complexType>
+   </element>
+   <!-- LEVEL 4 -->
+   <!-- Class: Episode KPP -->
+   <element name="EpisodeKPP">
+      <annotation>
+         <documentation>
+            Kostnader knyttet til Episode
+         </documentation>
+      </annotation>
+      <complexType>
+         <sequence>
+            <element ref="npr:TjenesteKPP" minOccurs="0" maxOccurs="unbounded"/>
+         </sequence>
+         <attribute name="episodeID" type="string" use="required"/>
+         <attribute name="drg" type="string" use="optional"/>
+         <attribute name="total" type="decimal" use="optional"/>
+      </complexType>
+   </element>
+   <!-- LEVEL 5 -->
+   <!-- Class: Tjeneste KPP -->
+   <element name="TjenesteKPP">
+      <complexType>
+         <attribute name="kostnadKode" type="npr:kPP___Kostnad_per_pasient" use="required"/>
+         <attribute name="kostnad" type="decimal" use="required"/>
+      </complexType>
+   </element>
 </schema>
