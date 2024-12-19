@@ -59,5 +59,5 @@ Etter at pull requesten er godkjent og merget til main:
 ```
   _Disse mappene ble generert når programmene ble laget (se over, Lage programmene Gui og ConsoleApp)_
   
-  7. Gi zip-filene henholdsvis disse navnene "KppParser-ConsoleApp.zip" og "KppParser-Gui.zip"
+  6. Gi zip-filene henholdsvis disse navnene "KppParser-ConsoleApp.zip" og "KppParser-Gui.zip"
   
