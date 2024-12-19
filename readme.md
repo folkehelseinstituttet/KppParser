@@ -41,10 +41,11 @@ Test csv-filer for episode og tjeneste finnes i mappen:
 .\Dhhr.KppParser.Gui\appsettings.json
 ```
 2. Oppdatere dokumentasjonen (readme.md og mappen docs) hvis det oppdages feil i dokumetasjonen og/eller hvis det er viktige opplysninger som bør noteres ned.
-4. Merge koden til main i Github
+3. Lage en pull request for å merge koden til main i Github
    
 
 ## Publisere på github
+Etter at pull requesten er godkjent og merget til main:
 1. Opprett ny release på github
 2. Oppgi tittel basert på hva som er forandret
 4. Sett tag et fornuftig versjonsnummer (bruk samme versjonsnummer som i .csproj)
