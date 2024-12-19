@@ -22,7 +22,8 @@
 
 ## Oppdatere KppParser sitt versjonsnummer
 Versjonsnummeret til KppParser er uavhengig av meldingsversjonen, men skal justeres ved oppdatering av meldingsversjonen.
-Les readme.md for hvordan KppParser sitt versjonsnummer oppdateres
+
+Les [Oppdater-kppParser sitt versjonsnummer](https://github.com/folkehelseinstituttet/KppParser/edit/feature/docs-updatemessageversion-detailed-v2/readme.md#oppdater-kppparser-sitt-versjonsnummer) i readme.md for hvordan KppParser sitt versjonsnummer oppdateres
   
 ## Oppdatere CS-modeller
   1. Oppdatere disse filene med riktig meldingsversjonsnummer:
