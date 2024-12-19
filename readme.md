@@ -8,6 +8,23 @@ Det er to måter å kjøre programmet:
 
 # Publisere ny versjon
 
+## Oppdater kppParser sitt versjonsnummer
+1. Oppdatér alle `<AssemblyVersion>`-verdier (i `.csproj`-filer) til nytt versjonsnummer (format: `x.y.z.*`)
+
+   Filstiene til de aktuelle .cproj-filene:
+```
+.\Dhhr.KppParser.ConsoleApp\Dhhr.KppParser.ConsoleApp.csproj
+```
+```
+.\Dhhr.KppParser.Gui\Dhhr.KppParser.Gui.csproj
+```
+2. Oppdatér `versjonEpj`-verdien i `Dhhr.KppParser.Gui` &rarr; `appsettings.json` til nytt versjonsnummer (format: `x.y.z`)
+
+   Filstien til appsettings.json:
+```
+.\Dhhr.KppParser.Gui\appsettings.json
+```
+
 ## Lage programmene Gui og ConsoleApp
 Både Gui og ConsoleApp lages med denne kommandoen
 ```
@@ -30,16 +47,6 @@ Test csv-filer for episode og tjeneste finnes i mappen:
 ```
 
 ## Før release
-1. Oppdater versjonsnummer i filene:
-```
-.\Dhhr.KppParser.ConsoleApp\Dhhr.KppParser.ConsoleApp.csproj
-```
-```
-.\Dhhr.KppParser.Gui\Dhhr.KppParser.Gui.csproj
-```
-```
-.\Dhhr.KppParser.Gui\appsettings.json
-```
 2. Oppdatere dokumentasjonen (readme.md og mappen docs) hvis det oppdages feil i dokumetasjonen og/eller hvis det er viktige opplysninger som bør noteres ned.
 3. Lage en pull request for å merge koden til main i Github
    
