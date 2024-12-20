@@ -6,7 +6,7 @@ Det er to måter å kjøre programmet:
 - Kjøre konsoll-appen (ConsoleApp)
 
 
-# Publisere ny versjon
+# Release ny versjon
 
 ## Oppdater kppParser sitt versjonsnummer
 1. Oppdatér alle `<AssemblyVersion>`-verdier (i `.csproj`-filer) til nytt versjonsnummer (format: `x.y.z.*`)
@@ -30,7 +30,7 @@ Både Gui og ConsoleApp lages med denne kommandoen
 ```
 cd .\Dhhr.KppParser.ConsoleApp; dotnet publish -c Release -r win-x64 --no-self-contained -p:PublishSingleFile=true; cd ..\Dhhr.KppParser.Gui; dotnet publish -c Release -r win-x64 --no-self-contained -p:PublishSingleFile=true
 ```
-_Denne kommandoen finner riktig filstier og lager programmene_
+_Denne kommandoen finner riktige filstier og lager programmene_
 
 Programmene får disse filstiene:
 ```
@@ -47,12 +47,12 @@ Test csv-filer for episode og tjeneste finnes i mappen:
 ```
 
 ## Før release
-2. Oppdatere dokumentasjonen (readme.md og mappen docs) hvis det oppdages feil i dokumetasjonen og/eller hvis det er viktige opplysninger som bør noteres ned.
-3. Lage en pull request for å merge koden til main i Github
+1. Oppdatere dokumentasjonen (readme.md og mappen docs) hvis det oppdages feil i dokumetasjonen og/eller hvis det er viktige opplysninger som bør noteres ned
+2. Lage en pull request for å merge koden til main i Github
+3. Merge til main
    
 
-## Publisere på github
-Etter at pull requesten er godkjent og merget til main:
+## Release programmene på github
 1. Opprett ny release på github
 2. Oppgi tittel basert på hva som er forandret
 4. Sett tag et fornuftig versjonsnummer (bruk samme versjonsnummer som i .csproj)
@@ -64,7 +64,7 @@ Etter at pull requesten er godkjent og merget til main:
 ```
 ".\Dhhr.KppParser.Gui\bin\Release\net6.0-windows\win-x64\publish"
 ```
-  _Disse mappene ble generert når programmene ble laget (se over, Lage programmene Gui og ConsoleApp)_
+  _Disse mappene ble generert når programmene ble laget (se over, [Lage programmene Gui og ConsoleApp](https://github.com/folkehelseinstituttet/KppParser/edit/feature/docs-updatemessageversion-detailed-v2/readme.md#lage-programmene-gui-og-consoleapp))_
   
   6. Gi zip-filene henholdsvis disse navnene "KppParser-ConsoleApp.zip" og "KppParser-Gui.zip"
   
