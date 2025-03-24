@@ -16,7 +16,7 @@ Mer informasjon om meldingsversjon finner du [her](https://www.fhi.no/he/npr/reg
    Filer som skal fjernes:
    - NPR.xsd
    - NPR(kpp).xsd
-   - NPR(kpp)_CodingSchemes.xsd
+   - NPR(kpp)_CodingSchemes.xsd / XPR(kpp)_CodingSchemes.xsd (I dag har filen navnet NPR(kpp)_CodingSchemes.xsd, men neste gang skal den ha navnet XPR(kpp)_CodingSchemes.xsd)
   
    Filer som skal legges til, og som kan hentes fra [Sarepta](https://git.sarepta.ehelse.no/utvikling/xpr/-/tree/master?ref_type=heads) på `branch` med `riktig meldingsversjonsnummer`:
    - NPR.xsd
