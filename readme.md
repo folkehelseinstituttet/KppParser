@@ -26,11 +26,10 @@ Det er to måter å kjøre programmet:
 ```
 
 ## Lage programmene Gui og ConsoleApp
-Både Gui og ConsoleApp lages med denne kommandoen
+Kjør denne kommandoen på filstien `".\src"`. Viktig å bruke denne filstien for å finne riktige filstier og lager programmene Gui og ConsoleApp.
 ```
 cd .\Dhhr.KppParser.ConsoleApp; dotnet publish -c Release -r win-x64 --no-self-contained -p:PublishSingleFile=true; cd ..\Dhhr.KppParser.Gui; dotnet publish -c Release -r win-x64 --no-self-contained -p:PublishSingleFile=true
 ```
-_Denne kommandoen finner riktige filstier og lager programmene_
 
 Programmene får disse filstiene:
 ```
