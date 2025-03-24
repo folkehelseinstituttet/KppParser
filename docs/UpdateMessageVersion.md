@@ -16,7 +16,7 @@ Mer informasjon om meldingsversjon finner du [her](https://www.fhi.no/he/npr/reg
    Filer som skal fjernes:
    - NPR.xsd
    - NPR(kpp).xsd
-   - NPR(kpp)_CodingSchemes.xsd / XPR(kpp)_CodingSchemes.xsd (I dag har filen navnet NPR(kpp)_CodingSchemes.xsd, men neste gang skal den ha navnet XPR(kpp)_CodingSchemes.xsd)
+   - NPR(kpp)_CodingSchemes.xsd
   
    Filer som skal legges til, og som kan hentes fra [Sarepta](https://git.sarepta.ehelse.no/utvikling/xpr/-/tree/master?ref_type=heads) på `branch` med `riktig meldingsversjonsnummer`:
    - NPR.xsd
@@ -24,6 +24,10 @@ Mer informasjon om meldingsversjon finner du [her](https://www.fhi.no/he/npr/reg
    - XPR(kpp)_CodingSchemes.xsd
   
   1.2. Endre filnavnet til `XPR(kpp).xsd` til `NPR(kpp).xsd`
+  
+  1.3. Endre filnavnet til `XPR(kpp)_CodingSchemes.xsd`til `NPR(kpp)_CodingSchemes.xsd`
+  
+  1.4. Sørg for at alle schemaLocation-attributter i de tre NPR*.xsd-filene refererer til NPR, ikke XPR
 
 ## 2. Maunell oppatering av meldingsversjonsnummeret i koden
   2.1. Oppdatér `meldingsversjonsnummeret` angitt i `Namespace` for `XmlElement`-attributtet i 
