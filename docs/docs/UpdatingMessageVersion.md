@@ -24,28 +24,24 @@ Mer informasjon om meldingsversjon finner du [her](https://www.fhi.no/he/npr/reg
    - XPR(kpp)_CodingSchemes.xsd
   
   1.2. Endre filnavnet til `XPR(kpp).xsd` til `NPR(kpp).xsd`
-  
-  1.3. Endre filnavnet til `XPR(kpp)_CodingSchemes.xsd` til `NPR(kpp)_CodingSchemes.xsd`
- 
-  1.4. Sørg for at alle `schemaLocation`-attributter i de tre `NPR*.xsd-filene` refererer til `NPR`, ikke `XPR`
 
 ## 2. Maunell oppatering av meldingsversjonsnummeret i koden
   2.1. Oppdatér `meldingsversjonsnummeret` angitt i `Namespace` for `XmlElement`-attributtet i 
    ```
   .\Dhhr.KppParser.Service\Models\RefDocContent.cs`
    ```
-  2.2 Oppdatere `meldingsversjonsnummeret` angitt i `versjon` og `lokalident` for `Melding`-attributtet i 
+  2.2 Oppdatere `meldingsversjonsnummeret` angitt i `versjon` og `xmlns` for `Melding`-attributtet i 
   ```
   .\Dhhr.KppParser.Service.Tests\Resources\Expectations\TestMelding.xml`
   ```
 ## 3. Skript for oppdatering av meldingsversjonsnummeret i koden
-  3.1. Kjør denne kommandoen på filstien `".\src"` for å finne riktig filsti og oppdatere alle klassene i `Dhhr.KppParser.Service` med riktig referering til `meldingsversjonsnummer`:
+  3.1. Kjør denne kommandoen på filstien `".\src"`. Viktig å bruke denne filstien for at kommandoen skal finne riktig filsti og oppdatere alle klassene i `Dhhr.KppParser.Service` med riktig referering til `meldingsversjonsnummer`:
    ```
    cd .\Dhhr.KppParser.Service; C:\"Program Files (x86)"\"Microsoft SDKs"\Windows\v10.0A\bin\"NETFX 4.8 Tools"\xsd.exe Resources\"NPR(kpp).xsd" /c /n:Dhhr.KppParser.Service.Models /o:Models
    ```
    Dokumentasjon finnes [hos Microsoft](https://learn.microsoft.com/en-us/dotnet/standard/serialization/xml-schema-definition-tool-xsd-exe).
    
-   3.2 Søk etter om alle `meldingsversjonsnummer` i koden er oppdatert.
+   3.2 Søk etter om alle `meldingsversjonsnummer` i koden er oppdatert, ved å søke på det gamle versjonsnummeret.
    
    Hvis ikke alle `meldingsversjonsnummer` er oppdatert: Korrigere manuelt der ikke har blitt oppdatert og dokumenter i [Manuell oppdatering av meldingsversjonsnummeret i koden](https://github.com/folkehelseinstituttet/KppParser/edit/feature/docs-updatemessageversion-detailed-v2/docs/docs/UpdatingMessageVersion.md#2-maunell-oppatering-av-meldingsversjonsnummeret-i-koden).
 
