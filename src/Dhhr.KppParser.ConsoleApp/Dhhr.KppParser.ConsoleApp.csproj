@@ -1,9 +1,9 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net6.0</TargetFramework>
-    <AssemblyVersion>1.6.0.*</AssemblyVersion>
+    <TargetFramework>net8.0</TargetFramework>
+    <AssemblyVersion>1.8.0.*</AssemblyVersion>
     <Deterministic>false</Deterministic>
     <PublishSingleFile Condition="'$(Configuration)' == 'Release'">true</PublishSingleFile>
     <RuntimeIdentifier>win-x64</RuntimeIdentifier>

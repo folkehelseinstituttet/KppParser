@@ -40,7 +40,7 @@
     "Periode start" må komme før, eller være lik, "Periode slutt"
 
 ## Noe gikk galt under opprettelse av meldingen
-    En uventet feil har oppstått. Vennligst ta kontakt med den som har sendt programmet (Helsedirektoratet).
+    En uventet feil har oppstått. Vennligst ta kontakt med den som har sendt programmet (FHI).
 
     Ta gjerne vare på feilmeldingen! Den vil gjøre det lettere for oss å hjelpe deg.
     - Skjermdump: Bruk "Snipping tool" eller "PrintScreen"

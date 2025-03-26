@@ -93,9 +93,9 @@ namespace Dhhr.KppParser.Gui
                 OrganizationHerId = OrgHerIdBox.Text,
                 OrganizationName2 = OrgNameBox2.Text,
                 OrganizationHerId2 = OrgHerIdBox2.Text,
-                HDirHerId = RadioTrial.Checked
-                    ? _settings.HdirQa
-                    : _settings.HdirProd,
+                FhiHerId = RadioTrial.Checked
+                    ? _settings.FhiQa
+                    : _settings.FhiProd,
                 Leverandor = _settings.Leverandor,
                 NavnEpj = _settings.NavnEpj,
                 VersjonEpj = _settings.VersjonEpj,
