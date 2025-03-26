@@ -5,7 +5,6 @@ Det er to måter å kjøre programmet:
 - Bruke det grafiske grensesnittet (Gui)
 - Kjøre konsoll-appen (ConsoleApp)
 
-
 # Release ny versjon
 
 ## Oppdater kppParser sitt versjonsnummer
@@ -31,6 +30,7 @@ Kjør denne kommandoen på filstien `".\src"`. Viktig å bruke denne filstien fo
 cd .\Dhhr.KppParser.ConsoleApp; dotnet publish -c Release -r win-x64 --no-self-contained -p:PublishSingleFile=true; cd ..\Dhhr.KppParser.Gui; dotnet publish -c Release -r win-x64 --no-self-contained -p:PublishSingleFile=true
 ```
 
+
 Programmene får disse filstiene:
 ```
 ".\Dhhr.KppParser.ConsoleApp\bin\Release\net6.0\win-x64\Dhhr.KppParser.ConsoleApp.exe"
@@ -54,7 +54,7 @@ Test csv-filer for episode og tjeneste finnes i mappen:
 ## Release programmene på github
 1. Opprett ny release på github
 2. Oppgi tittel basert på hva som er forandret
-4. Sett tag et fornuftig versjonsnummer (bruk samme versjonsnummer som i .csproj)
+4. Sett tag til et fornuftig versjonsnummer (bruk samme versjonsnummer som i .csproj)
 5. Fyll inn release-notes. Kopier gjerne fra forrige versjon, men oppdater "Nytt i denne utgaven"
 6. Lag 2 zip-filer av innholdet i disse mappene:
 ```
