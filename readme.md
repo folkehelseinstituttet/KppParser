@@ -39,11 +39,9 @@ Programmene får disse filstiene:
 ".\Dhhr.KppParser.Gui\bin\Release\net6.0-windows\win-x64\Dhhr.KppParser.Gui.exe"
 ```
 
-## Teste programmene
-Test csv-filer for episode og tjeneste finnes i mappen:
-```
-".\Dhhr.KppParser.Service.Tests\Resources\TestData"
-```
+## Teste programmene og koden
+Oppskrift for hvordan man tester er beskrevet i [her](https://github.com/folkehelseinstituttet/KppParser/edit/feature/add-doc-test/docs/Test.md)
+   
 
 ## Før release
 1. Oppdatere dokumentasjonen (readme.md og mappen docs) hvis det oppdages feil i dokumetasjonen og/eller hvis det er viktige opplysninger som bør noteres ned
