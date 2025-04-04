@@ -8,6 +8,16 @@
        - Én fra *Testfiler med header* og én fra *Testfiler uten header*.
     4. Vurdere om programmet oppfører seg som beskrevet i kapittell 4
     5. Vurdere generert Kpp-melding fra *testfiler nummer 1* som beskrevet i kapittel 5
+3. Teste Kpp-melding fra *Testfiler med header* på meldingstjeneren på test serveren.
+   1. Overfør Kpp-meldingen fra *Testfiler med header* til din egen pc i forvaltningsonen
+   2. Overfør Kpp-meldingen fra *Testfiler med header* til test serveren til Meldingstjeneren, se oppskrift som ligger på denne filstien i forvaltningsonen på din pc:
+    ```
+    F:\DOKUMENTASJON\SYSTEMGRUPPA\KPP\KppParser\overføre-filer-til-t-trd1ahrdps01
+    ```
+   4. Teste kjøre Kpp-meldingen fra *Testfiler med header* på Meldingstjeneren, se oppskrift som ligger på denne filstien i forvaltningsonen på din pc:
+    ```
+    F:\DOKUMENTASJON\SYSTEMGRUPPA\KPP\KppParser\test-kjøre-kpp-melding-på-test-meldingstjeneren
+    ```
    
 
 
@@ -107,6 +117,11 @@ Tips: Bruk [Diffchecker](https://www.diffchecker.com/text-compare/) for å kunne
 Skjemavalideringsprogrammet *NprSkjemavalidatorGUI* finner du på fhi sine [nettisder](https://www.fhi.no/he/npr/registrering-og-rapportering/validering-av-data-for-rapportering/), i en tabell under tittel *Skjemavalidering lokalt*.
 
 Benytt den nye KppParseren sin genererte kpp-meldingen med *testfiler med header* og verifiser at filen er validert til **ok** av *NprSkjemavalidatorGUI*. 
+
+
+
+
+
 
 
 
