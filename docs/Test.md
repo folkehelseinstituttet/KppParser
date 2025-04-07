@@ -6,7 +6,7 @@
 2. **Teste *GUI* programmet:**
     1. Kjør programmet, filstien til programmet er:
        ```
-       .\Dhhr.KppParser.Gui\bin\Release\net6.0-windows\win-x64\Dhhr.KppParser.Gui.exe
+       .\Dhhr.KppParser.Gui\bin\Release\net8.0-windows\win-x64\Dhhr.KppParser.Gui.exe
        ```
     2. Benytt testdataen som er beskrevet i *kapittel 2*, og forsøk å generer 2 Kpp-meldinger.
        - 1 fra *Testfiler med header* og 1 fra *Testfiler uten header*
@@ -17,7 +17,7 @@
    1. Kjør programmet ved bruk av kommandolinjeverktøyet *CMD*:
       Navigere til denne mappen:
        ```
-        cd: "[DIN FILSTI TIL PROSJEKTETS SRC]\Dhhr.KppParser.Gui\bin\Release\net6.0-windows\win-x64"
+        cd: "[DIN FILSTI TIL PROSJEKTETS SRC]\Dhhr.KppParser.Gui\bin\Release\net8.0-windows\win-x64"
        ```
       Kjør programmet ved å skrive inne denne kommandoen:
       ```
