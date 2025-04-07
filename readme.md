@@ -40,7 +40,7 @@ Programmene får disse filstiene:
 ```
 
 ## Teste programmene og koden
-Oppskrift for hvordan man tester er beskrevet i [her](https://github.com/folkehelseinstituttet/KppParser/edit/feature/add-doc-test/docs/Test.md)
+Oppskrift for hvordan man tester er beskrevet i [her](https://github.com/folkehelseinstituttet/KppParser/blob/main/docs/Test.md)
    
 
 ## Før release
@@ -61,7 +61,7 @@ Oppskrift for hvordan man tester er beskrevet i [her](https://github.com/folkehe
 ```
 ".\Dhhr.KppParser.Gui\bin\Release\net8.0-windows\win-x64\publish"
 ```
-  _Disse mappene ble generert når programmene ble laget (se over, [Lage programmene Gui og ConsoleApp](https://github.com/folkehelseinstituttet/KppParser/edit/feature/docs-updatemessageversion-detailed-v2/readme.md#lage-programmene-gui-og-consoleapp))_
+  _Disse mappene ble generert når programmene ble laget (se over, [Lage programmene Gui og ConsoleApp]([https://github.com/folkehelseinstituttet/KppParser/edit/feature/docs-updatemessageversion-detailed-v2/readme.md#lage-programmene-gui-og-consoleapp](https://github.com/folkehelseinstituttet/KppParser/blob/main/readme.md#lage-programmene-gui-og-consoleapp)))_
   
   6. Gi zip-filene henholdsvis disse navnene "KppParser-ConsoleApp.zip" og "KppParser-Gui.zip"
   
