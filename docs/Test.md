@@ -152,13 +152,14 @@ output= *"mappensfilsti til hvor du ønsker den genererte kpp-meldingens skal la
 Dette kapittellet ser kun på resultat fra *Testfiler med header*
 
 1. **Sammenligne forrige program sitt resultat mot det nye resultatet:**
-    *Forrige program* finner du i [realeases](https://github.com/folkehelseinstituttet/KppParser/releases)
+
+   *Forrige program* finner du i [realeases](https://github.com/folkehelseinstituttet/KppParser/releases)
     1. Generer en ny kpp-melding med det *forrige programmet* og bruke samme testdata og *Testfiler med header* (se *kapittel 2*)
     2. Sammenligne begge kpp-meldingene som er generert basert på *Testfiler med header*.
 
     Tips: Bruk [Diffchecker](https://www.diffchecker.com/text-compare/) for å kunne tydelig se hva som er ulikt.
 
-    **Attributter/Komponenter som skal være ulik:**
+   **Attributter/Komponenter som kan/skal være ulik:**
     - Komponent *GenDate*
     - Komponent *MsgId*
     - Disse atrributtene i komponent *Melding*:
@@ -176,15 +177,15 @@ Dette kapittellet ser kun på resultat fra *Testfiler med header*
     - Undersøk hvorfor
     - Muligens kan det ha noe med endringer i mellom meldingsversjonene
 
-2. **Se på resultatet fra skjemavalideringsprogrammet *NprSkjemavalidatorGUI*:**
+3. **Se på resultatet fra skjemavalideringsprogrammet *NprSkjemavalidatorGUI*:**
 
     Skjemavalideringsprogrammet *NprSkjemavalidatorGUI* finner du [her](https://www.fhi.no/he/npr/registrering-og-rapportering/validering-av-data-for-rapportering/), i en tabell under tittel *Skjemavalidering lokalt*.
 
     Benytt den nye KppParseren sin genererte kpp-meldingen med *testfiler med header* og verifiser at filen er validert til **ok** av *NprSkjemavalidatorGUI*. 
 
-## 6. Sammenligne 2 Kpp-meldingener som skal være like
+## 6. Sammenligne begge Kpp-meldingenene om blir generert fra GUI og ConsoleApp
 
-Dette kapittellet ser kun på resultat fra *Testfiler med header*
+Dette kapittellet ser kun på kpp-meldinger som er basert på *Testfiler med header*, og beskrver forventet resultat ved sammenligning av kpp-melding fra GUI mot kpp-melding fra ConsoleApp.
 
 Tips: Bruk [Diffchecker](https://www.diffchecker.com/text-compare/) for å kunne tydelig se hva som er ulikt.
 
