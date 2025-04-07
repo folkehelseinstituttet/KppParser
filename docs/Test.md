@@ -95,11 +95,11 @@ fradato = *YYYY-01-01* (YYYY: Forrige år)
 
 tildato = *YYYY-12-31* (YYYY: Forrige år)
 
-org-herid = *21017*
+org-herid = *121017*
 
 org-navn = *QA/Validering* 
 
-org-herid2 = *21017* 
+org-herid2 = *121017* 
 
 org-navn2 = *QA/Validering* 
 
@@ -191,6 +191,11 @@ Tips: Bruk [Diffchecker](https://www.diffchecker.com/text-compare/) for å kunne
 **Attributter/Komponenter som kan/skal være ulik:**
 - Komponent *GenDate*
 - Komponent *MsgId*
+- Disse atrributtene i komponent *Melding*:
+     - uttakDato (Kun ulik hvis genereringen av kpp-meldingene ble gjennomført på ulike dager)
+     - versjonUt (Kun ulik på tallene bak siste punktum: cX.Y.Z.{ulik})
+     - loprnr
+     - lokalident
 
 Restene av innholdet <ins>skal være identiske</ins>.
 
