@@ -33,10 +33,10 @@ cd .\Dhhr.KppParser.ConsoleApp; dotnet publish -c Release -r win-x64 --no-self-c
 
 Programmene får disse filstiene:
 ```
-".\Dhhr.KppParser.ConsoleApp\bin\Release\net6.0\win-x64\Dhhr.KppParser.ConsoleApp.exe"
+".\Dhhr.KppParser.ConsoleApp\bin\Release\net8.0\win-x64\Dhhr.KppParser.ConsoleApp.exe"
 ```
 ```
-".\Dhhr.KppParser.Gui\bin\Release\net6.0-windows\win-x64\Dhhr.KppParser.Gui.exe"
+".\Dhhr.KppParser.Gui\bin\Release\net8.0-windows\win-x64\Dhhr.KppParser.Gui.exe"
 ```
 
 ## Teste programmene og koden
@@ -56,10 +56,10 @@ Oppskrift for hvordan man tester er beskrevet i [her](https://github.com/folkehe
 5. Fyll inn release-notes. Kopier gjerne fra forrige versjon, men oppdater "Nytt i denne utgaven"
 6. Lag 2 zip-filer av innholdet i disse mappene:
 ```
-".\Dhhr.KppParser.ConsoleApp\bin\Release\net6.0\win-x64\publish"
+".\Dhhr.KppParser.ConsoleApp\bin\Release\net8.0\win-x64\publish"
 ```
 ```
-".\Dhhr.KppParser.Gui\bin\Release\net6.0-windows\win-x64\publish"
+".\Dhhr.KppParser.Gui\bin\Release\net8.0-windows\win-x64\publish"
 ```
   _Disse mappene ble generert når programmene ble laget (se over, [Lage programmene Gui og ConsoleApp](https://github.com/folkehelseinstituttet/KppParser/edit/feature/docs-updatemessageversion-detailed-v2/readme.md#lage-programmene-gui-og-consoleapp))_
   
