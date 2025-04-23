@@ -43,9 +43,9 @@ Mer informasjon om meldingsversjon finner du [her](https://www.fhi.no/he/npr/reg
    
    3.2 Søk etter om alle `meldingsversjonsnummer` i koden er oppdatert, ved å søke på det gamle versjonsnummeret.
    
-   Hvis ikke alle `meldingsversjonsnummer` er oppdatert: Korrigere manuelt der ikke har blitt oppdatert og dokumenter i [Manuell oppdatering av meldingsversjonsnummeret i koden](https://github.com/folkehelseinstituttet/KppParser/edit/feature/docs-updatemessageversion-detailed-v2/docs/docs/UpdatingMessageVersion.md#2-maunell-oppatering-av-meldingsversjonsnummeret-i-koden).
+   Hvis ikke alle `meldingsversjonsnummer` er oppdatert: Korrigere manuelt der ikke har blitt oppdatert og dokumenter i [Manuell oppdatering av meldingsversjonsnummeret i koden](https://github.com/folkehelseinstituttet/KppParser/blob/main/docs/UpdateMessageVersion.md#2-maunell-oppatering-av-meldingsversjonsnummeret-i-koden).
 
 ## 4. Publiser ny versjon
-   4.1 Gjør det som er beskrevet i [Publiser ny versjon](https://github.com/folkehelseinstituttet/KppParser/edit/feature/docs-updatemessageversion-detailed-v2/readme.md#publisere-ny-versjon) i Readme.md
+   4.1 Gjør det som er beskrevet i [Release ny versjon]([https://github.com/folkehelseinstituttet/KppParser/edit/feature/docs-updatemessageversion-detailed-v2/readme.md#publisere-ny-versjon](https://github.com/folkehelseinstituttet/KppParser/blob/main/readme.md#release-ny-versjon)) i Readme.md
    
   
