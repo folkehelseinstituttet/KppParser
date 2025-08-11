@@ -10,10 +10,20 @@ public static class MessageUtils
 {
     public static Melding CreateMelding(Args args)
     {
+        var lopenr = DateTime.UtcNow.ToString("yyyyMMddHHmmssffff");
+        var lokalident = Guid.NewGuid().ToString();
+
+        var institusjoner = ParseFiles(args.EpisodePath, args.TjenestePath);
+
+        return BuildMelding(args, lopenr, lokalident, institusjoner);
+    }
+
+    public static Melding BuildMelding(Args args, string lopenr, string lokalident, Institusjon[] institusjoner)
+    {
         return new Melding
         {
-            lopenr = DateTime.UtcNow.ToString("yyyyMMddHHmmssffff"),
-            lokalident = Guid.NewGuid().ToString(),
+            lopenr = lopenr,
+            lokalident = lokalident,
             uttakDato = DateTime.Today,
             versjonUt = args.ProgramVersion,
             meldingstype = "B",
@@ -22,7 +32,7 @@ public static class MessageUtils
             leverandor = args.Leverandor,
             navnEPJ = args.NavnEpj,
             versjonEPJ = args.VersjonEpj,
-            Institusjon = ParseFiles(args.EpisodePath, args.TjenestePath).ToArray()
+            Institusjon = institusjoner,
         };
     }
 
@@ -104,7 +114,7 @@ public static class MessageUtils
         };
     }
 
-    private static List<Institusjon> ParseFiles(string episodePath, string tjenestePath)
+    public static IEnumerable<IGrouping<string, EpisodeKPP>> ParseInputFiles(string episodePath, string tjenestePath)
     {
         var tjenester = File.ReadLines(tjenestePath)
             .Skip(1) // skip header
@@ -120,8 +130,15 @@ public static class MessageUtils
                 parts => parts[0], // institusjonID
                 parts => EpisodeKPP.Create(parts[1], parts[2], parts[3], tjenester[parts[1]]));
 
+        return episoder;
+    }
+
+    private static Institusjon[] ParseFiles(string episodePath, string tjenestePath)
+    {
+        var episoder = ParseInputFiles(episodePath, tjenestePath);
+
         return episoder
             .Select(kpps => Institusjon.Create(kpps.Key, kpps.ToList()))
-            .ToList();
+            .ToArray();
     }
 }
