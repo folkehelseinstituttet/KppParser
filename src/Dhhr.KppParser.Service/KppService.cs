@@ -153,8 +153,11 @@ namespace Dhhr.KppParser.Service
 
             var wrapped = MessageUtils.WrapInMsgHead(melding, args);
 
+            reportStatus?.Invoke(30, "Genererer melding...");
+            var xmlDocument = XmlUtils.SerializeToXmlDocument(wrapped);
+
             reportStatus?.Invoke(50, "Lagrer melding...");
-            XmlUtils.SerializeToFile(wrapped, args.OutputPath);
+            XmlUtils.SaveToFile(xmlDocument, args.OutputPath);
 
             reportStatus?.Invoke(75, "Kontrollerer melding...");
             var schemas = SchemaLoader.LoadDirectory("Resources");
