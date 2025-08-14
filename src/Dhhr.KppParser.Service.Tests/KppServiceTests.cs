@@ -142,7 +142,7 @@ namespace Dhhr.KppParser.Service.Tests
             // arrange
             if (fileName != null)
             {
-                fileName = $"Resources/TestData/{fileName}";
+                fileName = TestDataPath(fileName);
             }
 
             var args = DefaultArgs();
@@ -167,7 +167,7 @@ namespace Dhhr.KppParser.Service.Tests
             // arrange
             if (fileName != null)
             {
-                fileName = $"Resources/TestData/{fileName}";
+                fileName = TestDataPath(fileName);
             }
 
             var args = DefaultArgs();
@@ -185,8 +185,8 @@ namespace Dhhr.KppParser.Service.Tests
         {
             return new Args
             {
-                EpisodePath = "Resources/TestData/episode.csv",
-                TjenestePath = "Resources/TestData/tjeneste.csv",
+                EpisodePath = TestDataPath("episode.csv"),
+                TjenestePath = TestDataPath("tjeneste.csv"),
                 OutputPath = OutputFile(),
                 ProgramVersion = TestContext.TestName,
                 FraDato = new DateTime(2019, 1, 1),
@@ -203,5 +203,7 @@ namespace Dhhr.KppParser.Service.Tests
         }
 
         private string OutputFile() => $"{_outputPath}{TestContext.TestName}.xml";
+
+        private static string TestDataPath(string fileName) => Path.Combine("Resources/TestData", fileName);
     }
 }
