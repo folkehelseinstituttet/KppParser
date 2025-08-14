@@ -1,24 +1,19 @@
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Xml;
 using Dhhr.KppParser.Service.Models;
 
 namespace Dhhr.KppParser.Service.Utils;
 
 public static class MessageUtils
 {
-    public static Melding CreateMelding(Args args)
+    public static Melding CreateMessage(Args args, Institusjon[] institutions)
     {
-        var lopenr = DateTime.UtcNow.ToString("yyyyMMddHHmmssffff");
-        var lokalident = Guid.NewGuid().ToString();
-
-        var institusjoner = ParseFiles(args.EpisodePath, args.TjenestePath);
-
-        return BuildMelding(args, lopenr, lokalident, institusjoner);
+        return BuildMessage(args, CreateLopenr(), CreateLokalident(), institutions);
     }
 
-    public static Melding BuildMelding(Args args, string lopenr, string lokalident, Institusjon[] institusjoner)
+    public static Melding BuildMessage(Args args, string lopenr, string lokalident, Institusjon[] institutions)
     {
         return new Melding
         {
@@ -32,7 +27,7 @@ public static class MessageUtils
             leverandor = args.Leverandor,
             navnEPJ = args.NavnEpj,
             versjonEPJ = args.VersjonEpj,
-            Institusjon = institusjoner,
+            Institusjon = institutions,
         };
     }
 
@@ -116,7 +111,7 @@ public static class MessageUtils
 
     public static bool HasSingleInstitution(Melding message) => message.Institusjon.Length == 1;
 
-    public static IEnumerable<IGrouping<string, EpisodeKPP>> ParseInputFiles(string episodePath, string tjenestePath)
+    public static Institusjon[] ParseFiles(string episodePath, string tjenestePath)
     {
         var tjenester = File.ReadLines(tjenestePath)
             .Skip(1) // skip header
@@ -132,15 +127,39 @@ public static class MessageUtils
                 parts => parts[0], // institusjonID
                 parts => EpisodeKPP.Create(parts[1], parts[2], parts[3], tjenester[parts[1]]));
 
-        return episoder;
-    }
-
-    private static Institusjon[] ParseFiles(string episodePath, string tjenestePath)
-    {
-        var episoder = ParseInputFiles(episodePath, tjenestePath);
-
         return episoder
-            .Select(kpps => Institusjon.Create(kpps.Key, kpps.ToList()))
+            .Select(kpps => Institusjon.Create(kpps.Key, kpps.ToArray()))
             .ToArray();
     }
+
+    public static bool ShouldCreateBatchFiles(Args args, XmlDocument xmlDocument, out int recommendedFileCount)
+    {
+        if (args.BatchFiles.EnableCreation)
+        {
+            return FileExceedsMaxFileSize(xmlDocument, args.BatchFiles.MaxFileSizeInBytes, out recommendedFileCount);
+        }
+
+        recommendedFileCount = 0;
+        return false;
+    }
+
+    private static bool FileExceedsMaxFileSize(XmlDocument xmlDocument, long maxFileSizeInBytes, out int recommendedFileCount)
+    {
+        // TODO Does this result in the right value for large files (> 1 GB)?
+        var fileSizeInBytes = XmlUtils.Encoding.GetBytes(xmlDocument.OuterXml).LongLength;
+
+        if (fileSizeInBytes < maxFileSizeInBytes)
+        {
+            recommendedFileCount = 0;
+            return false;
+        }
+
+        // TODO This should probably be calculated with some buffer. The size of a KPP file without any episodes is already 2+ kB.
+        recommendedFileCount = 1 + (int)Math.DivRem(fileSizeInBytes, maxFileSizeInBytes).Quotient;
+        return true;
+    }
+
+    private static string CreateLopenr() => DateTime.UtcNow.ToString("yyyyMMddHHmmssffff");
+
+    private static string CreateLokalident() => Guid.NewGuid().ToString();
 }

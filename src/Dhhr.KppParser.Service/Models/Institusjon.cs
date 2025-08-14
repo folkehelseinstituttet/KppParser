@@ -1,10 +1,8 @@
-﻿using System.Collections.Generic;
-
-namespace Dhhr.KppParser.Service.Models
+﻿namespace Dhhr.KppParser.Service.Models
 {
     public partial class Institusjon
     {
-        public static Institusjon Create(string institusjonId, List<EpisodeKPP> episoder)
+        public static Institusjon Create(string institusjonId, EpisodeKPP[] episoder)
         {
             return new Institusjon
             {
@@ -14,7 +12,7 @@ namespace Dhhr.KppParser.Service.Models
                     new Objektholder
                     {
                         pasientNr = "-1",
-                        EpisodeKPP = episoder.ToArray()
+                        EpisodeKPP = episoder
                     }
                 }
             };

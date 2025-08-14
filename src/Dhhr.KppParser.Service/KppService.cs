@@ -139,16 +139,24 @@ namespace Dhhr.KppParser.Service
         public static void Run(Args args, Action<int, string> reportStatus, Action<string> userNotificator)
         {
             reportStatus?.Invoke(10, "Leser data...");
-            var melding = MessageUtils.CreateMelding(args);
-            var wrapped = MessageUtils.WrapInMsgHead(melding, args);
+            var institutions = MessageUtils.ParseFiles(args.EpisodePath, args.TjenestePath);
+            var message = MessageUtils.CreateMessage(args, institutions);
+
+            var wrapped = MessageUtils.WrapInMsgHead(message, args);
 
             reportStatus?.Invoke(30, "Genererer melding...");
             var xmlDocument = XmlUtils.SerializeToXmlDocument(wrapped);
 
-            if (!MessageUtils.HasSingleInstitution(melding))
+            if (MessageUtils.ShouldCreateBatchFiles(args, xmlDocument, out var fileCount))
+            {
+                BatchMessageUtils.TryCreateFiles(args, reportStatus, userNotificator, message, fileCount);
+                return;
+            }
+
+            if (!MessageUtils.HasSingleInstitution(message))
             {
                 userNotificator?.Invoke("Episode-filen og den genererte meldingen inneholder flere institusjon-IDer: " +
-                                        string.Join(", ", melding.Institusjon.Select(i => i.institusjonID)) +
+                                        string.Join(", ", message.Institusjon.Select(i => i.institusjonID)) +
                                         Environment.NewLine + Environment.NewLine +
                                         "Vi ber om at det kun rapporteres et unikt organisasjonsnummer som institusjonID i NPR_KPP-meldingen.");
             }
