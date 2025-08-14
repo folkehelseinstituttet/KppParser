@@ -132,7 +132,7 @@ namespace Dhhr.KppParser.Service.Tests
         }
 
         [DataTestMethod]
-        [DataRow("episode.csv", null)]
+        [DataRow("episode_institusjoner.csv", null)]
         [DataRow(null, Constants.Episode.EmptyFileName)]
         [DataRow("episode_missing_header.csv", Constants.Episode.InvalidHeader)]
         [DataRow("does_not_exist.csv", Constants.Episode.DoesNotExist)]
@@ -161,7 +161,7 @@ namespace Dhhr.KppParser.Service.Tests
         [DataRow(null, Constants.Tjeneste.EmptyFileName)]
         [DataRow("tjeneste_missing_header.csv", Constants.Tjeneste.InvalidHeader)]
         [DataRow("does_not_exist.csv", Constants.Tjeneste.DoesNotExist)]
-        [DataRow("episode.csv", Constants.Tjeneste.InvalidHeader)]
+        [DataRow("episode_institusjoner.csv", Constants.Tjeneste.InvalidHeader)]
         public void KppService_ShouldValidateCsvHeaders_WhenValidatingTjenesteInput(string fileName, string expectedError)
         {
             // arrange
@@ -185,7 +185,7 @@ namespace Dhhr.KppParser.Service.Tests
         {
             return new Args
             {
-                EpisodePath = TestDataPath("episode.csv"),
+                EpisodePath = TestDataPath("episode_institusjoner.csv"),
                 TjenestePath = TestDataPath("tjeneste.csv"),
                 OutputPath = OutputFile(),
                 ProgramVersion = TestContext.TestName,
