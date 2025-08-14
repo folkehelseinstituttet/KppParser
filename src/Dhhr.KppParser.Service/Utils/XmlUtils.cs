@@ -1,5 +1,4 @@
-﻿using System.IO;
-using System.Text;
+﻿using System.Text;
 using System.Xml;
 using System.Xml.Linq;
 using System.Xml.Schema;
@@ -10,17 +9,6 @@ namespace Dhhr.KppParser.Service.Utils
     public static class XmlUtils
     {
         public static readonly Encoding Encoding = Encoding.UTF8;
-
-        public static void SerializeToFile<T>(T obj, string path)
-        {
-            var serializer = new XmlSerializer(typeof(T));
-            using (var fileStream = File.Create(path))
-            using (var writer = new XmlTextWriter(fileStream, Encoding))
-            {
-                writer.Formatting = Formatting.Indented;
-                serializer.Serialize(writer, obj);
-            }
-        }
 
         public static XmlDocument SerializeToXmlDocument<T>(T obj)
         {
