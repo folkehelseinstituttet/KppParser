@@ -26,6 +26,11 @@ namespace Dhhr.KppParser.Service.Tests
             {
                 File.Delete(outputFile);
             }
+
+            foreach (var batchFile in OutputBatchFiles())
+            {
+                File.Delete(batchFile);
+            }
         }
 
         [TestMethod]
@@ -181,6 +186,167 @@ namespace Dhhr.KppParser.Service.Tests
             errorMessage.Should().Be(expectedError ?? string.Empty);
         }
 
+        [TestMethod]
+        public void KppService_ShouldCreateBatchFiles_WhenBatchFileCreationIsEnabled_AndResultingKppFileExceedsSizeLimit_AndEpisodeFileContainsSingleInstitutionId()
+        {
+            // arrange
+            var args = BatchFileArgs("episode_institusjon.csv");
+
+            // act
+            KppService.Run(args, null, null);
+
+            // assert
+            var singleFileExists = File.Exists(OutputFile());
+            Assert.IsFalse(singleFileExists);
+
+            var batchFilesExist = OutputBatchFiles().Length > 0;
+            Assert.IsTrue(batchFilesExist);
+        }
+
+        [TestMethod]
+        public void KppService_ShouldAbortProcess_WhenBatchFileCreationIsEnabled_AndResultingKppFileExceedsSizeLimit_AndEpisodeFileContainsMultipleInstitutionIds()
+        {
+            // arrange
+            var args = BatchFileArgs();
+            args.EpisodePath = TestDataPath("episode_institusjoner.csv");
+
+            // act
+            KppService.Run(args, null, null);
+
+            // assert
+            var singleFileExists = File.Exists(OutputFile());
+            Assert.IsFalse(singleFileExists);
+
+            var batchFilesExist = OutputBatchFiles().Length > 0;
+            Assert.IsFalse(batchFilesExist);
+        }
+
+        [TestMethod]
+        public void KppService_ShouldCreateSingleFile_WhenBatchFileCreationIsEnabled_AndResultingKppFileIsWithinSizeLimit()
+        {
+            // arrange
+            var args = BatchFileArgs();
+            args.BatchFiles.MaxFileSizeInBytes = 7000;
+
+            // act
+            KppService.Run(args, null, null);
+
+            // assert
+            var singleFileExists = File.Exists(OutputFile());
+            Assert.IsTrue(singleFileExists);
+
+            var batchFilesExist = OutputBatchFiles().Length > 0;
+            Assert.IsFalse(batchFilesExist);
+        }
+
+        [TestMethod]
+        public void KppService_ShouldCreateSingleFile_WhenBatchFileCreationIsDisabled()
+        {
+            // arrange
+            var args = DefaultArgs();
+
+            // act
+            KppService.Run(args, null, null);
+
+            // assert
+            var singleFileExists = File.Exists(OutputFile());
+            Assert.IsTrue(singleFileExists);
+
+            var batchFilesExist = OutputBatchFiles().Length > 0;
+            Assert.IsFalse(batchFilesExist);
+        }
+
+        [TestMethod]
+        public void KppService_BatchFiles_ShouldAllHaveEqualLopenr()
+        {
+            // arrange
+            var args = BatchFileArgs();
+
+            // act
+            KppService.Run(args, null, null);
+
+            // assert
+            var batchLopenr = OutputBatchFiles()
+                .Select(XmlUtils.DeserializeFromFile<MsgHead>)
+                .Select(msgHead => msgHead.Items.Single().As<Document>())
+                .Select(doc => doc.RefDoc.Item.As<RefDocContent>())
+                .Select(content => content.Melding.lopenr)
+                .ToList();
+
+            batchLopenr.Should().OnlyContain(lopenr => lopenr == batchLopenr[0]);
+        }
+
+        [TestMethod]
+        public void KppService_BatchFiles_ShouldAllConformToSpecificLokalidentFormat()
+        {
+            // arrange
+            var args = BatchFileArgs();
+
+            // act
+            KppService.Run(args, null, null);
+
+            // assert
+            var messages = OutputBatchFiles()
+                .Select(XmlUtils.DeserializeFromFile<MsgHead>)
+                .Select(msgHead => msgHead.Items.Single().As<Document>())
+                .Select(doc => doc.RefDoc.Item.As<RefDocContent>())
+                .Select(content => content.Melding);
+
+            foreach (var message in messages)
+            {
+                var lokalidentParts = message.lokalident.Split('_');
+
+                lokalidentParts[0].Should().Be(message.lopenr);
+                lokalidentParts[1][0].Should().Be('(');
+                lokalidentParts[2].Should().Be("Of");
+                lokalidentParts[3][^1].Should().Be(')');
+
+                var valueBeforeOf = lokalidentParts[1][1..];
+                var valueAfterOf = lokalidentParts[3][..^1];
+
+                int.TryParse(valueBeforeOf, out var batchMessageNumber).Should().BeTrue();
+                int.TryParse(valueAfterOf, out var messagesInBatch).Should().BeTrue();
+
+                batchMessageNumber.Should().BeLessThanOrEqualTo(messagesInBatch);
+            }
+        }
+
+        [TestMethod]
+        public void KppService_BatchFiles_ShouldContainTheSameEpisodes_AsSingleFile_WhenSameEpisodeFileIsUsedAsInput()
+        {
+            // arrange
+            const string episodeFileName = "episode_institusjon.csv";
+
+            var batchFileArgs = BatchFileArgs(episodeFileName);
+            var singleFileArgs = DefaultArgs();
+
+            singleFileArgs.EpisodePath = TestDataPath(episodeFileName);
+
+            // act
+            KppService.Run(batchFileArgs, null, null);
+            KppService.Run(singleFileArgs, null, null);
+
+            // assert
+            var batchMessages = OutputBatchFiles()
+                .Select(XmlUtils.DeserializeFromFile<MsgHead>)
+                .Select(msgHead => msgHead.Items.Single().As<Document>())
+                .Select(doc => doc.RefDoc.Item.As<RefDocContent>())
+                .Select(content => content.Melding);
+
+            var singleMessage = XmlUtils.DeserializeFromFile<MsgHead>(OutputFile())
+                .Items.Single().As<Document>()
+                .RefDoc.Item.As<RefDocContent>()
+                .Melding;
+
+            var episodesInBatchMessages = batchMessages
+                .SelectMany(message => message.Institusjon.Single().Objektholder.Single().EpisodeKPP)
+                .ToArray();
+
+            var episodesInSingleMessage = singleMessage.Institusjon.Single().Objektholder.Single().EpisodeKPP;
+
+            episodesInBatchMessages.Should().BeEquivalentTo(episodesInSingleMessage);
+        }
+
         private Args DefaultArgs()
         {
             return new Args
@@ -198,11 +364,25 @@ namespace Dhhr.KppParser.Service.Tests
                 OrganizationHerId = "54321",
                 OrganizationName2 = "Avsender navn nivå 2",
                 OrganizationHerId2 = "543212",
-                FhiHerId = "12345"
+                FhiHerId = "12345",
+                BatchFiles = new BatchFileArgs(),
             };
         }
 
+        private Args BatchFileArgs(string episodeFileName = "episode_institusjon.csv")
+        {
+            var args = DefaultArgs();
+
+            args.BatchFiles.EnableCreation = true;
+            args.BatchFiles.MaxFileSizeInBytes = 3000;
+            args.EpisodePath = TestDataPath(episodeFileName);
+
+            return args;
+        }
+
         private string OutputFile() => $"{_outputPath}{TestContext.TestName}.xml";
+
+        private string[] OutputBatchFiles() => Directory.GetFiles(_outputPath, TestContext.TestName + "_*.xml");
 
         private static string TestDataPath(string fileName) => Path.Combine("Resources/TestData", fileName);
     }
