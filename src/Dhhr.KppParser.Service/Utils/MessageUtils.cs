@@ -114,6 +114,8 @@ public static class MessageUtils
         };
     }
 
+    public static bool HasSingleInstitution(Melding message) => message.Institusjon.Length == 1;
+
     public static IEnumerable<IGrouping<string, EpisodeKPP>> ParseInputFiles(string episodePath, string tjenestePath)
     {
         var tjenester = File.ReadLines(tjenestePath)

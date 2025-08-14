@@ -138,25 +138,23 @@ namespace Dhhr.KppParser.Service
 
         public static void Run(Args args, Action<int, string> reportStatus, Action<string> userNotificator)
         {
-            Directory.CreateDirectory(Path.GetDirectoryName(args.OutputPath));
-
             reportStatus?.Invoke(10, "Leser data...");
             var melding = MessageUtils.CreateMelding(args);
-
-            if (melding.Institusjon.Length > 1)
-            {
-                userNotificator?.Invoke("Episode-filen og den genererte meldingen inneholder flere institusjon-IDer: " +
-                                       string.Join(", ", melding.Institusjon.Select(i => i.institusjonID)) +
-                                       Environment.NewLine + Environment.NewLine +
-                                       "Vi ber om at det kun rapporteres et unikt organisasjonsnummer som institusjonID i NPR_KPP-meldingen.");
-            }
-
             var wrapped = MessageUtils.WrapInMsgHead(melding, args);
 
             reportStatus?.Invoke(30, "Genererer melding...");
             var xmlDocument = XmlUtils.SerializeToXmlDocument(wrapped);
 
+            if (!MessageUtils.HasSingleInstitution(melding))
+            {
+                userNotificator?.Invoke("Episode-filen og den genererte meldingen inneholder flere institusjon-IDer: " +
+                                        string.Join(", ", melding.Institusjon.Select(i => i.institusjonID)) +
+                                        Environment.NewLine + Environment.NewLine +
+                                        "Vi ber om at det kun rapporteres et unikt organisasjonsnummer som institusjonID i NPR_KPP-meldingen.");
+            }
+
             reportStatus?.Invoke(50, "Lagrer melding...");
+            Directory.CreateDirectory(Path.GetDirectoryName(args.OutputPath));
             XmlUtils.SaveToFile(xmlDocument, args.OutputPath);
 
             reportStatus?.Invoke(75, "Kontrollerer melding...");
