@@ -23,22 +23,28 @@ namespace Dhhr.KppParser.Service
 
         public string FhiHerId { get; set; }
 
+        public BatchFileArgs BatchFiles { get; set; } = new();
+
         public override string ToString()
         {
             return $"{nameof(EpisodePath)}: {F(EpisodePath)}," +
-                $"\n{nameof(TjenestePath)}: {F(TjenestePath)}," +
-                $"\n{nameof(OutputPath)}: {F(OutputPath)}," +
-                $"\n{nameof(ProgramVersion)}: {F(ProgramVersion)}," +
-                $"\n{nameof(Leverandor)}: {F(Leverandor)}," +
-                $"\n{nameof(NavnEpj)}: {F(NavnEpj)}," +
-                $"\n{nameof(VersjonEpj)}: {F(VersjonEpj)}," +
-                $"\n{nameof(FraDato)}: {F(FraDato)}," +
-                $"\n{nameof(TilDato)}: {F(TilDato)}," +
-                $"\n{nameof(OrganizationName)}: {F(OrganizationName)}," +
-                $"\n{nameof(OrganizationHerId)}: {F(OrganizationHerId)}," +
-                $"\n{nameof(OrganizationName2)}: {F(OrganizationName2)}," +
-                $"\n{nameof(OrganizationHerId2)}: {F(OrganizationHerId2)}," +
-                $"\n{nameof(FhiHerId)}: {F(FhiHerId)}";
+                $"\r\n{nameof(TjenestePath)}: {F(TjenestePath)}," +
+                $"\r\n{nameof(OutputPath)}: {F(OutputPath)}," +
+                $"\r\n{nameof(ProgramVersion)}: {F(ProgramVersion)}," +
+                $"\r\n{nameof(Leverandor)}: {F(Leverandor)}," +
+                $"\r\n{nameof(NavnEpj)}: {F(NavnEpj)}," +
+                $"\r\n{nameof(VersjonEpj)}: {F(VersjonEpj)}," +
+                $"\r\n{nameof(FraDato)}: {F(FraDato)}," +
+                $"\r\n{nameof(TilDato)}: {F(TilDato)}," +
+                $"\r\n{nameof(OrganizationName)}: {F(OrganizationName)}," +
+                $"\r\n{nameof(OrganizationHerId)}: {F(OrganizationHerId)}," +
+                $"\r\n{nameof(OrganizationName2)}: {F(OrganizationName2)}," +
+                $"\r\n{nameof(OrganizationHerId2)}: {F(OrganizationHerId2)}," +
+                $"\r\n{nameof(FhiHerId)}: {F(FhiHerId)}," +
+                $"\r\n{nameof(BatchFiles)}: {{" +
+                $"\r\n    {nameof(BatchFiles.EnableCreation)}: {BatchFiles.EnableCreation}" +
+                $"\r\n    {nameof(BatchFiles.MaxFileSizeInBytes)}: {BatchFiles.MaxFileSizeInBytes}" +
+                $"\r\n}}";
         }
 
         private static string F(string s)
@@ -54,5 +60,11 @@ namespace Dhhr.KppParser.Service
                 ? "Ikke angitt / Feil format"
                 : dt.ToString("yyyy-MM-dd");
         }
+    }
+
+    public class BatchFileArgs
+    {
+        public bool EnableCreation { get; set; }
+        public long MaxFileSizeInBytes { get; set; }
     }
 }

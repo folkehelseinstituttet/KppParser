@@ -7,5 +7,13 @@
         public string VersjonEpj { get; set; }
         public string FhiQa { get; set; }
         public string FhiProd { get; set; }
+
+        public BatchFileSettings BatchFiles { get; set; }
+    }
+
+    public class BatchFileSettings
+    {
+        public bool EnableCreation { get; set; }
+        public long MaxFileSizeInBytes { get; set; }
     }
 }

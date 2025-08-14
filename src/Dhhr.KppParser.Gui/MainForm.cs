@@ -99,6 +99,11 @@ namespace Dhhr.KppParser.Gui
                 Leverandor = _settings.Leverandor,
                 NavnEpj = _settings.NavnEpj,
                 VersjonEpj = _settings.VersjonEpj,
+                BatchFiles = new BatchFileArgs
+                {
+                    EnableCreation = _settings.BatchFiles.EnableCreation,
+                    MaxFileSizeInBytes = _settings.BatchFiles.MaxFileSizeInBytes,
+                },
                 ProgramVersion = _version,
             };
 
