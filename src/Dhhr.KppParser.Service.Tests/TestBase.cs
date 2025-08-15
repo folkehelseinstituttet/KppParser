@@ -11,8 +11,7 @@ public class TestBase
 
     public TestContext TestContext { get; set; }
 
-    [TestInitialize]
-    public void TestInit()
+    protected void TestInitBase()
     {
         _outputPath = @"C:\temp\tests\KppService\";
         Directory.CreateDirectory(_outputPath);
@@ -21,11 +20,6 @@ public class TestBase
         if (File.Exists(outputFile))
         {
             File.Delete(outputFile);
-        }
-
-        foreach (var batchFile in OutputBatchFiles())
-        {
-            File.Delete(batchFile);
         }
     }
 
@@ -47,7 +41,6 @@ public class TestBase
             OrganizationName2 = "Avsender navn nivå 2",
             OrganizationHerId2 = "543212",
             FhiHerId = "12345",
-            BatchFiles = new BatchFileArgs(),
         };
     }
 
