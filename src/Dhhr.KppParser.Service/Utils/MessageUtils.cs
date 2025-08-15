@@ -136,27 +136,26 @@ public static class MessageUtils
     {
         if (args.BatchFiles.EnableCreation)
         {
-            return FileExceedsMaxFileSize(xmlDocument, args.BatchFiles.MaxFileSizeInBytes, out recommendedFileCount);
+            var maxFileSizeInBytes = args.BatchFiles.MaxFileSizeInBytes;
+
+            if (FileExceedsMaxFileSize(xmlDocument, maxFileSizeInBytes, out var fileSizeInBytes))
+            {
+                recommendedFileCount = BatchMessageUtils.GetRecommendedFileCount(fileSizeInBytes, maxFileSizeInBytes);
+
+                return true;
+            }
         }
 
         recommendedFileCount = 0;
         return false;
     }
 
-    private static bool FileExceedsMaxFileSize(XmlDocument xmlDocument, long maxFileSizeInBytes, out int recommendedFileCount)
+    private static bool FileExceedsMaxFileSize(XmlDocument xmlDocument, long maxFileSizeInBytes, out long fileSizeInBytes)
     {
         // TODO Does this result in the right value for large files (> 1 GB)?
-        var fileSizeInBytes = XmlUtils.Encoding.GetBytes(xmlDocument.OuterXml).LongLength;
+        fileSizeInBytes = XmlUtils.Encoding.GetBytes(xmlDocument.OuterXml).LongLength;
 
-        if (fileSizeInBytes < maxFileSizeInBytes)
-        {
-            recommendedFileCount = 0;
-            return false;
-        }
-
-        // TODO This should probably be calculated with some buffer. The size of a KPP file without any episodes is already 2+ kB.
-        recommendedFileCount = 1 + (int)Math.DivRem(fileSizeInBytes, maxFileSizeInBytes).Quotient;
-        return true;
+        return fileSizeInBytes > maxFileSizeInBytes;
     }
 
     private static string CreateLopenr() => DateTime.UtcNow.ToString("yyyyMMddHHmmssffff");

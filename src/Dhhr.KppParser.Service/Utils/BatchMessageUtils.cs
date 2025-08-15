@@ -8,6 +8,10 @@ namespace Dhhr.KppParser.Service.Utils;
 
 public static class BatchMessageUtils
 {
+    // TODO ? Create config value
+    // The buffer is slightly larger than the base size of the generated file (before the file is populated with episode content)
+    private const int BaseFileSizeInBytes = 3000;
+
     public static void TryCreateFiles(Args args, Action<int, string> reportStatus, Action<string> userNotificator, Melding message, int fileCount)
     {
         if (CanCreateFiles(message, out var institution))
@@ -24,6 +28,24 @@ public static class BatchMessageUtils
                                 " Avbryter den pågående prosessen.");
 
         reportStatus?.Invoke(45, "Prosess avbrutt.");
+    }
+
+    public static int GetRecommendedFileCount(long fileSizeInBytes, long maxFileSizeInBytes)
+    {
+        var fileCountWithMaxFileSize = (int)Math.DivRem(fileSizeInBytes, maxFileSizeInBytes, out var remainingFileSizeInBytes);
+
+        var recommendedFileCount = 1 + fileCountWithMaxFileSize;
+
+        // Account for the base size of each generated file (i.e. everything around the episode content)
+        var actualTotalFileSizeBuffer = maxFileSizeInBytes - remainingFileSizeInBytes;
+        var neededTotalFileSizeBuffer = recommendedFileCount * BaseFileSizeInBytes;
+
+        if (actualTotalFileSizeBuffer < neededTotalFileSizeBuffer)
+        {
+            return 1 + recommendedFileCount;
+        }
+
+        return recommendedFileCount;
     }
 
     private static void CreateFiles(
