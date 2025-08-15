@@ -9,30 +9,8 @@ using FluentAssertions;
 namespace Dhhr.KppParser.Service.Tests
 {
     [TestClass]
-    public class KppServiceTests
+    public class KppServiceTests : TestBase
     {
-        private string _outputPath;
-
-        public TestContext TestContext { get; set; }
-
-        [TestInitialize]
-        public void TestInit()
-        {
-            _outputPath = @"C:\temp\tests\KppService\";
-            Directory.CreateDirectory(_outputPath);
-
-            var outputFile = OutputFile();
-            if (File.Exists(outputFile))
-            {
-                File.Delete(outputFile);
-            }
-
-            foreach (var batchFile in OutputBatchFiles())
-            {
-                File.Delete(batchFile);
-            }
-        }
-
         [TestMethod]
         public void KppService_ShouldSetMetadata_WhenParsingKpp()
         {
@@ -347,28 +325,6 @@ namespace Dhhr.KppParser.Service.Tests
             episodesInBatchMessages.Should().BeEquivalentTo(episodesInSingleMessage);
         }
 
-        private Args DefaultArgs()
-        {
-            return new Args
-            {
-                EpisodePath = TestDataPath("episode_institusjoner.csv"),
-                TjenestePath = TestDataPath("tjeneste.csv"),
-                OutputPath = OutputFile(),
-                ProgramVersion = TestContext.TestName,
-                FraDato = new DateTime(2019, 1, 1),
-                TilDato = new DateTime(2019, 12, 31),
-                Leverandor = "ukjent leverandør",
-                NavnEpj = "ukjent epj",
-                VersjonEpj = "ukjent epj versjon",
-                OrganizationName = "Avsender navn",
-                OrganizationHerId = "54321",
-                OrganizationName2 = "Avsender navn nivå 2",
-                OrganizationHerId2 = "543212",
-                FhiHerId = "12345",
-                BatchFiles = new BatchFileArgs(),
-            };
-        }
-
         private Args BatchFileArgs(string episodeFileName = "episode_institusjon.csv")
         {
             var args = DefaultArgs();
@@ -379,11 +335,5 @@ namespace Dhhr.KppParser.Service.Tests
 
             return args;
         }
-
-        private string OutputFile() => $"{_outputPath}{TestContext.TestName}.xml";
-
-        private string[] OutputBatchFiles() => Directory.GetFiles(_outputPath, TestContext.TestName + "_*.xml");
-
-        private static string TestDataPath(string fileName) => Path.Combine("Resources/TestData", fileName);
     }
 }
