@@ -27,7 +27,7 @@ public class TestBase
     {
         return new Args
         {
-            EpisodePath = TestDataPath("episode_institusjoner.csv"),
+            EpisodePath = TestDataPath("episode.csv"),
             TjenestePath = TestDataPath("tjeneste.csv"),
             OutputPath = OutputFile(),
             ProgramVersion = TestContext.TestName,

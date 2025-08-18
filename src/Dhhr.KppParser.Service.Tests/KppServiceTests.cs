@@ -120,7 +120,7 @@ public class KppServiceTests : TestBase
     }
 
     [DataTestMethod]
-    [DataRow("episode_institusjoner.csv", null)]
+    [DataRow("episode.csv", null)]
     [DataRow(null, Constants.Episode.EmptyFileName)]
     [DataRow("episode_missing_header.csv", Constants.Episode.InvalidHeader)]
     [DataRow("does_not_exist.csv", Constants.Episode.DoesNotExist)]
@@ -149,7 +149,7 @@ public class KppServiceTests : TestBase
     [DataRow(null, Constants.Tjeneste.EmptyFileName)]
     [DataRow("tjeneste_missing_header.csv", Constants.Tjeneste.InvalidHeader)]
     [DataRow("does_not_exist.csv", Constants.Tjeneste.DoesNotExist)]
-    [DataRow("episode_institusjoner.csv", Constants.Tjeneste.InvalidHeader)]
+    [DataRow("episode.csv", Constants.Tjeneste.InvalidHeader)]
     public void KppService_ShouldValidateCsvHeaders_WhenValidatingTjenesteInput(string fileName, string expectedError)
     {
         // arrange

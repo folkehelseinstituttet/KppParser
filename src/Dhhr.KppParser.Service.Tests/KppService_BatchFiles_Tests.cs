@@ -25,7 +25,7 @@ public class KppService_BatchFiles_Tests : TestBase
     public void KppService_ShouldCreateBatchFiles_WhenBatchFileCreationIsEnabled_AndResultingKppFileExceedsSizeLimit_AndEpisodeFileContainsSingleInstitutionId()
     {
         // arrange
-        var args = BatchFileArgs("episode_institusjon.csv");
+        var args = BatchFileArgs("episode_larger_singleinstitution.csv");
 
         // act
         KppService.Run(args, null, null);
@@ -43,7 +43,7 @@ public class KppService_BatchFiles_Tests : TestBase
     {
         // arrange
         var args = BatchFileArgs();
-        args.EpisodePath = TestDataPath("episode_institusjoner.csv");
+        args.EpisodePath = TestDataPath("episode_larger_multipleinstitutions.csv");
 
         // act
         KppService.Run(args, null, null);
@@ -150,7 +150,7 @@ public class KppService_BatchFiles_Tests : TestBase
     public void KppService_BatchFiles_ShouldContainTheSameEpisodes_AsSingleFile_WhenSameEpisodeFileIsUsedAsInput()
     {
         // arrange
-        const string episodeFileName = "episode_institusjon.csv";
+        const string episodeFileName = "episode_larger_singleinstitution.csv";
 
         var batchFileArgs = BatchFileArgs(episodeFileName);
         var singleFileArgs = DefaultArgs();
@@ -182,7 +182,7 @@ public class KppService_BatchFiles_Tests : TestBase
         episodesInBatchMessages.Should().BeEquivalentTo(episodesInSingleMessage);
     }
 
-    private Args BatchFileArgs(string episodeFileName = "episode_institusjon.csv")
+    private Args BatchFileArgs(string episodeFileName = "episode_larger_singleinstitution.csv")
     {
         var args = DefaultArgs();
 
@@ -191,7 +191,7 @@ public class KppService_BatchFiles_Tests : TestBase
         args.BatchFiles = new BatchFileArgs
         {
             EnableCreation = true,
-            MaxFileSizeInBytes = 3000,
+            MaxFileSizeInBytes = 5500,
         };
 
         return args;

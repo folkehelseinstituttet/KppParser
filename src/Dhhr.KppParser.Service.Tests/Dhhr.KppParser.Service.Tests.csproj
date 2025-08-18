@@ -5,13 +5,16 @@
   </PropertyGroup>
   
   <ItemGroup>
+    <None Include="Resources\TestData\episode_larger_multipleinstitutions.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\TestData\episode_larger_singleinstitution.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Resources\TestData\episode_missing_header.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\TestData\episode_institusjoner.csv">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Resources\TestData\episode_institusjon.csv">
+    <None Include="Resources\TestData\episode.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Resources\TestData\tjeneste_missing_header.csv">
