@@ -56,12 +56,18 @@ public static class BatchMessageUtils
     {
         reportStatus?.Invoke(5, "Prosess for generering av delmeldinger har startet.");
         reportStatus?.Invoke(10, "Leser data...");
-        var messages = CreateMessages(args, institution, batchFileCount).ToList();
+        var batchedInstitutionObjects = GetBatchedInstitutionObjects(institution, batchFileCount).ToList();
 
-        var wrappedMessageByOutputPath = messages
-            .Select(message => (
-                OutputPath: BuildFileName(message, args.OutputPath),
-                WrappedMessage: MessageUtils.WrapInMsgHead(message, args)))
+        // TODO If MT2.0 is customized to support other lopenr datatypes than int: replace with MessageUtils.CreateLopenr()
+        var lopenr = CreateLopenr();
+
+        var wrappedMessageByOutputPath = batchedInstitutionObjects
+            .Select(batch => (
+                batch.BatchInfo,
+                Message: MessageUtils.BuildBatchMessage(args, lopenr, batch.BatchInfo, batch.Institution)))
+            .Select(batchObject => (
+                OutputPath: BuildFileName(batchObject.BatchInfo, args.OutputPath),
+                WrappedMessage: MessageUtils.WrapInMsgHead(batchObject.Message, args)))
             .ToList();
 
         reportStatus?.Invoke(50, "Lagrer delmeldinger...");
@@ -97,18 +103,15 @@ public static class BatchMessageUtils
         return false;
     }
 
-    private static string BuildFileName(Melding message, string fileName)
+    private static string BuildFileName(string batchInfo, string fileName)
     {
         var extensionIndex = fileName.LastIndexOf('.');
 
-        return fileName.Insert(extensionIndex, "_" + message.lokalident);
+        return fileName.Insert(extensionIndex, "_" + batchInfo);
     }
 
-    private static IEnumerable<Melding> CreateMessages(Args args, Institusjon institution, int batchFileCount)
+    private static IEnumerable<(Institusjon Institution, string BatchInfo)> GetBatchedInstitutionObjects(Institusjon institution, int batchFileCount)
     {
-        // TODO If MT2.0 is customized to support other lopenr datatypes than int: replace with MessageUtils.CreateLopenr()
-        var lopenr = CreateLopenr();
-
         var episodes = institution.Objektholder.Single().EpisodeKPP;
 
         var episodesPerMessage = episodes
@@ -117,11 +120,11 @@ public static class BatchMessageUtils
 
         for (var i = 0; i < batchFileCount; i++)
         {
-            var lokalident = $"{lopenr}_({i + 1}_Of_{batchFileCount})";
+            var batchInfo = $"({i + 1}_Of_{batchFileCount})";
 
             var institutionObject = Institusjon.Create(institution.institusjonID, episodesPerMessage[i]);
 
-            yield return MessageUtils.BuildMessage(args, lopenr, lokalident, [institutionObject]);
+            yield return (institutionObject, batchInfo);
         }
     }
 

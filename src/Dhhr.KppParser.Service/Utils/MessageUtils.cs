@@ -31,6 +31,13 @@ public static class MessageUtils
         };
     }
 
+    public static Melding BuildBatchMessage(Args args, string lopenr, string batchInfo, Institusjon institution)
+    {
+        var lokalident = lopenr + "_" + batchInfo;
+
+        return BuildMessage(args, lopenr, lokalident, [institution]);
+    }
+
     public static MsgHead WrapInMsgHead(Melding melding, Args args)
     {
         return new MsgHead
