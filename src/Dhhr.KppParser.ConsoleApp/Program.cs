@@ -43,6 +43,8 @@ namespace Dhhr.KppParser.ConsoleApp
                 {"epj-navn=", "Navn på EPJ", x => kppArgs.NavnEpj = x },
                 {"epj-versjon=", "Versjon av EPJ", x => kppArgs.VersjonEpj = x },
                 {"fhi-herid=", "FHIs HerId.", x => kppArgs.FhiHerId = x },
+                {"batchfiles-enable=", "'true' dersom det er ønskelig å opprette delmeldinger om KPP-meldingen blir for stor", x => kppArgs.BatchFiles.EnableCreation = ParseBool(x) },
+                {"batchfiles-maxfilesize=", "Maks. filstørrelse for KPP-meldingen i gigabyte (GB)", x => kppArgs.BatchFiles.MaxFileSizeInGigabytes = ParseInt(x) },
                 {"Output" },
                 {"o|output=", "Filsti hvor resultatet lagres", x => kppArgs.OutputPath = x}
             };
@@ -102,11 +104,21 @@ namespace Dhhr.KppParser.ConsoleApp
             return 0;
         }
 
+        private static bool ParseBool(string x)
+        {
+            return bool.TryParse(x, out var boolValue) && boolValue;
+        }
+
         private static DateTime ParseDate(string x)
         {
             return DateTime.TryParseExact(x, "yyyy-MM-dd", CultureInfo.InvariantCulture, DateTimeStyles.None, out var tmp)
                 ? tmp
                 : DateTime.MinValue;
+        }
+
+        private static int ParseInt(string x)
+        {
+            return int.TryParse(x, out var intValue) ? intValue : 0;
         }
 
         private static string Version()
