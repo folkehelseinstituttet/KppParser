@@ -38,12 +38,18 @@ Pakk ut `zip`-filen:
    - Angi navn og HER-ID på avsender (nivå 1)
    - Angi navn og HER-ID på avsender (nivå 2)
    - Velg om sendingen er en ordentlig innsending eller en prøvesending
+   - Velg om programmet skal kunne lage delmeldinger dersom KPP-meldingen blir for stor
+     - Angi maksstørrelse på KPP-meldingen
 4. Generér melding (`xml`-fil):
    - Trykk `Lagre...`
    - Velg hvilken mappe du ønsker at den genererte meldingen (`xml`-fil) skal lagres i, samt ønsket navn på filen
-   - Etter at du har trykket `Lagre` vil fremdriften vises i et lite vindu. Når vinduet viser `Ferdig` er filen ferdig generert.
+   - Etter at du har trykket `Lagre` vil fremdriften vises i et lite vindu
+   - Dersom generering av delmeldinger er aktivert og KPP-meldingen er over maksstørrelsen, informeres det om at det genereres delmeldinger
+   - Når vinduet viser `Ferdig` er filen(e) ferdig generert
 
 Dersom `episode`-filen inneholder episoder knyttet til mer enn én institusjon-ID vil programmet informere brukeren om dette i en meldingsboks.
+
+<small><i>NB: Delmeldinger kan ikke genereres når `episode`-filen inneholder episoder knyttet til mer enn én institusjon-ID.</i></small>
 
 Programmet/Applikasjonen ser slik ut:
 

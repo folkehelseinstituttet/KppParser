@@ -3,7 +3,9 @@
     .\Dhhr.KppParser.ConsoleApp.exe -h
 
 # Merknad
-    Merk at alle Input og Output er påkrevd
+    Det er valgfritt å angi --batchfiles-*. Dersom --batchfiles-enable er true må --batchfiles-maxfilesize være større enn `0`.
+
+    Utover dette er alle Input og Output påkrevd.
 
 # FHIs HerId
     I skrivende stund er FHIs HerId-er følgende:

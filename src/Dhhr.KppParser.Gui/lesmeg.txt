@@ -10,8 +10,13 @@
         - Trykk på dato-boksen og skriv inn dato selv
         eller
         - Trykk på dato-boksen og velg dato ved hjelp av piltastene
-    4. Trykk kjør
-        Programmet vil gi beskjed når det er ferdig.
+    4. Oppgi informasjon om "Avsender nivå 1" og "Avsender nivå 2"
+        - "Org. Navn" er en tekststreng
+        - "Org. HerId er et tall
+    5. Angi om det er en prøvesending eller en faktisk innsending
+    6. Angi om programmet skal kunne lage delmeldinger dersom KPP-meldingen blir for stor
+        - Angi i så fall maksstørrelse på KPP-meldingen
+    7. Trykk kjør. Programmet vil gi beskjed når det er ferdig.
 
 
 # Konfigurasjon
