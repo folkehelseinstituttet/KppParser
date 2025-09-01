@@ -39,6 +39,8 @@ namespace Dhhr.KppParser.Gui
             OrgHerIdBox.Text = Properties.KppParser.Default.Level1HerId;
             OrgNameBox2.Text = Properties.KppParser.Default.Level2Name;
             OrgHerIdBox2.Text = Properties.KppParser.Default.Level2HerId;
+            BatchFiles_EnableCreation.Checked = Properties.KppParser.Default.BatchFiles_EnableCreation;
+            BatchFiles_MaxFileSizeInGigabytes.Value = Properties.KppParser.Default.BatchFiles_MaxFileSizeInGigabytes;
         }
 
         private void EpisodeButton_Click(object sender, EventArgs e)
@@ -80,6 +82,8 @@ namespace Dhhr.KppParser.Gui
             Properties.KppParser.Default.Level1HerId = OrgHerIdBox.Text;
             Properties.KppParser.Default.Level2Name = OrgNameBox2.Text;
             Properties.KppParser.Default.Level2HerId = OrgHerIdBox2.Text;
+            Properties.KppParser.Default.BatchFiles_EnableCreation = BatchFiles_EnableCreation.Checked;
+            Properties.KppParser.Default.BatchFiles_MaxFileSizeInGigabytes = BatchFiles_MaxFileSizeInGigabytes.Value;
             Properties.KppParser.Default.Save();
 
             // Run
@@ -101,8 +105,8 @@ namespace Dhhr.KppParser.Gui
                 VersjonEpj = _settings.VersjonEpj,
                 BatchFiles = new BatchFileArgs
                 {
-                    EnableCreation = _settings.BatchFiles.EnableCreation,
-                    MaxFileSizeInGigabytes = _settings.BatchFiles.MaxFileSizeInGigabytes,
+                    EnableCreation = BatchFiles_EnableCreation.Checked,
+                    MaxFileSizeInGigabytes = (int)BatchFiles_MaxFileSizeInGigabytes.Value,
                 },
                 ProgramVersion = _version,
             };
@@ -133,6 +137,14 @@ namespace Dhhr.KppParser.Gui
 
             var progressForm = new ProgressForm(args);
             progressForm.ShowDialog();
+        }
+
+        private void BatchFiles_EnableCreation_CheckedChanged(object sender, EventArgs e)
+        {
+            var batchFileCreationEnabled = sender is CheckBox { Checked: true };
+
+            BatchFiles_MaxFileSizeInGigabytes.Enabled = batchFileCreationEnabled;
+            BatchFiles_MaxFileSizeInGigabytes_Label.Enabled = batchFileCreationEnabled;
         }
     }
 }
