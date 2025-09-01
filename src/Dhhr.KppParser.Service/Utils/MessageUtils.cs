@@ -143,7 +143,7 @@ public static class MessageUtils
     {
         if (args.BatchFiles.EnableCreation)
         {
-            var maxFileSizeInBytes = args.GetMaxFileSizeInBytes();
+            var maxFileSizeInBytes = args.MaxBatchFileSizeInBytes;
 
             if (FileExceedsMaxFileSize(xmlDocument, maxFileSizeInBytes, out var fileSizeInBytes))
             {
@@ -159,7 +159,6 @@ public static class MessageUtils
 
     private static bool FileExceedsMaxFileSize(XmlDocument xmlDocument, long maxFileSizeInBytes, out long fileSizeInBytes)
     {
-        // TODO Does this result in the right value for large files (> 1 GB)?
         fileSizeInBytes = XmlUtils.Encoding.GetBytes(xmlDocument.OuterXml).LongLength;
 
         return fileSizeInBytes > maxFileSizeInBytes;

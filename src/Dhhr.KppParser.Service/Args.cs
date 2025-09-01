@@ -27,10 +27,7 @@ namespace Dhhr.KppParser.Service
 
         public BatchFileArgs BatchFiles { get; set; } = new();
 
-        public virtual long GetMaxFileSizeInBytes()
-        {
-            return GigabyteInBytes * BatchFiles.MaxFileSizeInGigabytes;
-        }
+        public virtual long MaxBatchFileSizeInBytes => GigabyteInBytes * BatchFiles.MaxFileSizeInGigabytes;
 
         public override string ToString()
         {

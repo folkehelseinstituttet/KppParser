@@ -193,7 +193,7 @@ public class KppService_BatchFiles_Tests : TestBase
 
         args.BatchFiles = new BatchFileArgs { EnableCreation = true };
 
-        argsMock.Setup(mock => mock.GetMaxFileSizeInBytes()).Returns(maxFileSizeInBytes);
+        argsMock.Setup(mock => mock.MaxBatchFileSizeInBytes).Returns(maxFileSizeInBytes);
 
         return args;
     }

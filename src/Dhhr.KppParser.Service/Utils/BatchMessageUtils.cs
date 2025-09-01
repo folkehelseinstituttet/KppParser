@@ -8,7 +8,6 @@ namespace Dhhr.KppParser.Service.Utils;
 
 public static class BatchMessageUtils
 {
-    // TODO ? Create config value
     // The buffer is slightly larger than the base size of the generated file (before the file is populated with episode content)
     private const int BaseFileSizeInBytes = 3000;
 
@@ -58,7 +57,6 @@ public static class BatchMessageUtils
         reportStatus?.Invoke(10, "Leser data...");
         var batchedInstitutionObjects = GetBatchedInstitutionObjects(institution, batchFileCount).ToList();
 
-        // TODO If MT2.0 is customized to support other lopenr datatypes than int: replace with MessageUtils.CreateLopenr()
         var lopenr = CreateLopenr();
 
         var wrappedMessageByOutputPath = batchedInstitutionObjects
