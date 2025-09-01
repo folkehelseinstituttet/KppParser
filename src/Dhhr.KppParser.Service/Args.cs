@@ -4,6 +4,8 @@ namespace Dhhr.KppParser.Service
 {
     public class Args
     {
+        private const long GigabyteInBytes = 1L * 1024 * 1024 * 1024;
+
         public string EpisodePath { get; set; }
         public string TjenestePath { get; set; }
         public string OutputPath { get; set; }
@@ -25,6 +27,11 @@ namespace Dhhr.KppParser.Service
 
         public BatchFileArgs BatchFiles { get; set; } = new();
 
+        public virtual long GetMaxFileSizeInBytes()
+        {
+            return GigabyteInBytes * BatchFiles.MaxFileSizeInGigabytes;
+        }
+
         public override string ToString()
         {
             return $"{nameof(EpisodePath)}: {F(EpisodePath)}," +
@@ -43,7 +50,7 @@ namespace Dhhr.KppParser.Service
                 $"\r\n{nameof(FhiHerId)}: {F(FhiHerId)}," +
                 $"\r\n{nameof(BatchFiles)}: {{" +
                 $"\r\n    {nameof(BatchFiles.EnableCreation)}: {BatchFiles.EnableCreation}" +
-                $"\r\n    {nameof(BatchFiles.MaxFileSizeInBytes)}: {BatchFiles.MaxFileSizeInBytes}" +
+                $"\r\n    {nameof(BatchFiles.MaxFileSizeInGigabytes)}: {BatchFiles.MaxFileSizeInGigabytes}" +
                 $"\r\n}}";
         }
 
@@ -65,6 +72,6 @@ namespace Dhhr.KppParser.Service
     public class BatchFileArgs
     {
         public bool EnableCreation { get; set; }
-        public long MaxFileSizeInBytes { get; set; }
+        public int MaxFileSizeInGigabytes { get; set; }
     }
 }

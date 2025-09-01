@@ -25,6 +25,7 @@ namespace Dhhr.KppParser.Gui
                 .Build();
 
             var settings = configuration.Get<Settings>();
+            settings.Validate();
 
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();

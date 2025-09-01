@@ -4,6 +4,7 @@ using Dhhr.KppParser.Service.Models;
 using Dhhr.KppParser.Service.Utils;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using FluentAssertions;
+using Moq;
 
 namespace Dhhr.KppParser.Service.Tests;
 
@@ -60,8 +61,7 @@ public class KppService_BatchFiles_Tests : TestBase
     public void KppService_ShouldCreateSingleFile_WhenBatchFileCreationIsEnabled_AndResultingKppFileIsWithinSizeLimit()
     {
         // arrange
-        var args = BatchFileArgs();
-        args.BatchFiles.MaxFileSizeInBytes = 7000;
+        var args = BatchFileArgs(maxFileSizeInBytes: 7000);
 
         // act
         KppService.Run(args, null, null);
@@ -182,17 +182,18 @@ public class KppService_BatchFiles_Tests : TestBase
         episodesInBatchMessages.Should().BeEquivalentTo(episodesInSingleMessage);
     }
 
-    private Args BatchFileArgs(string episodeFileName = "episode_larger_singleinstitution.csv")
+    private Args BatchFileArgs(string episodeFileName = "episode_larger_singleinstitution.csv", long maxFileSizeInBytes = 5500)
     {
-        var args = DefaultArgs();
+        var argsMock = new Mock<Args>();
+        var args = argsMock.Object;
+
+        SetDefaultValues(args);
 
         args.EpisodePath = TestDataPath(episodeFileName);
 
-        args.BatchFiles = new BatchFileArgs
-        {
-            EnableCreation = true,
-            MaxFileSizeInBytes = 5500,
-        };
+        args.BatchFiles = new BatchFileArgs { EnableCreation = true };
+
+        argsMock.Setup(mock => mock.GetMaxFileSizeInBytes()).Returns(maxFileSizeInBytes);
 
         return args;
     }

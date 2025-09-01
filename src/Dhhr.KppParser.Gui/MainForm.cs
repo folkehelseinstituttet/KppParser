@@ -102,7 +102,7 @@ namespace Dhhr.KppParser.Gui
                 BatchFiles = new BatchFileArgs
                 {
                     EnableCreation = _settings.BatchFiles.EnableCreation,
-                    MaxFileSizeInBytes = _settings.BatchFiles.MaxFileSizeInBytes,
+                    MaxFileSizeInGigabytes = _settings.BatchFiles.MaxFileSizeInGigabytes,
                 },
                 ProgramVersion = _version,
             };

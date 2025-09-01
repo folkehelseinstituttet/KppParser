@@ -143,7 +143,7 @@ public static class MessageUtils
     {
         if (args.BatchFiles.EnableCreation)
         {
-            var maxFileSizeInBytes = args.BatchFiles.MaxFileSizeInBytes;
+            var maxFileSizeInBytes = args.GetMaxFileSizeInBytes();
 
             if (FileExceedsMaxFileSize(xmlDocument, maxFileSizeInBytes, out var fileSizeInBytes))
             {

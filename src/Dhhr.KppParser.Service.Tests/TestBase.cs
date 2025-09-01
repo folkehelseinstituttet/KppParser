@@ -23,25 +23,31 @@ public class TestBase
         }
     }
 
+    protected void SetDefaultValues(Args args)
+    {
+        args.EpisodePath = TestDataPath("episode.csv");
+        args.TjenestePath = TestDataPath("tjeneste.csv");
+        args.OutputPath = OutputFile();
+        args.ProgramVersion = TestContext.TestName;
+        args.FraDato = new DateTime(2019, 1, 1);
+        args.TilDato = new DateTime(2019, 12, 31);
+        args.Leverandor = "ukjent leverandør";
+        args.NavnEpj = "ukjent epj";
+        args.VersjonEpj = "ukjent epj versjon";
+        args.OrganizationName = "Avsender navn";
+        args.OrganizationHerId = "54321";
+        args.OrganizationName2 = "Avsender navn nivå 2";
+        args.OrganizationHerId2 = "543212";
+        args.FhiHerId = "12345";
+    }
+
     protected Args DefaultArgs()
     {
-        return new Args
-        {
-            EpisodePath = TestDataPath("episode.csv"),
-            TjenestePath = TestDataPath("tjeneste.csv"),
-            OutputPath = OutputFile(),
-            ProgramVersion = TestContext.TestName,
-            FraDato = new DateTime(2019, 1, 1),
-            TilDato = new DateTime(2019, 12, 31),
-            Leverandor = "ukjent leverandør",
-            NavnEpj = "ukjent epj",
-            VersjonEpj = "ukjent epj versjon",
-            OrganizationName = "Avsender navn",
-            OrganizationHerId = "54321",
-            OrganizationName2 = "Avsender navn nivå 2",
-            OrganizationHerId2 = "543212",
-            FhiHerId = "12345",
-        };
+        var args = new Args();
+
+        SetDefaultValues(args);
+
+        return args;
     }
 
     protected string OutputFile() => $"{_outputPath}{TestContext.TestName}.xml";
