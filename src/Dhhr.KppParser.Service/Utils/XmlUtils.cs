@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.IO;
+using System.Text;
 using System.Xml;
 using System.Xml.Linq;
 using System.Xml.Schema;
@@ -8,20 +9,15 @@ namespace Dhhr.KppParser.Service.Utils
 {
     public static class XmlUtils
     {
-        public static readonly Encoding Encoding = Encoding.UTF8;
-
-        public static XmlDocument SerializeToXmlDocument<T>(T obj)
+        public static void SerializeToFile<T>(T obj, string path)
         {
             var serializer = new XmlSerializer(typeof(T));
-            var stringWriter = new KppStringWriter();
-
-            using var writer = XmlWriter.Create(stringWriter, new XmlWriterSettings { Indent = true });
-            serializer.Serialize(writer, obj);
-
-            var document = new XmlDocument { PreserveWhitespace = true };
-            document.LoadXml(stringWriter.ToString());
-
-            return document;
+            using (var fileStream = File.Create(path))
+            using (var writer = new XmlTextWriter(fileStream, Encoding.UTF8))
+            {
+                writer.Formatting = Formatting.Indented;
+                serializer.Serialize(writer, obj);
+            }
         }
 
         public static T DeserializeFromFile<T>(string path)
@@ -31,11 +27,6 @@ namespace Dhhr.KppParser.Service.Utils
             {
                 return (T)serializer.Deserialize(reader);
             }
-        }
-
-        public static void SaveToFile(XmlDocument doc, string path)
-        {
-            doc.Save(path);
         }
 
         public static void ValidateXmlFile(string path, XmlSchemaSet schemaSet)

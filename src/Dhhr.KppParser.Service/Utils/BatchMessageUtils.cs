@@ -71,8 +71,7 @@ public static class BatchMessageUtils
 
         foreach (var message in wrappedMessageByOutputPath)
         {
-            var xml = XmlUtils.SerializeToXmlDocument(message.WrappedMessage);
-            XmlUtils.SaveToFile(xml, message.OutputPath);
+            XmlUtils.SerializeToFile(message.WrappedMessage, message.OutputPath);
         }
 
         reportStatus?.Invoke(75, "Kontrollerer delmeldinger...");

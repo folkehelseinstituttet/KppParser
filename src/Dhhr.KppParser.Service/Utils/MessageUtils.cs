@@ -1,7 +1,6 @@
 using System;
 using System.IO;
 using System.Linq;
-using System.Xml;
 using Dhhr.KppParser.Service.Models;
 
 namespace Dhhr.KppParser.Service.Utils;
@@ -139,13 +138,13 @@ public static class MessageUtils
             .ToArray();
     }
 
-    public static bool ShouldCreateBatchFiles(Args args, XmlDocument xmlDocument, out int recommendedFileCount)
+    public static bool ShouldCreateBatchFiles(Args args, out int recommendedFileCount)
     {
         if (args.BatchFiles.EnableCreation)
         {
             var maxFileSizeInBytes = args.MaxBatchFileSizeInBytes;
 
-            if (FileExceedsMaxFileSize(xmlDocument, maxFileSizeInBytes, out var fileSizeInBytes))
+            if (FileExceedsMaxFileSize(args, maxFileSizeInBytes, out var fileSizeInBytes))
             {
                 recommendedFileCount = BatchMessageUtils.GetRecommendedFileCount(
                     fileSizeInBytes,
@@ -160,9 +159,9 @@ public static class MessageUtils
         return false;
     }
 
-    private static bool FileExceedsMaxFileSize(XmlDocument xmlDocument, long maxFileSizeInBytes, out long fileSizeInBytes)
+    private static bool FileExceedsMaxFileSize(Args args, long maxFileSizeInBytes, out long fileSizeInBytes)
     {
-        fileSizeInBytes = XmlUtils.Encoding.GetBytes(xmlDocument.OuterXml).LongLength;
+        fileSizeInBytes = new FileInfo(args.OutputPath).Length;
 
         return fileSizeInBytes > maxFileSizeInBytes;
     }

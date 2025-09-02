@@ -143,16 +143,17 @@ namespace Dhhr.KppParser.Service
 
         public static void Run(Args args, Action<int, string> reportStatus, Action<string> userNotificator)
         {
+            Directory.CreateDirectory(Path.GetDirectoryName(args.OutputPath));
+
             reportStatus?.Invoke(10, "Leser data...");
             var institutions = MessageUtils.ParseFiles(args.EpisodePath, args.TjenestePath);
             var message = MessageUtils.CreateMessage(args, institutions);
-
             var wrapped = MessageUtils.WrapInMsgHead(message, args);
 
             reportStatus?.Invoke(30, "Genererer melding...");
-            var xmlDocument = XmlUtils.SerializeToXmlDocument(wrapped);
+            XmlUtils.SerializeToFile(wrapped, args.OutputPath);
 
-            if (MessageUtils.ShouldCreateBatchFiles(args, xmlDocument, out var fileCount))
+            if (MessageUtils.ShouldCreateBatchFiles(args, out var fileCount))
             {
                 BatchMessageUtils.TryCreateFiles(args, reportStatus, userNotificator, message, fileCount);
                 return;
@@ -165,10 +166,6 @@ namespace Dhhr.KppParser.Service
                                         Environment.NewLine + Environment.NewLine +
                                         "Vi ber om at det kun rapporteres et unikt organisasjonsnummer som institusjonID i NPR_KPP-meldingen.");
             }
-
-            reportStatus?.Invoke(50, "Lagrer melding...");
-            Directory.CreateDirectory(Path.GetDirectoryName(args.OutputPath));
-            XmlUtils.SaveToFile(xmlDocument, args.OutputPath);
 
             reportStatus?.Invoke(75, "Kontrollerer melding...");
             var schemas = SchemaLoader.LoadDirectory("Resources");
