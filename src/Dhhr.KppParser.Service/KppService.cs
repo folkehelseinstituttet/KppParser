@@ -155,7 +155,11 @@ namespace Dhhr.KppParser.Service
 
             if (MessageUtils.ShouldCreateBatchFiles(args, out var fileCount))
             {
+                // We don't need the single KPP file anymore
+                DeleteFile(args.OutputPath);
+
                 BatchMessageUtils.TryCreateFiles(args, reportStatus, userNotificator, message, fileCount);
+
                 return;
             }
 
@@ -172,6 +176,14 @@ namespace Dhhr.KppParser.Service
             XmlUtils.ValidateXmlFile(args.OutputPath, schemas);
 
             reportStatus?.Invoke(100, "Ferdig");
+        }
+
+        private static void DeleteFile(string filePath)
+        {
+            if (File.Exists(filePath))
+            {
+                File.Delete(filePath);
+            }
         }
     }
 }
