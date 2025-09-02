@@ -7,5 +7,6 @@
         public string VersjonEpj { get; set; }
         public string FhiQa { get; set; }
         public string FhiProd { get; set; }
+        public int BaseFileSizeInBytes { get; set; }
     }
 }

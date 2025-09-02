@@ -28,301 +28,389 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.filesBox = new System.Windows.Forms.GroupBox();
-            this.TjenestePathBox = new System.Windows.Forms.TextBox();
-            this.TjenesteButton = new System.Windows.Forms.Button();
-            this.EpisodePathBox = new System.Windows.Forms.TextBox();
-            this.EpisodeButton = new System.Windows.Forms.Button();
-            this.ReportingPeriodBox = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.ToDatePicker = new System.Windows.Forms.DateTimePicker();
-            this.FromDatePicker = new System.Windows.Forms.DateTimePicker();
-            this.VersionLabel = new System.Windows.Forms.Label();
-            this.RunButton = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.OrgHerIdBox = new System.Windows.Forms.TextBox();
-            this.OrgNameBox = new System.Windows.Forms.TextBox();
-            this.RadioReport = new System.Windows.Forms.RadioButton();
-            this.RadioTrial = new System.Windows.Forms.RadioButton();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.OrgHerIdBox2 = new System.Windows.Forms.TextBox();
-            this.OrgNameBox2 = new System.Windows.Forms.TextBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.filesBox.SuspendLayout();
-            this.ReportingPeriodBox.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            this.SuspendLayout();
+            filesBox = new System.Windows.Forms.GroupBox();
+            TjenestePathBox = new System.Windows.Forms.TextBox();
+            TjenesteButton = new System.Windows.Forms.Button();
+            EpisodePathBox = new System.Windows.Forms.TextBox();
+            EpisodeButton = new System.Windows.Forms.Button();
+            ReportingPeriodBox = new System.Windows.Forms.GroupBox();
+            label2 = new System.Windows.Forms.Label();
+            label1 = new System.Windows.Forms.Label();
+            ToDatePicker = new System.Windows.Forms.DateTimePicker();
+            FromDatePicker = new System.Windows.Forms.DateTimePicker();
+            VersionLabel = new System.Windows.Forms.Label();
+            RunButton = new System.Windows.Forms.Button();
+            groupBox1 = new System.Windows.Forms.GroupBox();
+            label4 = new System.Windows.Forms.Label();
+            label3 = new System.Windows.Forms.Label();
+            OrgHerIdBox = new System.Windows.Forms.TextBox();
+            OrgNameBox = new System.Windows.Forms.TextBox();
+            RadioReport = new System.Windows.Forms.RadioButton();
+            RadioTrial = new System.Windows.Forms.RadioButton();
+            groupBox2 = new System.Windows.Forms.GroupBox();
+            label5 = new System.Windows.Forms.Label();
+            label6 = new System.Windows.Forms.Label();
+            OrgHerIdBox2 = new System.Windows.Forms.TextBox();
+            OrgNameBox2 = new System.Windows.Forms.TextBox();
+            groupBox3 = new System.Windows.Forms.GroupBox();
+            groupBox4 = new System.Windows.Forms.GroupBox();
+            BatchFiles_MaxFileSizeInGigabytes_Label = new System.Windows.Forms.Label();
+            BatchFiles_MaxFileSizeInGigabytes = new System.Windows.Forms.NumericUpDown();
+            BatchFiles_EnableCreation = new System.Windows.Forms.CheckBox();
+            filesBox.SuspendLayout();
+            ReportingPeriodBox.SuspendLayout();
+            groupBox1.SuspendLayout();
+            groupBox2.SuspendLayout();
+            groupBox3.SuspendLayout();
+            groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)BatchFiles_MaxFileSizeInGigabytes).BeginInit();
+            SuspendLayout();
             // 
             // filesBox
             // 
-            this.filesBox.Controls.Add(this.TjenestePathBox);
-            this.filesBox.Controls.Add(this.TjenesteButton);
-            this.filesBox.Controls.Add(this.EpisodePathBox);
-            this.filesBox.Controls.Add(this.EpisodeButton);
-            this.filesBox.Location = new System.Drawing.Point(12, 12);
-            this.filesBox.Name = "filesBox";
-            this.filesBox.Size = new System.Drawing.Size(305, 74);
-            this.filesBox.TabIndex = 0;
-            this.filesBox.TabStop = false;
-            this.filesBox.Text = "Filer";
+            filesBox.Controls.Add(TjenestePathBox);
+            filesBox.Controls.Add(TjenesteButton);
+            filesBox.Controls.Add(EpisodePathBox);
+            filesBox.Controls.Add(EpisodeButton);
+            filesBox.Location = new System.Drawing.Point(14, 14);
+            filesBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            filesBox.Name = "filesBox";
+            filesBox.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            filesBox.Size = new System.Drawing.Size(356, 85);
+            filesBox.TabIndex = 0;
+            filesBox.TabStop = false;
+            filesBox.Text = "Filer";
             // 
             // TjenestePathBox
             // 
-            this.TjenestePathBox.Location = new System.Drawing.Point(6, 45);
-            this.TjenestePathBox.Name = "TjenestePathBox";
-            this.TjenestePathBox.Size = new System.Drawing.Size(208, 20);
-            this.TjenestePathBox.TabIndex = 2;
+            TjenestePathBox.Location = new System.Drawing.Point(7, 52);
+            TjenestePathBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            TjenestePathBox.Name = "TjenestePathBox";
+            TjenestePathBox.Size = new System.Drawing.Size(242, 23);
+            TjenestePathBox.TabIndex = 2;
             // 
             // TjenesteButton
             // 
-            this.TjenesteButton.Location = new System.Drawing.Point(220, 45);
-            this.TjenesteButton.Name = "TjenesteButton";
-            this.TjenesteButton.Size = new System.Drawing.Size(75, 23);
-            this.TjenesteButton.TabIndex = 3;
-            this.TjenesteButton.Text = "Tjenester";
-            this.TjenesteButton.UseVisualStyleBackColor = true;
-            this.TjenesteButton.Click += new System.EventHandler(this.TjenesteButton_Click);
+            TjenesteButton.Location = new System.Drawing.Point(257, 52);
+            TjenesteButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            TjenesteButton.Name = "TjenesteButton";
+            TjenesteButton.Size = new System.Drawing.Size(88, 27);
+            TjenesteButton.TabIndex = 3;
+            TjenesteButton.Text = "Tjenester";
+            TjenesteButton.UseVisualStyleBackColor = true;
+            TjenesteButton.Click += TjenesteButton_Click;
             // 
             // EpisodePathBox
             // 
-            this.EpisodePathBox.Location = new System.Drawing.Point(6, 19);
-            this.EpisodePathBox.Name = "EpisodePathBox";
-            this.EpisodePathBox.Size = new System.Drawing.Size(208, 20);
-            this.EpisodePathBox.TabIndex = 0;
+            EpisodePathBox.Location = new System.Drawing.Point(7, 22);
+            EpisodePathBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            EpisodePathBox.Name = "EpisodePathBox";
+            EpisodePathBox.Size = new System.Drawing.Size(242, 23);
+            EpisodePathBox.TabIndex = 0;
             // 
             // EpisodeButton
             // 
-            this.EpisodeButton.Location = new System.Drawing.Point(220, 17);
-            this.EpisodeButton.Name = "EpisodeButton";
-            this.EpisodeButton.Size = new System.Drawing.Size(75, 23);
-            this.EpisodeButton.TabIndex = 1;
-            this.EpisodeButton.Text = "Episoder";
-            this.EpisodeButton.UseVisualStyleBackColor = true;
-            this.EpisodeButton.Click += new System.EventHandler(this.EpisodeButton_Click);
+            EpisodeButton.Location = new System.Drawing.Point(257, 20);
+            EpisodeButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            EpisodeButton.Name = "EpisodeButton";
+            EpisodeButton.Size = new System.Drawing.Size(88, 27);
+            EpisodeButton.TabIndex = 1;
+            EpisodeButton.Text = "Episoder";
+            EpisodeButton.UseVisualStyleBackColor = true;
+            EpisodeButton.Click += EpisodeButton_Click;
             // 
             // ReportingPeriodBox
             // 
-            this.ReportingPeriodBox.Controls.Add(this.label2);
-            this.ReportingPeriodBox.Controls.Add(this.label1);
-            this.ReportingPeriodBox.Controls.Add(this.ToDatePicker);
-            this.ReportingPeriodBox.Controls.Add(this.FromDatePicker);
-            this.ReportingPeriodBox.Location = new System.Drawing.Point(12, 92);
-            this.ReportingPeriodBox.Name = "ReportingPeriodBox";
-            this.ReportingPeriodBox.Size = new System.Drawing.Size(305, 71);
-            this.ReportingPeriodBox.TabIndex = 1;
-            this.ReportingPeriodBox.TabStop = false;
-            this.ReportingPeriodBox.Text = "Rapporteringsperiode";
+            ReportingPeriodBox.Controls.Add(label2);
+            ReportingPeriodBox.Controls.Add(label1);
+            ReportingPeriodBox.Controls.Add(ToDatePicker);
+            ReportingPeriodBox.Controls.Add(FromDatePicker);
+            ReportingPeriodBox.Location = new System.Drawing.Point(14, 106);
+            ReportingPeriodBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            ReportingPeriodBox.Name = "ReportingPeriodBox";
+            ReportingPeriodBox.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            ReportingPeriodBox.Size = new System.Drawing.Size(356, 82);
+            ReportingPeriodBox.TabIndex = 1;
+            ReportingPeriodBox.TabStop = false;
+            ReportingPeriodBox.Text = "Rapporteringsperiode";
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 51);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Periode slutt";
+            label2.AutoSize = true;
+            label2.Location = new System.Drawing.Point(7, 59);
+            label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(73, 15);
+            label2.TabIndex = 3;
+            label2.Text = "Periode slutt";
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 25);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(66, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Periode start";
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(7, 29);
+            label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(73, 15);
+            label1.TabIndex = 2;
+            label1.Text = "Periode start";
             // 
             // ToDatePicker
             // 
-            this.ToDatePicker.Location = new System.Drawing.Point(95, 45);
-            this.ToDatePicker.Name = "ToDatePicker";
-            this.ToDatePicker.Size = new System.Drawing.Size(200, 20);
-            this.ToDatePicker.TabIndex = 1;
+            ToDatePicker.Location = new System.Drawing.Point(111, 52);
+            ToDatePicker.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            ToDatePicker.Name = "ToDatePicker";
+            ToDatePicker.Size = new System.Drawing.Size(233, 23);
+            ToDatePicker.TabIndex = 1;
             // 
             // FromDatePicker
             // 
-            this.FromDatePicker.Location = new System.Drawing.Point(95, 19);
-            this.FromDatePicker.Name = "FromDatePicker";
-            this.FromDatePicker.Size = new System.Drawing.Size(200, 20);
-            this.FromDatePicker.TabIndex = 0;
+            FromDatePicker.Location = new System.Drawing.Point(111, 22);
+            FromDatePicker.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            FromDatePicker.Name = "FromDatePicker";
+            FromDatePicker.Size = new System.Drawing.Size(233, 23);
+            FromDatePicker.TabIndex = 0;
             // 
             // VersionLabel
             // 
-            this.VersionLabel.AutoSize = true;
-            this.VersionLabel.Location = new System.Drawing.Point(12, 389);
-            this.VersionLabel.Name = "VersionLabel";
-            this.VersionLabel.Size = new System.Drawing.Size(45, 13);
-            this.VersionLabel.TabIndex = 2;
-            this.VersionLabel.Text = "Version:";
+            VersionLabel.AutoSize = true;
+            VersionLabel.Location = new System.Drawing.Point(15, 574);
+            VersionLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            VersionLabel.Name = "VersionLabel";
+            VersionLabel.Size = new System.Drawing.Size(48, 15);
+            VersionLabel.TabIndex = 2;
+            VersionLabel.Text = "Version:";
             // 
             // RunButton
             // 
-            this.RunButton.Location = new System.Drawing.Point(242, 384);
-            this.RunButton.Name = "RunButton";
-            this.RunButton.Size = new System.Drawing.Size(75, 23);
-            this.RunButton.TabIndex = 6;
-            this.RunButton.Text = "Lagre...";
-            this.RunButton.UseVisualStyleBackColor = true;
-            this.RunButton.Click += new System.EventHandler(this.RunButton_Click);
+            RunButton.Location = new System.Drawing.Point(281, 568);
+            RunButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            RunButton.Name = "RunButton";
+            RunButton.Size = new System.Drawing.Size(88, 27);
+            RunButton.TabIndex = 7;
+            RunButton.Text = "Lagre...";
+            RunButton.UseVisualStyleBackColor = true;
+            RunButton.Click += RunButton_Click;
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.OrgHerIdBox);
-            this.groupBox1.Controls.Add(this.OrgNameBox);
-            this.groupBox1.Location = new System.Drawing.Point(12, 169);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(305, 75);
-            this.groupBox1.TabIndex = 3;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Avsender nivå 1";
+            groupBox1.Controls.Add(label4);
+            groupBox1.Controls.Add(label3);
+            groupBox1.Controls.Add(OrgHerIdBox);
+            groupBox1.Controls.Add(OrgNameBox);
+            groupBox1.Location = new System.Drawing.Point(14, 195);
+            groupBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            groupBox1.Size = new System.Drawing.Size(356, 87);
+            groupBox1.TabIndex = 3;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Avsender nivå 1";
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 48);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(56, 13);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "Org. HerId";
+            label4.AutoSize = true;
+            label4.Location = new System.Drawing.Point(7, 55);
+            label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label4.Name = "label4";
+            label4.Size = new System.Drawing.Size(62, 15);
+            label4.TabIndex = 5;
+            label4.Text = "Org. HerId";
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 22);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(56, 13);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Org. Navn";
+            label3.AutoSize = true;
+            label3.Location = new System.Drawing.Point(7, 25);
+            label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label3.Name = "label3";
+            label3.Size = new System.Drawing.Size(61, 15);
+            label3.TabIndex = 4;
+            label3.Text = "Org. Navn";
             // 
             // OrgHerIdBox
             // 
-            this.OrgHerIdBox.Location = new System.Drawing.Point(95, 45);
-            this.OrgHerIdBox.Name = "OrgHerIdBox";
-            this.OrgHerIdBox.Size = new System.Drawing.Size(200, 20);
-            this.OrgHerIdBox.TabIndex = 1;
+            OrgHerIdBox.Location = new System.Drawing.Point(111, 52);
+            OrgHerIdBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            OrgHerIdBox.Name = "OrgHerIdBox";
+            OrgHerIdBox.Size = new System.Drawing.Size(233, 23);
+            OrgHerIdBox.TabIndex = 1;
             // 
             // OrgNameBox
             // 
-            this.OrgNameBox.Location = new System.Drawing.Point(95, 19);
-            this.OrgNameBox.Name = "OrgNameBox";
-            this.OrgNameBox.Size = new System.Drawing.Size(200, 20);
-            this.OrgNameBox.TabIndex = 0;
+            OrgNameBox.Location = new System.Drawing.Point(111, 22);
+            OrgNameBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            OrgNameBox.Name = "OrgNameBox";
+            OrgNameBox.Size = new System.Drawing.Size(233, 23);
+            OrgNameBox.TabIndex = 0;
             // 
             // RadioReport
             // 
-            this.RadioReport.AutoSize = true;
-            this.RadioReport.Location = new System.Drawing.Point(222, 19);
-            this.RadioReport.Name = "RadioReport";
-            this.RadioReport.Size = new System.Drawing.Size(77, 17);
-            this.RadioReport.TabIndex = 3;
-            this.RadioReport.Text = "Innsending";
-            this.RadioReport.UseVisualStyleBackColor = true;
+            RadioReport.AutoSize = true;
+            RadioReport.Location = new System.Drawing.Point(259, 22);
+            RadioReport.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            RadioReport.Name = "RadioReport";
+            RadioReport.Size = new System.Drawing.Size(84, 19);
+            RadioReport.TabIndex = 3;
+            RadioReport.Text = "Innsending";
+            RadioReport.UseVisualStyleBackColor = true;
             // 
             // RadioTrial
             // 
-            this.RadioTrial.AutoSize = true;
-            this.RadioTrial.Checked = true;
-            this.RadioTrial.Location = new System.Drawing.Point(126, 19);
-            this.RadioTrial.Name = "RadioTrial";
-            this.RadioTrial.Size = new System.Drawing.Size(90, 17);
-            this.RadioTrial.TabIndex = 2;
-            this.RadioTrial.TabStop = true;
-            this.RadioTrial.Text = "Prøvesending";
-            this.RadioTrial.UseVisualStyleBackColor = true;
+            RadioTrial.AutoSize = true;
+            RadioTrial.Checked = true;
+            RadioTrial.Location = new System.Drawing.Point(147, 22);
+            RadioTrial.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            RadioTrial.Name = "RadioTrial";
+            RadioTrial.Size = new System.Drawing.Size(97, 19);
+            RadioTrial.TabIndex = 2;
+            RadioTrial.TabStop = true;
+            RadioTrial.Text = "Prøvesending";
+            RadioTrial.UseVisualStyleBackColor = true;
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Controls.Add(this.OrgHerIdBox2);
-            this.groupBox2.Controls.Add(this.OrgNameBox2);
-            this.groupBox2.Location = new System.Drawing.Point(12, 250);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(305, 74);
-            this.groupBox2.TabIndex = 4;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Avsender nivå 2";
+            groupBox2.Controls.Add(label5);
+            groupBox2.Controls.Add(label6);
+            groupBox2.Controls.Add(OrgHerIdBox2);
+            groupBox2.Controls.Add(OrgNameBox2);
+            groupBox2.Location = new System.Drawing.Point(14, 288);
+            groupBox2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            groupBox2.Name = "groupBox2";
+            groupBox2.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            groupBox2.Size = new System.Drawing.Size(356, 85);
+            groupBox2.TabIndex = 4;
+            groupBox2.TabStop = false;
+            groupBox2.Text = "Avsender nivå 2";
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 48);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(56, 13);
-            this.label5.TabIndex = 5;
-            this.label5.Text = "Org. HerId";
+            label5.AutoSize = true;
+            label5.Location = new System.Drawing.Point(7, 55);
+            label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label5.Name = "label5";
+            label5.Size = new System.Drawing.Size(62, 15);
+            label5.TabIndex = 5;
+            label5.Text = "Org. HerId";
             // 
             // label6
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 22);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(56, 13);
-            this.label6.TabIndex = 4;
-            this.label6.Text = "Org. Navn";
+            label6.AutoSize = true;
+            label6.Location = new System.Drawing.Point(7, 25);
+            label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label6.Name = "label6";
+            label6.Size = new System.Drawing.Size(61, 15);
+            label6.TabIndex = 4;
+            label6.Text = "Org. Navn";
             // 
             // OrgHerIdBox2
             // 
-            this.OrgHerIdBox2.Location = new System.Drawing.Point(95, 45);
-            this.OrgHerIdBox2.Name = "OrgHerIdBox2";
-            this.OrgHerIdBox2.Size = new System.Drawing.Size(200, 20);
-            this.OrgHerIdBox2.TabIndex = 1;
+            OrgHerIdBox2.Location = new System.Drawing.Point(111, 52);
+            OrgHerIdBox2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            OrgHerIdBox2.Name = "OrgHerIdBox2";
+            OrgHerIdBox2.Size = new System.Drawing.Size(233, 23);
+            OrgHerIdBox2.TabIndex = 1;
             // 
             // OrgNameBox2
             // 
-            this.OrgNameBox2.Location = new System.Drawing.Point(95, 19);
-            this.OrgNameBox2.Name = "OrgNameBox2";
-            this.OrgNameBox2.Size = new System.Drawing.Size(200, 20);
-            this.OrgNameBox2.TabIndex = 0;
+            OrgNameBox2.Location = new System.Drawing.Point(111, 22);
+            OrgNameBox2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            OrgNameBox2.Name = "OrgNameBox2";
+            OrgNameBox2.Size = new System.Drawing.Size(233, 23);
+            OrgNameBox2.TabIndex = 0;
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.RadioTrial);
-            this.groupBox3.Controls.Add(this.RadioReport);
-            this.groupBox3.Location = new System.Drawing.Point(12, 330);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(305, 48);
-            this.groupBox3.TabIndex = 5;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Mottaker (FHI)";
+            groupBox3.Controls.Add(RadioTrial);
+            groupBox3.Controls.Add(RadioReport);
+            groupBox3.Location = new System.Drawing.Point(14, 381);
+            groupBox3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            groupBox3.Name = "groupBox3";
+            groupBox3.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            groupBox3.Size = new System.Drawing.Size(356, 55);
+            groupBox3.TabIndex = 5;
+            groupBox3.TabStop = false;
+            groupBox3.Text = "Mottaker (FHI)";
+            // 
+            // groupBox4
+            // 
+            groupBox4.Controls.Add(BatchFiles_MaxFileSizeInGigabytes_Label);
+            groupBox4.Controls.Add(BatchFiles_MaxFileSizeInGigabytes);
+            groupBox4.Controls.Add(BatchFiles_EnableCreation);
+            groupBox4.Location = new System.Drawing.Point(15, 442);
+            groupBox4.Name = "groupBox4";
+            groupBox4.Size = new System.Drawing.Size(354, 108);
+            groupBox4.TabIndex = 6;
+            groupBox4.TabStop = false;
+            groupBox4.Text = "Delmeldinger";
+            // 
+            // BatchFiles_MaxFileSizeInGigabytes_Label
+            // 
+            BatchFiles_MaxFileSizeInGigabytes_Label.Enabled = false;
+            BatchFiles_MaxFileSizeInGigabytes_Label.Location = new System.Drawing.Point(6, 69);
+            BatchFiles_MaxFileSizeInGigabytes_Label.Name = "BatchFiles_MaxFileSizeInGigabytes_Label";
+            BatchFiles_MaxFileSizeInGigabytes_Label.Size = new System.Drawing.Size(284, 21);
+            BatchFiles_MaxFileSizeInGigabytes_Label.TabIndex = 2;
+            BatchFiles_MaxFileSizeInGigabytes_Label.Text = "Maksstørrelse for KPP-meldingen (gigabyte)";
+            BatchFiles_MaxFileSizeInGigabytes_Label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // BatchFiles_MaxFileSizeInGigabytes
+            // 
+            BatchFiles_MaxFileSizeInGigabytes.Enabled = false;
+            BatchFiles_MaxFileSizeInGigabytes.Location = new System.Drawing.Point(300, 67);
+            BatchFiles_MaxFileSizeInGigabytes.Name = "BatchFiles_MaxFileSizeInGigabytes";
+            BatchFiles_MaxFileSizeInGigabytes.Size = new System.Drawing.Size(44, 23);
+            BatchFiles_MaxFileSizeInGigabytes.TabIndex = 1;
+            BatchFiles_MaxFileSizeInGigabytes.Value = new decimal(new int[] { 2, 0, 0, 0 });
+            // 
+            // BatchFiles_EnableCreation
+            // 
+            BatchFiles_EnableCreation.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            BatchFiles_EnableCreation.Location = new System.Drawing.Point(6, 22);
+            BatchFiles_EnableCreation.Name = "BatchFiles_EnableCreation";
+            BatchFiles_EnableCreation.Size = new System.Drawing.Size(338, 39);
+            BatchFiles_EnableCreation.TabIndex = 0;
+            BatchFiles_EnableCreation.Text = "Dersom KPP-meldingen blir for stor, splitt den opp i delmeldinger";
+            BatchFiles_EnableCreation.UseVisualStyleBackColor = true;
+            BatchFiles_EnableCreation.CheckedChanged += BatchFiles_EnableCreation_CheckedChanged;
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(330, 417);
-            this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.RunButton);
-            this.Controls.Add(this.VersionLabel);
-            this.Controls.Add(this.ReportingPeriodBox);
-            this.Controls.Add(this.filesBox);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Name = "MainForm";
-            this.Text = "Bygg KPP-melding";
-            this.filesBox.ResumeLayout(false);
-            this.filesBox.PerformLayout();
-            this.ReportingPeriodBox.ResumeLayout(false);
-            this.ReportingPeriodBox.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            ClientSize = new System.Drawing.Size(385, 606);
+            Controls.Add(groupBox4);
+            Controls.Add(groupBox3);
+            Controls.Add(groupBox2);
+            Controls.Add(groupBox1);
+            Controls.Add(RunButton);
+            Controls.Add(VersionLabel);
+            Controls.Add(ReportingPeriodBox);
+            Controls.Add(filesBox);
+            FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            Text = "Bygg KPP-melding";
+            filesBox.ResumeLayout(false);
+            filesBox.PerformLayout();
+            ReportingPeriodBox.ResumeLayout(false);
+            ReportingPeriodBox.PerformLayout();
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
+            groupBox2.ResumeLayout(false);
+            groupBox2.PerformLayout();
+            groupBox3.ResumeLayout(false);
+            groupBox3.PerformLayout();
+            groupBox4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)BatchFiles_MaxFileSizeInGigabytes).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
+
+        private System.Windows.Forms.Label BatchFiles_MaxFileSizeInGigabytes_Label;
+
+        private System.Windows.Forms.NumericUpDown BatchFiles_MaxFileSizeInGigabytes;
+
+        private System.Windows.Forms.CheckBox BatchFiles_EnableCreation;
+
+        private System.Windows.Forms.GroupBox groupBox4;
 
         #endregion
 

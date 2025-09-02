@@ -1,5 +1,5 @@
 # Program for konvertering av KPP-filer
-Programmet konverterer én csv-fil om episoder og én csv-fil om tjeneste til én xml-melding som skal sendes til Folkehelseinstituttet
+Programmet konverterer én csv-fil om episoder og én csv-fil om tjeneste til én KPP-melding (xml-fil) som skal sendes til Folkehelseinstituttet. Programmet kan generere delmeldinger (flere xml-filer) dersom KPP-meldingen blir for stor.
 
 Det er to måter å kjøre programmet:
 - Bruke det grafiske grensesnittet (Gui)

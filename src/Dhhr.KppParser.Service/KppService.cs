@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using Dhhr.KppParser.Service.Models;
 using Dhhr.KppParser.Service.Utils;
 
 namespace Dhhr.KppParser.Service
@@ -80,6 +79,11 @@ namespace Dhhr.KppParser.Service
                 {
                     errors.Add("FhiHerId er ikke gyldig");
                 }
+
+                if (args.BatchFiles is { EnableCreation: true, MaxFileSizeInGigabytes: <= 0 })
+                {
+                    errors.Add("Når opprettelse av delmeldinger er aktivert må maks. filstørrelse være større enn 0");
+                }
             }
             catch (Exception ex)
             {
@@ -142,20 +146,30 @@ namespace Dhhr.KppParser.Service
             Directory.CreateDirectory(Path.GetDirectoryName(args.OutputPath));
 
             reportStatus?.Invoke(10, "Leser data...");
-            var melding = CreateMelding(args);
+            var institutions = MessageUtils.ParseFiles(args.EpisodePath, args.TjenestePath);
+            var message = MessageUtils.CreateMessage(args, institutions);
+            var wrapped = MessageUtils.WrapInMsgHead(message, args);
 
-            if (melding.Institusjon.Length > 1)
+            reportStatus?.Invoke(30, "Genererer melding...");
+            XmlUtils.SerializeToFile(wrapped, args.OutputPath);
+
+            if (MessageUtils.ShouldCreateBatchFiles(args, out var fileCount))
             {
-                userNotificator?.Invoke("Episode-filen og den genererte meldingen inneholder flere institusjon-IDer: " +
-                                       string.Join(", ", melding.Institusjon.Select(i => i.institusjonID)) +
-                                       Environment.NewLine + Environment.NewLine +
-                                       "Vi ber om at det kun rapporteres et unikt organisasjonsnummer som institusjonID i NPR_KPP-meldingen.");
+                // We don't need the single KPP file anymore
+                DeleteFile(args.OutputPath);
+
+                BatchMessageUtils.TryCreateFiles(args, reportStatus, userNotificator, message, fileCount);
+
+                return;
             }
 
-            var wrapped = WrapInMsgHead(melding, args);
-
-            reportStatus?.Invoke(50, "Lagrer melding...");
-            XmlUtils.SerializeToFile(wrapped, args.OutputPath);
+            if (!MessageUtils.HasSingleInstitution(message))
+            {
+                userNotificator?.Invoke("Episode-filen og den genererte meldingen inneholder flere institusjon-IDer: " +
+                                        string.Join(", ", message.Institusjon.Select(i => i.institusjonID)) +
+                                        Environment.NewLine + Environment.NewLine +
+                                        "Vi ber om at det kun rapporteres et unikt organisasjonsnummer som institusjonID i NPR_KPP-meldingen.");
+            }
 
             reportStatus?.Invoke(75, "Kontrollerer melding...");
             var schemas = SchemaLoader.LoadDirectory("Resources");
@@ -164,121 +178,12 @@ namespace Dhhr.KppParser.Service
             reportStatus?.Invoke(100, "Ferdig");
         }
 
-        private static Melding CreateMelding(Args args)
+        private static void DeleteFile(string filePath)
         {
-            return new Melding
+            if (File.Exists(filePath))
             {
-                lopenr = DateTime.UtcNow.ToString("yyyyMMddHHmmssffff"),
-                lokalident = Guid.NewGuid().ToString(),
-                uttakDato = DateTime.Today,
-                versjonUt = args.ProgramVersion,
-                meldingstype = "B",
-                fraDatoPeriode = args.FraDato,
-                tilDatoPeriode = args.TilDato,
-                leverandor = args.Leverandor,
-                navnEPJ = args.NavnEpj,
-                versjonEPJ = args.VersjonEpj,
-                Institusjon = ParseFiles(args.EpisodePath, args.TjenestePath).ToArray()
-            };
-        }
-
-        private static List<Institusjon> ParseFiles(string episodePath, string tjenestePath)
-        {
-            var tjenester = File.ReadLines(tjenestePath)
-                .Skip(1) // skip header
-                .Select(line => line.Split(';', StringSplitOptions.TrimEntries))
-                .ToLookup(
-                    parts => parts[0], // episodeID
-                    parts => TjenesteKPP.Create(parts[1], parts[2]));
-
-            var episoder = File.ReadLines(episodePath)
-                .Skip(1) // skip header
-                .Select(line => line.Split(';', StringSplitOptions.TrimEntries))
-                .GroupBy(
-                    parts => parts[0], // institusjonID
-                    parts => EpisodeKPP.Create(parts[1], parts[2], parts[3], tjenester[parts[1]]));
-
-            return episoder
-                .Select(kpps => Institusjon.Create(kpps.Key, kpps.ToList()))
-                .ToList();
-        }
-
-        private static MsgHead WrapInMsgHead(Melding melding, Args args)
-        {
-            return new MsgHead
-            {
-                Items = new object[]
-                {
-                    new Document
-                    {
-                        RefDoc = new RefDoc
-                        {
-                            MsgType = new CS { V = "XML", DN = "XML-instans" },
-                            Item = new RefDocContent { Melding = melding }
-                        }
-                    }
-                },
-                MsgInfo = new MsgInfo
-                {
-                    Type = new CS { V = "NPR_KPP", DN = "KPP melding" },
-                    GenDate = DateTime.Now,
-                    MsgId = Guid.NewGuid().ToString(),
-                    Sender = new Sender
-                    {
-                        Organisation = new Organisation
-                        {
-                            OrganisationName = args.OrganizationName,
-                            Ident = new []
-                            {
-                                new Ident
-                                {
-                                    Id = args.OrganizationHerId,
-                                    TypeId = new CV { V = "HER", DN = "HER-Id", S = "9051" }
-                                }
-                            },
-                            Organisation1 = new Organisation
-                            {
-                                OrganisationName = args.OrganizationName2,
-                                Ident = new[]
-                                {
-                                    new Ident
-                                    {
-                                        Id = args.OrganizationHerId2,
-                                        TypeId = new CV { V = "HER", DN = "HER-Id", S = "9051" }
-                                    }
-                                }
-                            }
-                        }
-                    },
-                    Receiver = new Receiver
-                    {
-                        Organisation = new Organisation
-                        {
-                            OrganisationName = "FHI",
-                            Ident = new[]
-                            {
-                                new Ident
-                                {
-                                    Id = "85217",
-                                    TypeId = new CV { V = "HER", DN = "HER-Id", S = "9051" }
-                                }
-                            },
-                            Organisation1 = new Organisation
-                            {
-                                OrganisationName = "NPR",
-                                Ident = new []
-                                {
-                                    new Ident
-                                    {
-                                        Id = args.FhiHerId,
-                                        TypeId = new CV { V = "HER", DN = "HER-Id", S = "9051" }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            };
+                File.Delete(filePath);
+            }
         }
     }
 }
