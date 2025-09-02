@@ -48,6 +48,7 @@ namespace Dhhr.KppParser.Service
                 $"\r\n{nameof(BatchFiles)}: {{" +
                 $"\r\n    {nameof(BatchFiles.EnableCreation)}: {BatchFiles.EnableCreation}" +
                 $"\r\n    {nameof(BatchFiles.MaxFileSizeInGigabytes)}: {BatchFiles.MaxFileSizeInGigabytes}" +
+                $"\r\n    {nameof(BatchFiles.BaseFileSizeInBytes)}: {BatchFiles.BaseFileSizeInBytes}" +
                 $"\r\n}}";
         }
 
@@ -70,5 +71,6 @@ namespace Dhhr.KppParser.Service
     {
         public bool EnableCreation { get; set; }
         public int MaxFileSizeInGigabytes { get; set; }
+        public int BaseFileSizeInBytes { get; set; }
     }
 }

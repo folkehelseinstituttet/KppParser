@@ -4,6 +4,7 @@ using System.IO;
 using System.Reflection;
 using Dhhr.KppParser.Service;
 using Mono.Options;
+using ConfigurationManager = System.Configuration.ConfigurationManager;
 
 namespace Dhhr.KppParser.ConsoleApp
 {
@@ -22,6 +23,8 @@ namespace Dhhr.KppParser.ConsoleApp
             {
                 ProgramVersion = Version()
             };
+
+            kppArgs.BatchFiles.BaseFileSizeInBytes = ParseInt(ConfigurationManager.AppSettings["BaseFileSizeInBytes"]);
 
             var p = new OptionSet
             {

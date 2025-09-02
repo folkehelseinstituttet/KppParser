@@ -147,7 +147,10 @@ public static class MessageUtils
 
             if (FileExceedsMaxFileSize(xmlDocument, maxFileSizeInBytes, out var fileSizeInBytes))
             {
-                recommendedFileCount = BatchMessageUtils.GetRecommendedFileCount(fileSizeInBytes, maxFileSizeInBytes);
+                recommendedFileCount = BatchMessageUtils.GetRecommendedFileCount(
+                    fileSizeInBytes,
+                    maxFileSizeInBytes,
+                    args.BatchFiles.BaseFileSizeInBytes);
 
                 return true;
             }
