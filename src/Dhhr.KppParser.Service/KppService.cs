@@ -80,7 +80,7 @@ namespace Dhhr.KppParser.Service
                     errors.Add("FhiHerId er ikke gyldig");
                 }
 
-                if (args.BatchFiles is { EnableCreation: true, MaxFileSizeInGigabytes: 0})
+                if (args.BatchFiles is { EnableCreation: true, MaxFileSizeInGigabytes: <= 0 })
                 {
                     errors.Add("Når opprettelse av delmeldinger er aktivert må maks. filstørrelse være større enn 0");
                 }
